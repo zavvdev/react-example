@@ -1,0 +1,8 @@
+{
+  "title": "React.js 💙 Redux Example",
+  "description": "Starter project for developing user interfaces",
+  "buttons": {
+    "repository": "Repository",
+    "likes": "👍"
+  }
+}
