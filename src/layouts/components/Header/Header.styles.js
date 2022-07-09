@@ -1,6 +1,6 @@
-import { createAppUseStyles } from "styles/utils/createAppUseStyles";
+import { createUseStyles } from "react-jss";
 
-const useHeaderStyles = createAppUseStyles((theme) => ({
+const useHeaderStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-between",

@@ -1,6 +1,6 @@
-import { createAppUseStyles } from "styles/utils/createAppUseStyles";
+import { createUseStyles } from "react-jss";
 
-const useMainLayoutStyles = createAppUseStyles({
+const useMainLayoutStyles = createUseStyles({
   root: {
     padding: "0 5% 200px 5%",
   },

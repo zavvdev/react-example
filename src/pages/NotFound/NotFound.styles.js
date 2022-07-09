@@ -1,6 +1,6 @@
-import { createAppUseStyles } from "styles/utils/createAppUseStyles";
+import { createUseStyles } from "react-jss";
 
-const useNotFoundStyles = createAppUseStyles((theme) => ({
+const useNotFoundStyles = createUseStyles((theme) => ({
   root: {
     textAlign: "center",
     paddingTop: "142px",

@@ -53,7 +53,7 @@ export function Button({
 
 Button.propTypes = {
   children: childrenPropType.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   target: PropTypes.oneOf(["_blank"]),
   className: PropTypes.string,
   disabled: PropTypes.bool,
@@ -62,6 +62,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  onClick: undefined,
   target: undefined,
   className: undefined,
   disabled: false,

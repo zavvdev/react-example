@@ -1,6 +1,6 @@
-import { createAppUseStyles } from "styles/utils/createAppUseStyles";
+import { createUseStyles } from "react-jss";
 
-const useLanguageSwitchStyles = createAppUseStyles((theme) => ({
+const useLanguageSwitchStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",

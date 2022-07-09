@@ -1,6 +1,6 @@
-import { createAppUseStyles } from "styles/utils/createAppUseStyles";
+import { createUseStyles } from "react-jss";
 
-const useButtonStyles = createAppUseStyles((theme) => ({
+const useButtonStyles = createUseStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     border: "none",
