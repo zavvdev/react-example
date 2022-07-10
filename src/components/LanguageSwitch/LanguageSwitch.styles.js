@@ -4,6 +4,7 @@ const useLanguageSwitchStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
+    color: theme.typographyColor,
   },
 
   langWrap: {
@@ -18,6 +19,7 @@ const useLanguageSwitchStyles = createUseStyles((theme) => ({
     background: "none",
     textTransform: "uppercase",
     padding: "10px",
+    color: theme.typographyColor,
   },
 
   active: {

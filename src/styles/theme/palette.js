@@ -1,17 +1,19 @@
 export const appPalette = {
   primary: {
-    main: "#0293FF",
+    main: "#0393ff",
     dark: "#0E75C1",
     light: "#49B1FF",
   },
   gray: {
     light: "#dcdcdc",
+    dark: "#4b4b4b",
   },
   black: {
-    main: "#333333",
+    main: "#292929",
     light: "#6d6d6d",
   },
   white: {
     main: "#ffffff",
+    dim: "#fafafa",
   },
 };

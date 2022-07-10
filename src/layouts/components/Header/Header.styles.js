@@ -5,12 +5,13 @@ const useHeaderStyles = createUseStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.palette.gray.light}`,
+    borderBottom: `1px solid ${theme.borderColor}`,
     height: "80px",
   },
 
   logo: {
     height: "40px",
+    width: "auto",
   },
 }));
 
