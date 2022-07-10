@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { themeModeTypes } from "store/entities/theme/config";
+import { domain, themeModeTypes } from "store/entities/theme/config";
 
 const initialThemeState = {
   mode: themeModeTypes.light,
 };
 
 const themeSlice = createSlice({
-  name: "theme",
+  name: domain,
   initialState: initialThemeState,
   reducers: {
     setThemeMode(state, action) {
