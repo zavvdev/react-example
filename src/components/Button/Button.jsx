@@ -8,8 +8,6 @@ export function Button({
   className,
   onClick,
   disabled,
-  href,
-  target,
   icon,
 }) {
   const classes = useButtonStyles();
@@ -18,26 +16,6 @@ export function Button({
     [classes.disabled]: disabled,
   }, className);
 
-  const renderIcon = () => {
-    if (icon) {
-      return <div className={classes.icon}>{icon}</div>;
-    }
-    return null;
-  };
-
-  if (href) {
-    return (
-      <a
-        href={href}
-        target={target}
-        className={rootClasses}
-      >
-        {renderIcon()}
-        {children}
-      </a>
-    );
-  }
-
   return (
     <button
       type="button"
@@ -45,7 +23,7 @@ export function Button({
       className={rootClasses}
       onClick={onClick}
     >
-      {renderIcon()}
+      {icon && <div className={classes.icon}>{icon}</div>}
       {children}
     </button>
   );
@@ -53,19 +31,14 @@ export function Button({
 
 Button.propTypes = {
   children: childrenPropType.isRequired,
-  onClick: PropTypes.func,
-  target: PropTypes.oneOf(["_blank"]),
+  onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  href: PropTypes.string,
   icon: PropTypes.node,
 };
 
 Button.defaultProps = {
-  onClick: undefined,
-  target: undefined,
   className: undefined,
   disabled: false,
-  href: undefined,
   icon: undefined,
 };

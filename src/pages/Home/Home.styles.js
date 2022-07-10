@@ -13,12 +13,6 @@ const useHomeStyles = createUseStyles({
       fontSize: "20px",
     },
   },
-
-  buttonsWrap: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "32px",
-  },
 });
 
 export { useHomeStyles };
