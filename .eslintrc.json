@@ -18,7 +18,7 @@
   },
   "overrides": [
     {
-      "files": ["./src/store/**/*"],
+      "files": ["./src/core/store/**/*"],
       "rules": {
         "no-param-reassign": ["error", {
           "props": true,
@@ -51,62 +51,12 @@
       ],
       "pathGroups": [
         { 
-          "pattern": "assets/**", 
-          "group": "internal", 
-          "position": "before" 
-        },
-        { 
-          "pattern": "components/**", 
+          "pattern": "core/**", 
           "group": "internal",
           "position": "before"
         }, 
         { 
-          "pattern": "config/**", 
-          "group": "internal",
-          "position": "before"
-        }, 
-        { 
-          "pattern": "hooks/**", 
-          "group": "internal",
-          "position": "before"
-        }, 
-        { 
-          "pattern": "i18n/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "layouts/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "pages/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "propTypes/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "router/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "store/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "styles/**", 
-          "group": "internal",
-          "position": "before"
-        },
-        { 
-          "pattern": "utils/**", 
+          "pattern": "ui/**", 
           "group": "internal",
           "position": "before"
         }
