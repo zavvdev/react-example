@@ -1,5 +1,5 @@
-import "i18n";
-import "styles/index.css";
+import "i18n/index";
+import "styles/global.css";
 import { RootLayout } from "layouts/RootLayout/RootLayout";
 import { Router } from "router/Router";
 import { Provider as StoreProvider } from "store/Provider";

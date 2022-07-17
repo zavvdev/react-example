@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { LanguageSwitch } from "components/LanguageSwitch/LanguageSwitch";
 import { LogoIcon } from "components/svgIcons/LogoIcon";
+import { ThemeSwitch } from "components/ThemeSwitch/ThemeSwitch";
 import { namespaces } from "i18n/namespaces";
 import { APP_LANGUAGES } from "i18n/config";
 import { useHeaderStyles } from "layouts/components/Header/Header.styles";
@@ -17,6 +18,7 @@ export function Header() {
   return (
     <div className={classes.root}>
       <LogoIcon className={classes.logo} />
+      <ThemeSwitch />
       <LanguageSwitch
         onLanguageSwitch={handleLanguageSwitch}
         languages={languages}
