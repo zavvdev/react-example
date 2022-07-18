@@ -13,6 +13,16 @@ const useHeaderStyles = createUseStyles((theme) => ({
     height: "40px",
     width: "auto",
   },
+
+  actions: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+
+  themeSwitch: {
+    marginRight: "16px",
+  },
 }));
 
 export { useHeaderStyles };

@@ -5,4 +5,10 @@ export const appLightTheme = {
   backgroundColor: appPalette.white.main,
   typographyColor: appPalette.black.main,
   borderColor: appPalette.gray.light,
+
+  components: {
+    ThemeSwitch: {
+      trackBackgroundColor: appPalette.gray.light,
+    },
+  },
 };

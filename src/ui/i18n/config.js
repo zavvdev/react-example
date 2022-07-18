@@ -1,4 +1,4 @@
-export const namespaces = {
+export const NAMESPACES = {
   common: "common",
   home: "home",
   notFound: "notFound",

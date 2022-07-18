@@ -1,23 +1,33 @@
+import PropTypes from "prop-types";
+import cx from "clsx";
 import { MoonIcon } from "ui/components/svgIcons/MoonIcon";
-// import { SunIcon } from "components/svgIcons/SunIcon";
+import { SunIcon } from "ui/components/svgIcons/SunIcon";
 import { useThemeSwitchStyles } from "ui/components/ThemeSwitch/ThemeSwitch.styles";
 
-function ThemeSwitch() {
+export function ThemeSwitch({ isDark, onToggle, className }) {
   const classes = useThemeSwitchStyles();
 
+  const rootClasses = cx(classes.root, className);
+
+  const switcherClasses = cx(classes.switcher, {
+    [classes.switcherDark]: isDark,
+  });
+
   return (
-    <button type="button" className={classes.root}>
-      <div className={classes.switcher}>
-        <MoonIcon />
+    <button type="button" className={rootClasses} onClick={onToggle}>
+      <div className={switcherClasses}>
+        {isDark ? <MoonIcon /> : <SunIcon />}
       </div>
-      {/* <div>
-        <SunIcon />
-      </div>
-      <div>
-        <MoonIcon />
-      </div> */}
     </button>
   );
 }
 
-export { ThemeSwitch };
+ThemeSwitch.propTypes = {
+  isDark: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
+
+ThemeSwitch.defaultProps = {
+  className: undefined,
+};

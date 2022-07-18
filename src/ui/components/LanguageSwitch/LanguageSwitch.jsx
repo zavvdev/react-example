@@ -6,11 +6,14 @@ export function LanguageSwitch({
   onLanguageSwitch,
   languages,
   currentLanguage,
+  className,
 }) {
   const classes = useLanguageSwitchStyles();
 
+  const rootClasses = cx(classes.root, className);
+
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       {languages.map((lang, index) => (
         <div className={classes.langWrap} key={lang}>
           <button
@@ -33,4 +36,9 @@ LanguageSwitch.propTypes = {
   onLanguageSwitch: PropTypes.func.isRequired,
   languages: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentLanguage: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+LanguageSwitch.defaultProps = {
+  className: undefined,
 };

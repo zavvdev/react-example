@@ -5,4 +5,10 @@ export const appDarkTheme = {
   backgroundColor: appPalette.black.main,
   typographyColor: appPalette.white.dim,
   borderColor: appPalette.gray.dark,
+
+  components: {
+    ThemeSwitch: {
+      trackBackgroundColor: appPalette.white.main,
+    },
+  },
 };

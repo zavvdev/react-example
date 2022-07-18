@@ -1,6 +1,6 @@
-export const domain = "theme";
+export const DOMAIN = "theme";
 
-export const themeModeTypes = {
+export const THEME_MODE_TYPES = {
   light: "light",
   dark: "dark",
 };

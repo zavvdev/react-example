@@ -1,10 +1,10 @@
 import common from "ui/i18n/resources/common/en.json";
 import home from "ui/i18n/resources/home/en.json";
 import notFound from "ui/i18n/resources/notFound/en.json";
-import { namespaces } from "ui/i18n/namespaces";
+import { NAMESPACES } from "ui/i18n/config";
 
 export const en = {
-  [namespaces.common]: common,
-  [namespaces.home]: home,
-  [namespaces.notFound]: notFound,
+  [NAMESPACES.common]: common,
+  [NAMESPACES.home]: home,
+  [NAMESPACES.notFound]: notFound,
 };

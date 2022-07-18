@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { Typography } from "ui/components/Typography/Typography";
-import { namespaces } from "ui/i18n/namespaces";
+import { NAMESPACES } from "ui/i18n/config";
 import { MainLayout } from "ui/layouts/MainLayout/MainLayout";
 import { useHomeStyles } from "ui/pages/Home/Home.styles";
 
 export function Home() {
-  const { t } = useTranslation([namespaces.home, namespaces.common]);
+  const { t } = useTranslation([NAMESPACES.home, NAMESPACES.common]);
   const classes = useHomeStyles();
 
   return (

@@ -3,16 +3,16 @@ import { createUseStyles } from "react-jss";
 const useThemeSwitchStyles = createUseStyles((theme) => ({
   root: {
     width: "40px",
-    height: "10px",
-    backgroundColor: theme.palette.gray.light,
-    borderRadius: "10px",
+    height: "25px",
+    backgroundColor: theme.components.ThemeSwitch.trackBackgroundColor,
+    borderRadius: "20px",
     position: "relative",
     border: "none",
     cursor: "pointer",
   },
   switcher: {
-    height: "23px",
-    width: "23px",
+    height: "25px",
+    width: "25px",
     borderRadius: "50%",
     display: "flex",
     justifyContent: "center",
@@ -21,17 +21,18 @@ const useThemeSwitchStyles = createUseStyles((theme) => ({
     position: "absolute",
     top: "50%",
     transform: "translate(0, -50%)",
-    left: 0,
-    backgroundColor: theme.palette.gray.light,
+    left: -1,
+    backgroundColor: theme.palette.primary.main,
     padding: 5,
     boxSizing: "border-box",
-  },
-  switcherToDark: {
-    backgroundColor: theme.palette.black.main,
 
     "& svg": {
       color: theme.palette.white.main,
     },
+  },
+  switcherDark: {
+    right: -1,
+    left: "unset",
   },
 }));
 

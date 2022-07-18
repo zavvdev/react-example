@@ -2,6 +2,7 @@ import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import { APP_DEFAULT_LANGUAGE, APP_LANGUAGES } from "core/config/i18n";
+import { localStorageService } from "core/services/LocalStorageService";
 import { resources } from "ui/i18n/resources";
 
 const languageDetector = new LanguageDetector();
@@ -13,7 +14,7 @@ languageDetector.addDetector({
 
     const locale = window.navigator.language;
     const localeShort = locale.split(/_|-/)[0];
-    const storeLang = localStorage.getItem("i18nextLng");
+    const storeLang = localStorageService.get("i18nextLng");
 
     const isPresent = Object.values(APP_LANGUAGES).find(
       (item) => item === localeShort,
