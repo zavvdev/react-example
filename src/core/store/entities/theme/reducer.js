@@ -1,8 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { themeActions } from "core/store/entities/theme/actions";
+import { themeService } from "core/store/entities/theme/service";
 
 const initialThemeState = {
-  isDarkMode: false,
+  isDarkMode: themeService.getDarkModeState(),
 };
 
 export const themeReducer = createReducer(initialThemeState, (builder) => {
