@@ -1,3 +1,3 @@
-export const selectThemeMode = (state) => {
-  return state.theme.mode;
+export const selectIsDarkMode = (state) => {
+  return state.theme.isDarkMode;
 };

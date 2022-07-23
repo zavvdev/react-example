@@ -25,6 +25,23 @@
           "ignorePropertyModificationsFor": ["state"]
         }]
       }
+    },
+    {
+      "files": ["./src/core/**/*"],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "patterns": [
+            {
+              "group": [".*"],
+              "message": "Relative imports prohibited. Use absolute path."
+            },
+            {
+              "group": ["ui/**/*"],
+              "message": "Imports from ui prohibited. Core should not depend on ui."
+            }
+          ]
+        }]
+      }
     }
   ],
   "parserOptions": {
@@ -75,7 +92,12 @@
       "ignorePattern": "^import"
     }],
     "no-restricted-imports": ["error", {
-      "patterns": [".*"]
+      "patterns": [
+        {
+          "group": [".*"],
+          "message": "Relative imports prohibited. Use absolute path."
+        }
+      ]
     }]
   },
   "ignorePatterns": ["build/"]
