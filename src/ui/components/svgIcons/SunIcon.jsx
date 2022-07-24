@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function SunIcon({ className }) {
+export function SunIcon({ className }) {
   return (
     <svg
       className={className}
@@ -23,5 +23,3 @@ SunIcon.propTypes = {
 SunIcon.defaultProps = {
   className: undefined,
 };
-
-export { SunIcon };

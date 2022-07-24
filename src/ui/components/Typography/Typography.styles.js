@@ -1,9 +1,7 @@
 import { createUseStyles } from "react-jss";
 
-const useTypographyStyles = createUseStyles((theme) => ({
+export const useTypographyStyles = createUseStyles((theme) => ({
   root: {
     color: theme.typographyColor,
   },
 }));
-
-export { useTypographyStyles };

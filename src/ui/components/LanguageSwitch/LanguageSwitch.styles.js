@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useLanguageSwitchStyles = createUseStyles((theme) => ({
+export const useLanguageSwitchStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
@@ -26,5 +26,3 @@ const useLanguageSwitchStyles = createUseStyles((theme) => ({
     color: theme.palette.primary.main,
   },
 }));
-
-export { useLanguageSwitchStyles };

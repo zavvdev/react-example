@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useMainLayoutStyles = createUseStyles((theme) => ({
+export const useMainLayoutStyles = createUseStyles((theme) => ({
   root: {
     padding: "0 5% 200px 5%",
     boxSizing: "border-box",
@@ -12,5 +12,3 @@ const useMainLayoutStyles = createUseStyles((theme) => ({
     paddingTop: "42px",
   },
 }));
-
-export { useMainLayoutStyles };

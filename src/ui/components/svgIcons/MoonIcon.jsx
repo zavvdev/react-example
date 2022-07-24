@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function MoonIcon({ className }) {
+export function MoonIcon({ className }) {
   return (
     <svg
       className={className}
@@ -23,5 +23,3 @@ MoonIcon.propTypes = {
 MoonIcon.defaultProps = {
   className: undefined,
 };
-
-export { MoonIcon };

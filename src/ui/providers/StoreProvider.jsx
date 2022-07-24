@@ -2,7 +2,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { store } from "core/store/index";
 import { childrenPropType } from "ui/propTypes/children";
 
-function StoreProvider({ children }) {
+export function StoreProvider({ children }) {
   return (
     <ReduxProvider store={store}>
       {children}
@@ -13,5 +13,3 @@ function StoreProvider({ children }) {
 StoreProvider.propTypes = {
   children: childrenPropType.isRequired,
 };
-
-export { StoreProvider };

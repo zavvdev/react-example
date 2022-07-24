@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useThemeSwitchStyles = createUseStyles((theme) => ({
+export const useThemeSwitchStyles = createUseStyles((theme) => ({
   root: {
     width: "40px",
     height: "25px",
@@ -35,5 +35,3 @@ const useThemeSwitchStyles = createUseStyles((theme) => ({
     left: "unset",
   },
 }));
-
-export { useThemeSwitchStyles };

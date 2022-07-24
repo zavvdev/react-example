@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useAppTheme } from "ui/hooks/useAppTheme";
 
-function LogoIcon({
+export function LogoIcon({
   mainColor, secondaryColor, className,
 }) {
   const theme = useAppTheme();
@@ -38,5 +38,3 @@ LogoIcon.defaultProps = {
   secondaryColor: undefined,
   className: undefined,
 };
-
-export { LogoIcon };

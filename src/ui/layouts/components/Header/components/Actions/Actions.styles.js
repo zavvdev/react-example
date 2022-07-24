@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useActionsStyles = createUseStyles({
+export const useActionsStyles = createUseStyles({
   root: {
     display: "flex",
     alignItems: "center",
@@ -10,5 +10,3 @@ const useActionsStyles = createUseStyles({
     marginRight: "16px",
   },
 });
-
-export { useActionsStyles };

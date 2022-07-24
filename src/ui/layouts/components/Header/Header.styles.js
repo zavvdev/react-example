@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useHeaderStyles = createUseStyles((theme) => ({
+export const useHeaderStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -24,5 +24,3 @@ const useHeaderStyles = createUseStyles((theme) => ({
     marginRight: "16px",
   },
 }));
-
-export { useHeaderStyles };

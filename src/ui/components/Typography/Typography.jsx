@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { childrenPropType } from "ui/propTypes/children";
 import { useTypographyStyles } from "ui/components/Typography/Typography.styles";
 
-function Typography({ children, tag, className }) {
+export function Typography({ children, tag, className }) {
   const classes = useTypographyStyles();
 
   const Root = tag || "p";
@@ -26,5 +26,3 @@ Typography.defaultProps = {
   tag: undefined,
   className: undefined,
 };
-
-export { Typography };

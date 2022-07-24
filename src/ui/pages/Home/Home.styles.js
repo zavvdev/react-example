@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useHomeStyles = createUseStyles({
+export const useHomeStyles = createUseStyles({
   root: {
     textAlign: "center",
     paddingTop: "42px",
@@ -14,5 +14,3 @@ const useHomeStyles = createUseStyles({
     },
   },
 });
-
-export { useHomeStyles };

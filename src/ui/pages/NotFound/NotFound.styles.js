@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useNotFoundStyles = createUseStyles((theme) => ({
+export const useNotFoundStyles = createUseStyles((theme) => ({
   root: {
     textAlign: "center",
     paddingTop: "142px",
@@ -15,5 +15,3 @@ const useNotFoundStyles = createUseStyles((theme) => ({
     margin: "42px auto 0 auto",
   },
 }));
-
-export { useNotFoundStyles };

@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-const useButtonStyles = createUseStyles((theme) => ({
+export const useButtonStyles = createUseStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     border: "none",
@@ -37,5 +37,3 @@ const useButtonStyles = createUseStyles((theme) => ({
     backgroundColor: "green",
   },
 }));
-
-export { useButtonStyles };
