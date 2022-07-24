@@ -1,6 +1,6 @@
 class LocalStorageService {
-  constructor(webApiStorage) {
-    this.repository = webApiStorage;
+  constructor(webApiLocalStorage) {
+    this.repository = webApiLocalStorage;
   }
 
   get(key) {
