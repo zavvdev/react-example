@@ -8,6 +8,16 @@
     "airbnb/hooks",
     "plugin:react/recommended"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -43,16 +53,6 @@
         }]
       }
     }
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react"
   ],
   "rules": {
     "sort-imports": ["error", {
