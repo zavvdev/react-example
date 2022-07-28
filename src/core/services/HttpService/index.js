@@ -1,4 +1,3 @@
-import { axiosInstance } from "core/packages/axios";
 import { httpResponseAdapter } from "core/services/HttpService/adapters";
 
 class HttpService {
@@ -32,4 +31,6 @@ class HttpService {
   }
 }
 
-export const httpService = new HttpService(axiosInstance);
+export const createHttpService = (axiosInstance) => {
+  return new HttpService(axiosInstance);
+};
