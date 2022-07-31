@@ -1,3 +1,7 @@
 {
-  "appName": "React Redux Example"
+  "appName": "React Redux Example",
+  "navigation": {
+    "home": "Головна",
+    "users": "Користувачі"
+  }
 }

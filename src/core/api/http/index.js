@@ -1,5 +1,5 @@
 import axios from "axios";
-import { requestInterceptor, responseInterceptor } from "core/api/axios/interceptors";
+import { requestInterceptor, responseInterceptor } from "core/api/http/interceptors";
 
 const createAxiosInstance = ({ endpoint }) => {
   const instance = axios.create({
