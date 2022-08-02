@@ -10,10 +10,15 @@ const config = {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const listener = async (request, response) => {
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+  response.setHeader("Access-Control-Max-Age", 2592000);
+
   const queryString = url.parse(request.url, true);
   response.setHeader("Content-Type", "application/json");
   const userId = queryString.pathname.split("/users/")[1];
   await sleep(1000);
+
   if (queryString.pathname === "/users") {
     response.end(JSON.stringify(usersData));
   } else if (userId) {
