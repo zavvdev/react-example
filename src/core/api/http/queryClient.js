@@ -5,6 +5,7 @@ export const createHttpQueryClient = ({ defaultOptions } = {
 }) => new QueryClient({
   defaultOptions: {
     queries: {
+      refetchOnMount: false,
       refetchOnWindowFocus: false,
     },
     ...defaultOptions,

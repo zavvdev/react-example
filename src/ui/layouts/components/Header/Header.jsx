@@ -1,3 +1,4 @@
+import { Navigation } from "ui/layouts/components/Header/components/Navigation/Navigation";
 import { LogoIcon } from "ui/components/svgIcons/LogoIcon";
 import { useHeaderStyles } from "ui/layouts/components/Header/Header.styles";
 import { Actions } from "ui/layouts/components/Header/components/Actions/Actions";
@@ -7,8 +8,9 @@ export function Header() {
 
   return (
     <div className={classes.root}>
-      <div>
+      <div className={classes.leftWrap}>
         <LogoIcon className={classes.logo} />
+        <Navigation />
       </div>
       <Actions />
     </div>

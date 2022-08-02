@@ -10,10 +10,7 @@ export const useGetUsersQuery = (options = {}) => {
   const getUsersQuery = useQuery(
     createGetUsersQueryKey(),
     () => httpApi.get(HTTP_API_ENDPOINTS.user.getUsers()),
-    {
-      refetchOnMount: false,
-      ...options,
-    },
+    options,
   );
   return getUsersQuery;
 };
