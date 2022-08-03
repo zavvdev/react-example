@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectIsDarkMode } from "core/store/entities/theme/selectors";
+import { selectIsDarkMode } from "core/store/theme/selectors";
 import { appDarkTheme } from "ui/styles/theme/dark";
 import { appLightTheme } from "ui/styles/theme/light";
 

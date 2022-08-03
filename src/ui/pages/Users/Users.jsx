@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from "core/api/entities/user/useGetUsersQuery";
+import { useGetUsersQuery } from "core/api/user/queries/useGetUsersQuery";
 import { Typography } from "ui/components/Typography/Typography";
 import { MainLayout } from "ui/layouts/MainLayout/MainLayout";
 

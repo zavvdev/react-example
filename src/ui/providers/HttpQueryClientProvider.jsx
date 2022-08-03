@@ -1,4 +1,4 @@
-import { QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { httpQueryClient } from "core/api";
 import { childrenPropType } from "ui/propTypes/children";
 

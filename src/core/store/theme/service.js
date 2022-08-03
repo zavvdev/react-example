@@ -1,5 +1,5 @@
 import { localStorageService } from "core/services/LocalStorageService";
-import { IS_DARK_MODE_LOCAL_STORAGE_KEY } from "core/store/entities/theme/config";
+import { IS_DARK_MODE_LOCAL_STORAGE_KEY } from "core/store/theme/config";
 
 class ThemeService {
   constructor({ localStorageRepository }) {

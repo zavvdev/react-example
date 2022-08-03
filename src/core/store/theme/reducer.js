@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { themeActions } from "core/store/entities/theme/actions";
-import { themeService } from "core/store/entities/theme/service";
+import { themeActions } from "core/store/theme/actions";
+import { themeService } from "core/store/theme/service";
 
 const initialThemeState = {
   isDarkMode: themeService.getDarkModeState(),
