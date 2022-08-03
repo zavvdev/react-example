@@ -1,16 +1,16 @@
 import { HTTP_API_ENDPOINTS } from "core/config/http";
-import { httpApi } from "core/api";
+import { http } from "core/api/http";
 
 const endpoints = HTTP_API_ENDPOINTS.user;
 
 class UserApi {
-  constructor(httpService) {
-    this.repository = httpService;
+  constructor(httpApiInstance) {
+    this.http = httpApiInstance;
   }
 
   async getUsers() {
-    return this.repository.get(endpoints.getUsers());
+    return this.http.get(endpoints.getUsers());
   }
 }
 
-export const userApi = new UserApi(httpApi);
+export const userApi = new UserApi(http);

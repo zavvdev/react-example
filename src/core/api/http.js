@@ -1,5 +1,6 @@
-import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { HTTP_ENDPOINT } from "core/config/http";
+import { createHttpService } from "core/services/HttpService";
 
 const requestInterceptor = {
   fulfilled: (config) => {
@@ -19,32 +20,31 @@ const responseInterceptor = {
   },
 };
 
-export const createAxiosInstance = ({ endpoint }) => {
+export const createAxiosInstance = ({
+  endpoint,
+  interceptors,
+}) => {
   const instance = axios.create({
     baseURL: endpoint,
   });
 
   instance.interceptors.request.use(
-    requestInterceptor.fulfilled,
-    requestInterceptor.error,
+    interceptors.request.fulfilled,
+    interceptors.request.error,
   );
 
   instance.interceptors.response.use(
-    responseInterceptor.fulfilled,
-    responseInterceptor.error,
+    interceptors.response.fulfilled,
+    interceptors.response.error,
   );
 
   return instance;
 };
 
-export const createHttpQueryClient = ({ defaultOptions } = {
-  defaultOptions: {},
-}) => new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
-    },
-    ...defaultOptions,
+export const http = createHttpService(createAxiosInstance({
+  endpoint: HTTP_ENDPOINT,
+  interceptors: {
+    response: responseInterceptor,
+    request: requestInterceptor,
   },
-});
+}));
