@@ -1,24 +1,7 @@
 import axios from "axios";
 import { HTTP_ENDPOINT } from "core/config/http";
 import { createHttpService } from "core/services/HttpService";
-
-const requestInterceptor = {
-  fulfilled: (config) => {
-    return config;
-  },
-  error: (error) => {
-    return Promise.reject(error);
-  },
-};
-
-const responseInterceptor = {
-  fulfilled: (response) => {
-    return response;
-  },
-  error: (error) => {
-    return Promise.reject(error);
-  },
-};
+import { requestInterceptor, responseInterceptor } from "core/api/http/interceptors";
 
 export const createAxiosInstance = ({
   endpoint,

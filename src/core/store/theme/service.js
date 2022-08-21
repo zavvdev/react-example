@@ -1,5 +1,5 @@
+import { LOCAL_STORAGE_KEYS } from "core/config/localStorage";
 import { localStorageService } from "core/services/LocalStorageService";
-import { IS_DARK_MODE_LOCAL_STORAGE_KEY } from "core/store/theme/config";
 
 class ThemeService {
   constructor({ localStorageRepository }) {
@@ -8,14 +8,14 @@ class ThemeService {
 
   saveDarkModeState(darkModeState) {
     this.localStorageRepository.set(
-      IS_DARK_MODE_LOCAL_STORAGE_KEY,
+      LOCAL_STORAGE_KEYS.isThemeDarkMode,
       `${darkModeState}`,
     );
   }
 
   getDarkModeState() {
     const rawStorageValue = this.localStorageRepository.get(
-      IS_DARK_MODE_LOCAL_STORAGE_KEY,
+      LOCAL_STORAGE_KEYS.isThemeDarkMode,
     );
     return !!JSON.parse(rawStorageValue);
   }
