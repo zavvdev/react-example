@@ -1,4 +1,4 @@
-export const httpResponseAdapter = (responsePayload) => ({
-  status: responsePayload?.status,
-  payload: responsePayload?.data || null,
+export const httpResponseAdapter = (axiosResponsePayload) => ({
+  status: axiosResponsePayload?.status,
+  payload: axiosResponsePayload?.data || null,
 });
