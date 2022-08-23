@@ -73,6 +73,11 @@
           "position": "before"
         }, 
         { 
+          "pattern": "packages/**", 
+          "group": "internal",
+          "position": "before"
+        }, 
+        { 
           "pattern": "ui/**", 
           "group": "internal",
           "position": "before"
