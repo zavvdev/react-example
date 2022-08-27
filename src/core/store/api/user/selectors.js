@@ -1,9 +1,9 @@
-import { USER_API_DOMAIN } from "core/store/api/user/config";
+import { apiSelect } from "core/store/api";
 
-export const selectAllUsers = (store) => {
-  return store[USER_API_DOMAIN].getAll.data;
+export const selectUserApiGetAllData = (store) => {
+  return apiSelect(store, ["getUsers"])?.data;
 };
 
-export const selectIsAllUsersLoading = (store) => {
-  return store[USER_API_DOMAIN].getAll.isLoading;
+export const selectUserApiGetAllIsLoading = (store) => {
+  return apiSelect(store, ["getUsers"])?.isLoading;
 };

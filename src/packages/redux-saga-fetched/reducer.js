@@ -3,40 +3,33 @@ import {
   composeRequestState,
   composeSuccessState,
 } from "packages/redux-saga-fetched/utils";
-import { ACTION_TYPES } from "packages/redux-saga-fetched/config";
 
-export const reducer = (
-  state = {
-    getUsers: {},
-    getUsers2: {},
-  },
+export const getReducer = ({ actionTypePatterns }) => (
+  state = {},
   action = {
     type: null,
     payload: null,
   },
 ) => {
   const { type, payload } = action;
-  switch (type) {
-    case ACTION_TYPES.request: {
-      return {
-        ...state,
-        [payload.key]: composeRequestState({ state, payload }),
-      };
-    }
-    case ACTION_TYPES.success: {
-      return {
-        ...state,
-        [payload.key]: composeSuccessState({ payload }),
-      };
-    }
-    case ACTION_TYPES.failure: {
-      return {
-        ...state,
-        [payload.key]: composeFailureState({ payload }),
-      };
-    }
-    default: {
-      return state;
-    }
+
+  if (type.includes(actionTypePatterns.request)) {
+    return {
+      ...state,
+      [payload.key]: composeRequestState({ state, payload }),
+    };
   }
+  if (type.includes(actionTypePatterns.success)) {
+    return {
+      ...state,
+      [payload.key]: composeSuccessState({ payload }),
+    };
+  }
+  if (type.includes(actionTypePatterns.failure)) {
+    return {
+      ...state,
+      [payload.key]: composeFailureState(),
+    };
+  }
+  return state;
 };

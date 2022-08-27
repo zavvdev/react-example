@@ -1,14 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { themeReducer } from "core/store/theme/reducer";
 import { THEME_DOMAIN } from "core/store/theme/config";
-import { USER_API_DOMAIN } from "core/store/api/user/config";
-import { userApiReducer } from "core/store/api/user/reducer";
-import { reducer as apiReducer } from "packages/redux-saga-fetched";
+import { apiReducer } from "core/store/api";
+import { API_DOMAIN } from "core/store/api/config";
 
 const rootReducer = combineReducers({
-  [USER_API_DOMAIN]: userApiReducer,
+  [API_DOMAIN]: apiReducer,
   [THEME_DOMAIN]: themeReducer,
-  api: apiReducer,
 });
 
 export { rootReducer };

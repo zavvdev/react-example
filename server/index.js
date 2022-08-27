@@ -26,6 +26,7 @@ const listener = async (request, response) => {
       (i) => i.id === Number(userId),
     )));
   } else {
+    response.status(404);
     response.end(JSON.stringify({}));
   }
 };

@@ -1,29 +1,37 @@
 import {
-  all,
   call,
   takeLatest,
 } from "redux-saga/effects";
-import { USER_API_ACTION_TYPES } from "core/store/api/user/config";
 import { http } from "core/api/http";
 import { HTTP_API_ENDPOINTS } from "core/config/http";
-import { request } from "packages/redux-saga-fetched";
+import { apiRequest } from "core/store/api";
+import { USER_API_ACTION_TYPES } from "core/store/api/user/config";
 
-function* getAllMiddlewareWorker() {
-  yield all([
-    call(request, {
-      keys: ["getUsers"],
-      fn: () => http.get(HTTP_API_ENDPOINTS.user.getAll()),
-    }),
-    call(request, {
-      keys: ["getUsers2"],
-      fn: () => http.get(HTTP_API_ENDPOINTS.user.getAll()),
-    }),
-  ]);
+function* getAllMiddleware() {
+  yield call(apiRequest, {
+    keys: ["getUsers"],
+    fn: () => http.get(HTTP_API_ENDPOINTS.user.getAll()),
+  });
 }
 
-export function* userApiMiddlewareWatcher() {
+function* getByIdMiddleware(action) {
+  const { payload } = action;
+  const userId = payload?.id;
+  if (userId) {
+    yield call(apiRequest, {
+      keys: ["getUserById", userId],
+      fn: () => http.get(HTTP_API_ENDPOINTS.user.getById(userId)),
+    });
+  }
+}
+
+export function* userApiMiddleware() {
   yield takeLatest(
-    USER_API_ACTION_TYPES.getAll.request,
-    getAllMiddlewareWorker,
+    USER_API_ACTION_TYPES.getAll,
+    getAllMiddleware,
+  );
+  yield takeLatest(
+    USER_API_ACTION_TYPES.getById,
+    getByIdMiddleware,
   );
 }
