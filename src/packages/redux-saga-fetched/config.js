@@ -1,10 +1,10 @@
 export const DOMAIN = "rsf";
 
-export const ACTION_TYPE_PATTERNS = {
-  request: "rsf@request",
-  success: "rsf@success",
-  failure: "rsf@failure",
-  invalidate: "rsf@invalidate",
+export const ACTION_TYPES = {
+  request: "request",
+  success: "success",
+  failure: "failure",
+  invalidate: "invalidate",
 };
 
 export const DEFAULT_QUERY_OPTIONS = {

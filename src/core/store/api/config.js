@@ -1,8 +1,5 @@
+import { ACTION_TYPES } from "packages/redux-saga-fetched";
+
 export const API_DOMAIN = "api";
 
-export const API_ACTION_TYPE_PATTERNS = {
-  request: "api@request",
-  success: "api@success",
-  failure: "api@failure",
-  invalidate: "api@invalidate",
-};
+export const API_ACTION_TYPES = ACTION_TYPES;

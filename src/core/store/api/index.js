@@ -1,11 +1,15 @@
-import { API_ACTION_TYPE_PATTERNS, API_DOMAIN } from "core/store/api/config";
-import { initReduxSagaFetched } from "packages/redux-saga-fetched";
+import { API_DOMAIN } from "core/store/api/config";
+import { init as initReduxSagaFetched } from "packages/redux-saga-fetched";
 
 const {
-  reducer, query, mutation, select, invalidate,
+  reducer,
+  query,
+  mutation,
+  select,
+  invalidate,
+  createActionTypeFromKey,
 } = initReduxSagaFetched({
   domain: API_DOMAIN,
-  actionTypePatterns: API_ACTION_TYPE_PATTERNS,
 });
 
 export {
@@ -14,4 +18,5 @@ export {
   mutation as apiMutation,
   select as apiSelect,
   invalidate as apiInvalidate,
+  createActionTypeFromKey,
 };

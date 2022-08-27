@@ -1,8 +1,8 @@
 import {
-  composeFailureState,
-  composeInvalidateState,
-  composeRequestState,
-  composeSuccessState,
+  createFailureState,
+  createInvalidateState,
+  createRequestState,
+  createSuccessState,
 } from "packages/redux-saga-fetched/utils";
 
 export const getReducer = ({ actionTypePatterns }) => (
@@ -10,7 +10,7 @@ export const getReducer = ({ actionTypePatterns }) => (
   action = {
     type: null,
     payload: {
-      key: null,
+      createdKey: null,
       data: null,
     },
   },
@@ -20,25 +20,25 @@ export const getReducer = ({ actionTypePatterns }) => (
   if (type.includes(actionTypePatterns.request)) {
     return {
       ...state,
-      [payload.key]: composeRequestState({ state, payload }),
+      [payload.createdKey]: createRequestState({ state, payload }),
     };
   }
   if (type.includes(actionTypePatterns.success)) {
     return {
       ...state,
-      [payload.key]: composeSuccessState({ payload }),
+      [payload.createdKey]: createSuccessState({ payload }),
     };
   }
   if (type.includes(actionTypePatterns.failure)) {
     return {
       ...state,
-      [payload.key]: composeFailureState({ state, payload }),
+      [payload.createdKey]: createFailureState({ state, payload }),
     };
   }
   if (type.includes(actionTypePatterns.invalidate)) {
     return {
       ...state,
-      [payload.key]: composeInvalidateState({ state, payload }),
+      [payload.createdKey]: createInvalidateState({ state, payload }),
     };
   }
   return state;

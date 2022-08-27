@@ -1,13 +1,13 @@
 import {
   call, put, select,
 } from "redux-saga/effects";
-import { composeActionType, composeKey } from "packages/redux-saga-fetched/utils";
+import { createActionType, createKey } from "packages/redux-saga-fetched/utils";
 import {
   DEFAULT_QUERY_OPTIONS,
 } from "packages/redux-saga-fetched/config";
 
 /*
-  keys: string[];
+  key: string[];
   fn: () => Promise<unknown>;
   options: {
     useCache: boolean;
@@ -17,44 +17,46 @@ import {
 export const getQuery = (
   { actionTypePatterns, domain },
 ) => function* query({
-  keys, fn, options,
+  key, fn, options,
 }) {
   const { useCache } = options || DEFAULT_QUERY_OPTIONS;
-  const key = composeKey(keys);
+  const createdKey = createKey(key);
 
   try {
-    const isValid = yield select((store) => store?.[domain]?.[key]?.isValid);
+    const isValid = yield select((store) => {
+      return store?.[domain]?.[createdKey]?.isValid;
+    });
     if (useCache && isValid) {
       return;
     }
     yield put({
-      type: composeActionType({
-        key,
+      type: createActionType({
+        createdKey,
         actionTypePattern: actionTypePatterns.request,
       }),
       payload: {
-        key,
+        createdKey,
       },
     });
     const data = yield call(fn);
     yield put({
-      type: composeActionType({
-        key,
+      type: createActionType({
+        createdKey,
         actionTypePattern: actionTypePatterns.success,
       }),
       payload: {
         data,
-        key,
+        createdKey,
       },
     });
   } catch (e) {
     yield put({
-      type: composeActionType({
-        key,
+      type: createActionType({
+        createdKey,
         actionTypePattern: actionTypePatterns.failure,
       }),
       payload: {
-        key,
+        createdKey,
       },
     });
     throw e;
