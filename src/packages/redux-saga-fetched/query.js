@@ -23,8 +23,8 @@ export const getQuery = (
   const key = composeKey(keys);
 
   try {
-    const cachedData = yield select((store) => store?.[domain]?.[key]?.data);
-    if (useCache && cachedData) {
+    const isValid = yield select((store) => store?.[domain]?.[key]?.isValid);
+    if (useCache && isValid) {
       return;
     }
     yield put({

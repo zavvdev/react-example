@@ -3,6 +3,7 @@ import { getQuery } from "packages/redux-saga-fetched/query";
 import { getSelector } from "packages/redux-saga-fetched/selector";
 import { ACTION_TYPE_PATTERNS, DOMAIN } from "packages/redux-saga-fetched/config";
 import { getMutation } from "packages/redux-saga-fetched/mutation";
+import { getInvalidate } from "packages/redux-saga-fetched/invalidate";
 
 export const initReduxSagaFetched = ({
   domain,
@@ -26,6 +27,9 @@ export const initReduxSagaFetched = ({
     }),
     select: getSelector({
       domain: options.domain,
+    }),
+    invalidate: getInvalidate({
+      actionTypePatterns: options.actionTypePatterns,
     }),
   };
 };

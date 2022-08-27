@@ -11,6 +11,7 @@ export const composeState = ({
   isFetching,
   isLoaded,
   isError,
+  isValid,
   status,
   data,
 }) => ({
@@ -18,6 +19,7 @@ export const composeState = ({
   isFetching,
   isLoaded,
   isError,
+  isValid,
   status,
   data,
 });
@@ -27,6 +29,7 @@ export const composeDefaultState = () => composeState({
   isFetching: false,
   isLoaded: false,
   isError: false,
+  isValid: false,
   status: DATA_STATUS_TYPES.idle,
   data: null,
 });
@@ -39,6 +42,7 @@ export const composeRequestState = ({ state, payload }) => {
     isFetching,
     isLoaded: false,
     isError: false,
+    isValid: false,
     status: isLoading ? DATA_STATUS_TYPES.loading : DATA_STATUS_TYPES.fetching,
     data: state[payload.key]?.data || null,
   });
@@ -49,15 +53,27 @@ export const composeSuccessState = ({ payload }) => composeState({
   isFetching: false,
   isLoaded: true,
   isError: false,
+  isValid: true,
   status: DATA_STATUS_TYPES.loaded,
   data: payload.data,
 });
 
-export const composeFailureState = () => composeState({
+export const composeFailureState = ({ state, payload }) => composeState({
   isLoading: false,
   isFetching: false,
   isLoaded: false,
   isError: true,
+  isValid: false,
   status: DATA_STATUS_TYPES.error,
-  data: null,
+  data: state[payload.key]?.data || null,
+});
+
+export const composeInvalidateState = ({ state, payload }) => composeState({
+  isLoading: state[payload.key]?.isLoading,
+  isFetching: state[payload.key]?.isFetching,
+  isLoaded: state[payload.key]?.isLoaded,
+  isError: state[payload.key]?.isError,
+  isValid: false,
+  status: state[payload.key]?.status,
+  data: state[payload.key]?.data,
 });
