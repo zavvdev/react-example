@@ -1,7 +1,9 @@
 import { API_DOMAIN } from "core/store/api/config";
 import { initReduxSagaFetched } from "packages/redux-saga-fetched";
 
-const { reducer, request, select } = initReduxSagaFetched({
+const {
+  reducer, query, mutation, select,
+} = initReduxSagaFetched({
   domain: API_DOMAIN,
   actionTypePatterns: {
     request: "api@request",
@@ -12,6 +14,7 @@ const { reducer, request, select } = initReduxSagaFetched({
 
 export {
   reducer as apiReducer,
-  request as apiRequest,
+  query as apiQuery,
+  mutation as apiMutation,
   select as apiSelect,
 };

@@ -1,9 +1,8 @@
-/* eslint-disable func-names */
 import { all, call, spawn } from "redux-saga/effects";
 import { errorTrackingService } from "core/services/ErrorTrackingService";
 
-export const combineMiddleware = (middlewareList) => function* () {
-  const getRootGenerator = (middleware) => function* () {
+export const combineMiddleware = (middlewareList) => function* combiner() {
+  const getRootGenerator = (middleware) => function* rootGenerator() {
     while (true) {
       try {
         yield call(middleware);

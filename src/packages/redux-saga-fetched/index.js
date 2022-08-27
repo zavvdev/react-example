@@ -1,7 +1,8 @@
 import { getReducer } from "packages/redux-saga-fetched/reducer";
-import { getRequest } from "packages/redux-saga-fetched/request";
+import { getQuery } from "packages/redux-saga-fetched/query";
 import { getSelector } from "packages/redux-saga-fetched/selector";
 import { ACTION_TYPE_PATTERNS, DOMAIN } from "packages/redux-saga-fetched/config";
+import { getMutation } from "packages/redux-saga-fetched/mutation";
 
 export const initReduxSagaFetched = ({
   domain,
@@ -16,9 +17,12 @@ export const initReduxSagaFetched = ({
     reducer: getReducer({
       actionTypePatterns: options.actionTypePatterns,
     }),
-    request: getRequest({
+    query: getQuery({
       actionTypePatterns: options.actionTypePatterns,
       domain: options.domain,
+    }),
+    mutation: getMutation({
+      actionTypePatterns: options.actionTypePatterns,
     }),
     select: getSelector({
       domain: options.domain,

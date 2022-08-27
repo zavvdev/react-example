@@ -6,7 +6,7 @@ export const ACTION_TYPE_PATTERNS = {
   failure: "rsf@failure",
 };
 
-export const DEFAULT_REQUEST_OPTIONS = {
+export const DEFAULT_QUERY_OPTIONS = {
   useCache: true,
 };
 
