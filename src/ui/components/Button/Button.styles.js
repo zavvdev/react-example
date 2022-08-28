@@ -6,7 +6,7 @@ export const useButtonStyles = createUseStyles((theme) => ({
     border: "none",
     color: theme.palette.white.main,
     padding: "10px 20px",
-    fontSize: "20px",
+    fontSize: "16px",
     fontWeight: 500,
     borderRadius: "5px",
     cursor: "pointer",
@@ -16,12 +16,12 @@ export const useButtonStyles = createUseStyles((theme) => ({
     alignItems: "center",
     textDecoration: "none",
     width: "max-content",
+    height: "35px",
 
     "&:hover": {
       backgroundColor: theme.palette.primary.dark,
     },
   },
-
   icon: {
     marginRight: "10px",
     fill: theme.palette.white.main,
@@ -30,10 +30,12 @@ export const useButtonStyles = createUseStyles((theme) => ({
     alignItems: "center",
     marginLeft: "-3px",
   },
-
   disabled: {
     cursor: "default",
     pointerEvents: "none",
-    backgroundColor: "green",
+    opacity: 0.8,
+  },
+  fullWidth: {
+    width: "100%",
   },
 }));

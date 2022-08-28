@@ -9,5 +9,9 @@
   },
   "errors": {
     "unexpected": "Something went wrong. Try again later"
+  },
+  "formValidationErrors": {
+    "required": "Required",
+    "invalidEmailFormat": "Invalid email format"
   }
 }

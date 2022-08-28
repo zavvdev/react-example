@@ -9,5 +9,9 @@
   },
   "errors": {
     "unexpected": "Щось пішло не так. Спробуйте пізніше"
+  },
+  "formValidationErrors": {
+    "required": "Обовʼязкове",
+    "invalidEmailFormat": "Невірний формат електронної пошти"
   }
 }

@@ -9,11 +9,13 @@ export function Button({
   onClick,
   disabled,
   icon,
+  fullWidth,
 }) {
   const classes = useButtonStyles();
 
   const rootClasses = cx(classes.root, {
     [classes.disabled]: disabled,
+    [classes.fullWidth]: fullWidth,
   }, className);
 
   return (
@@ -35,10 +37,12 @@ Button.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.node,
+  fullWidth: PropTypes.bool,
 };
 
 Button.defaultProps = {
   className: undefined,
   disabled: false,
   icon: undefined,
+  fullWidth: false,
 };
