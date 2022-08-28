@@ -1,30 +1,17 @@
 import {
   call,
-  fork,
-  take,
   takeLatest,
 } from "redux-saga/effects";
 import { http } from "core/api/http";
 import { HTTP_API_ENDPOINTS } from "core/config/http";
-import { apiQuery, createActionTypeFromKey } from "core/store/api";
+import { apiQuery } from "core/store/api";
 import { USER_API_ACTION_TYPES, USER_API_KEYS } from "core/store/api/user/config";
-import { API_ACTION_TYPES } from "core/store/api/config";
 
 function* getAllMiddleware() {
-  yield fork(apiQuery, {
+  yield call(apiQuery, {
     key: [USER_API_KEYS.getAll],
     fn: () => http.get(HTTP_API_ENDPOINTS.user.getAll()),
-    options: {
-      invalidateInterval: 3000,
-    },
   });
-  const successActionType = createActionTypeFromKey(
-    [USER_API_KEYS.getAll],
-    API_ACTION_TYPES.success,
-  );
-  yield take([successActionType]);
-  // eslint-disable-next-line no-console
-  console.log("success!!");
 }
 
 function* getByIdMiddleware(action) {
