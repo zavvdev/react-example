@@ -16,4 +16,7 @@ export const appPalette = {
     main: "#ffffff",
     dim: "#fafafa",
   },
+  red: {
+    main: "#f23f3f",
+  },
 };

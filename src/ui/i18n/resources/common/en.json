@@ -3,5 +3,11 @@
   "navigation": {
     "home": "Home",
     "users": "Users"
+  },
+  "labels": {
+    "loading": "Loading.."
+  },
+  "errors": {
+    "unexpected": "Something went wrong. Try again later"
   }
 }

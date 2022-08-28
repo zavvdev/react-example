@@ -5,45 +5,56 @@
       "name": "Andrew Once",
       "email": "andrewonce@gmail.com",
       "company": "Onix-Systems",
-      "role": "Front-End Engineer",
-      "level": "Senior",
-      "icon": "👨‍💼"
+      "role": "Front-End Engineer"
     },
     {
       "id": 2,
       "name": "Oliver Moore",
       "email": "olivermoore@gmail.com",
       "company": "Epam Systems",
-      "role": "Front-End Engineer",
-      "level": "Middle",
-      "icon": "🧑‍💼"
+      "role": "Front-End Engineer"
     },
     {
       "id": 3,
       "name": "Melissa Brown",
       "email": "melissabrown@yahoo.com",
       "company": "Netflix",
-      "role": "QA Engineer",
-      "level": "Junior",
-      "icon": "👩‍💼"
+      "role": "QA Engineer"
     },
     {
       "id": 4,
       "name": "Christopher Williams",
       "email": "chriswilliams87@gmail.com",
       "company": "Twitter",
-      "role": "Back-End Engineer",
-      "level": "Senior",
-      "icon": "👨🏽‍💼"
+      "role": "Back-End Engineer"
     },
     {
       "id": 5,
       "name": "Erica Smith",
       "email": "smitherica@yahoo.com",
       "company": "Facebook",
-      "role": "Project Manager",
-      "level": "Senior",
-      "icon": "🦸🏽‍♀️"
+      "role": "Project Manager"
+    },
+    {
+      "id": 6,
+      "name": "Tom Johnson",
+      "email": "johnson@gmail.com",
+      "company": "Google",
+      "role": "Back-End Engineer"
+    },
+    {
+      "id": 7,
+      "name": "Emily Watson",
+      "email": "ewatson@gmail.com",
+      "company": "Apple",
+      "role": "UX/UI Designer"
+    },
+    {
+      "id": 8,
+      "name": "Bill Robinson",
+      "email": "billrobinson@yahoo.com",
+      "company": "Apple",
+      "role": "QA Engineer"
     }
   ]
 }
