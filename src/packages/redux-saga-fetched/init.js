@@ -6,6 +6,7 @@ import { getMutation } from "packages/redux-saga-fetched/modules/mutation";
 import { getInvalidate } from "packages/redux-saga-fetched/modules/invalidate";
 import { createActionTypePatterns } from "packages/redux-saga-fetched/utils";
 import { getCreateActionTypeFromKey } from "packages/redux-saga-fetched/modules/createActionTypeFromKey";
+import { getReset } from "packages/redux-saga-fetched/modules/reset";
 
 export const init = ({
   domain,
@@ -32,6 +33,10 @@ export const init = ({
       domain: options.domain,
     }),
     invalidate: getInvalidate({
+      actionTypePatterns,
+      domain: options.domain,
+    }),
+    reset: getReset({
       actionTypePatterns,
       domain: options.domain,
     }),

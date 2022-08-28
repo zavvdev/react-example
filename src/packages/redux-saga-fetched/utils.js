@@ -11,6 +11,7 @@ export const createActionTypePatterns = (domain) => ({
   success: `${domain}@${ACTION_TYPES.success}`,
   failure: `${domain}@${ACTION_TYPES.failure}`,
   invalidate: `${domain}@${ACTION_TYPES.invalidate}`,
+  reset: `${domain}@${ACTION_TYPES.reset}`,
 });
 
 export const createState = ({
@@ -31,13 +32,13 @@ export const createState = ({
   data,
 });
 
-export const createDefaultState = () => createState({
+export const createResetState = () => createState({
   isLoading: false,
   isFetching: false,
   isLoaded: false,
   isError: false,
   isValid: false,
-  status: DATA_STATUS_TYPES.idle,
+  status: DATA_STATUS_TYPES.reset,
   data: null,
 });
 

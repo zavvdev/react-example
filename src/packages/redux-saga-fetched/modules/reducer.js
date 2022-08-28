@@ -2,6 +2,7 @@ import {
   createFailureState,
   createInvalidateState,
   createRequestState,
+  createResetState,
   createSuccessState,
 } from "packages/redux-saga-fetched/utils";
 
@@ -39,6 +40,12 @@ export const getReducer = ({ actionTypePatterns }) => (
     return {
       ...state,
       [payload.createdKey]: createInvalidateState({ state, payload }),
+    };
+  }
+  if (type.includes(actionTypePatterns.reset)) {
+    return {
+      ...state,
+      [payload.createdKey]: createResetState(),
     };
   }
   return state;

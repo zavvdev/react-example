@@ -7,6 +7,7 @@ const {
   mutation,
   select,
   invalidate,
+  reset,
   createActionTypeFromKey,
 } = initReduxSagaFetched({
   domain: API_DOMAIN,
@@ -18,5 +19,6 @@ export {
   mutation as apiMutation,
   select as apiSelect,
   invalidate as apiInvalidate,
+  reset as apiReset,
   createActionTypeFromKey,
 };

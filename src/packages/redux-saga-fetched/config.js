@@ -5,6 +5,7 @@ export const ACTION_TYPES = {
   success: "success",
   failure: "failure",
   invalidate: "invalidate",
+  reset: "reset",
 };
 
 export const DEFAULT_QUERY_OPTIONS = {
@@ -21,5 +22,5 @@ export const DATA_STATUS_TYPES = {
   fetching: "fetching",
   loaded: "loaded",
   error: "error",
-  idle: "idle",
+  reset: "reset",
 };
