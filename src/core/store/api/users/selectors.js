@@ -12,3 +12,15 @@ export const selectUsersApiGetAllIsLoading = (store) => {
 export const selectUsersApiGetAllIsError = (store) => {
   return apiSelect(store, [USERS_API_KEYS.getAll])?.isError;
 };
+
+export const selectUsersApiPostOneIsLoading = (store) => {
+  return apiSelect(store, [USERS_API_KEYS.postOne])?.isLoading;
+};
+
+export const selectUsersApiPostOneIsLoaded = (store) => {
+  return apiSelect(store, [USERS_API_KEYS.postOne])?.isLoaded;
+};
+
+export const selectUsersApiPostOneIsError = (store) => {
+  return apiSelect(store, [USERS_API_KEYS.postOne])?.isError;
+};

@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { usersApiActions } from "core/store/api/users/actions";
+import { selectUsersApiPostOneIsLoaded, selectUsersApiPostOneIsLoading } from "core/store/api/users/selectors";
 import { Button } from "ui/components/Button/Button";
 import { Input } from "ui/components/Input/Input";
 import { useAddUserFormStyles } from "ui/pages/Users/components/AddUserForm/AddUserForm.styles";
@@ -16,6 +18,10 @@ export function AddUserForm() {
   const { t } = useTranslation([NAMESPACES.users, NAMESPACES.common]);
   const classes = useAddUserFormStyles();
   const dispatch = useDispatch();
+
+  const isPosting = useSelector(selectUsersApiPostOneIsLoading);
+  const isPosted = useSelector(selectUsersApiPostOneIsLoaded);
+  // const isError = useSelector(selectUsersApiPostOneIsError);
 
   const {
     values,
@@ -37,7 +43,6 @@ export function AddUserForm() {
         company: values[FORM_FIELD_TYPES.company],
         role: values[FORM_FIELD_TYPES.role],
       }));
-      resetForm();
     },
   });
 
@@ -49,6 +54,12 @@ export function AddUserForm() {
     }
     return result;
   };
+
+  useEffect(() => {
+    if (isPosted) {
+      resetForm();
+    }
+  }, [isPosted, resetForm]);
 
   return (
     <div className={classes.root}>
@@ -92,10 +103,12 @@ export function AddUserForm() {
       <Button
         fullWidth
         type="submit"
-        disabled={!isValid}
+        disabled={!isValid || isPosting}
         onClick={handleSubmit}
       >
-        {t("form.submit")}
+        {isPosting
+          ? t(`${NAMESPACES.common}:labels.loading`)
+          : t("form.submit")}
       </Button>
     </div>
   );
