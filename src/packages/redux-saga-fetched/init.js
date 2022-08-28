@@ -26,12 +26,14 @@ export const init = ({
     }),
     mutation: getMutation({
       actionTypePatterns,
+      domain: options.domain,
     }),
     select: getSelector({
       domain: options.domain,
     }),
     invalidate: getInvalidate({
       actionTypePatterns,
+      domain: options.domain,
     }),
     createActionTypeFromKey: getCreateActionTypeFromKey({
       domain: options.domain,

@@ -9,6 +9,7 @@ export const ACTION_TYPES = {
 
 export const DEFAULT_QUERY_OPTIONS = {
   useCache: true,
+  invalidateInterval: 0,
 };
 
 export const DEFAULT_MUTATION_OPTIONS = {

@@ -15,11 +15,11 @@ import { getInvalidate } from "packages/redux-saga-fetched/modules/invalidate";
 */
 
 export const getMutation = (
-  { actionTypePatterns },
+  { actionTypePatterns, domain },
 ) => function* mutation({
   key, fn, options,
 }) {
-  const invalidate = getInvalidate({ actionTypePatterns });
+  const invalidate = getInvalidate({ actionTypePatterns, domain });
   const createdKey = createKey(key);
   const { invalidateKeys } = options || DEFAULT_MUTATION_OPTIONS;
   try {

@@ -11,10 +11,12 @@ import { USER_API_ACTION_TYPES, USER_API_KEYS } from "core/store/api/user/config
 import { API_ACTION_TYPES } from "core/store/api/config";
 
 function* getAllMiddleware() {
-  // TODO: make possible to not use fork, just simple call
   yield fork(apiQuery, {
     key: [USER_API_KEYS.getAll],
     fn: () => http.get(HTTP_API_ENDPOINTS.user.getAll()),
+    options: {
+      invalidateInterval: 3000,
+    },
   });
   const successActionType = createActionTypeFromKey(
     [USER_API_KEYS.getAll],
