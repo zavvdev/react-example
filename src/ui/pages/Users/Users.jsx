@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userApiActions } from "core/store/api/user/actions";
-import { selectUserApiGetAllData, selectUserApiGetAllIsLoading } from "core/store/api/user/selectors";
+import { usersApiActions } from "core/store/api/users/actions";
+import { selectUsersApiGetAllData, selectUsersApiGetAllIsLoading } from "core/store/api/users/selectors";
 import { Typography } from "ui/components/Typography/Typography";
 import { MainLayout } from "ui/layouts/MainLayout/MainLayout";
 
 export function Users() {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(selectUserApiGetAllIsLoading);
-  const data = useSelector(selectUserApiGetAllData);
+  const isLoading = useSelector(selectUsersApiGetAllIsLoading);
+  const data = useSelector(selectUsersApiGetAllData);
 
   useEffect(() => {
-    dispatch(userApiActions.getAll());
+    dispatch(usersApiActions.getAll());
   }, [dispatch]);
 
   return (

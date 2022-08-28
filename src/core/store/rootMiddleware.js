@@ -1,8 +1,8 @@
 import { themeMiddleware } from "core/store/theme/middleware";
 import { combineMiddleware } from "core/store/utils";
-import { userApiMiddleware } from "core/store/api/user/middleware";
+import { usersApiMiddleware } from "core/store/api/users/middleware";
 
 export const rootMiddleware = combineMiddleware([
-  userApiMiddleware,
+  usersApiMiddleware,
   themeMiddleware,
 ]);
