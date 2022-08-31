@@ -1,5 +1,6 @@
 import { put, select } from "redux-saga/effects";
 import { createActionType, createKey } from "packages/redux-saga-fetched/utils";
+import { EFFECT_TYPES } from "packages/redux-saga-fetched/config";
 
 export const getInvalidate = ({
   actionTypePatterns,
@@ -13,7 +14,7 @@ export const getInvalidate = ({
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.invalidate,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].invalidate,
       }),
       payload: {
         createdKey,

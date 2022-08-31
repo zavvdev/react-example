@@ -3,7 +3,7 @@ import {
   call, put,
 } from "redux-saga/effects";
 import { createActionType, createKey } from "packages/redux-saga-fetched/utils";
-import { DEFAULT_MUTATION_OPTIONS } from "packages/redux-saga-fetched/config";
+import { DEFAULT_MUTATION_OPTIONS, EFFECT_TYPES } from "packages/redux-saga-fetched/config";
 import { getInvalidate } from "packages/redux-saga-fetched/modules/invalidate";
 
 /*
@@ -26,7 +26,7 @@ export const getMutation = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.request,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].request,
       }),
       payload: {
         createdKey,
@@ -36,7 +36,7 @@ export const getMutation = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.success,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].success,
       }),
       payload: {
         data,
@@ -55,7 +55,7 @@ export const getMutation = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.failure,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].failure,
       }),
       payload: {
         createdKey,

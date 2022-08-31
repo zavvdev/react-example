@@ -4,7 +4,7 @@ import {
 import { getInvalidate } from "packages/redux-saga-fetched/modules/invalidate";
 import { createActionType, createKey } from "packages/redux-saga-fetched/utils";
 import {
-  DEFAULT_QUERY_OPTIONS,
+  DEFAULT_QUERY_OPTIONS, EFFECT_TYPES,
 } from "packages/redux-saga-fetched/config";
 
 /*
@@ -41,7 +41,7 @@ export const getQuery = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.request,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].request,
       }),
       payload: {
         createdKey,
@@ -51,7 +51,7 @@ export const getQuery = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.success,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].success,
       }),
       payload: {
         data,
@@ -69,7 +69,7 @@ export const getQuery = (
     yield put({
       type: createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.failure,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].failure,
       }),
       payload: {
         createdKey,

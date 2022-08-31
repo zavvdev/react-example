@@ -1,10 +1,17 @@
 import {
-  createFailureState,
-  createInvalidateState,
-  createRequestState,
-  createResetState,
-  createSuccessState,
-} from "packages/redux-saga-fetched/utils";
+  createQueryFailureState,
+  createQueryInvalidateState,
+  createQueryRequestState,
+  createQueryResetState,
+  createQuerySuccessState,
+} from "packages/redux-saga-fetched/utils/query";
+import {
+  createMutationFailureState,
+  createMutationRequestState,
+  createMutationResetState,
+  createMutationSuccessState,
+} from "packages/redux-saga-fetched/utils/mutation";
+import { EFFECT_TYPES } from "packages/redux-saga-fetched/config";
 
 export const getReducer = ({ actionTypePatterns }) => (
   state = {},
@@ -18,35 +25,65 @@ export const getReducer = ({ actionTypePatterns }) => (
 ) => {
   const { type, payload } = action;
 
-  if (type.includes(actionTypePatterns.request)) {
+  // Query
+
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.query].request)) {
     return {
       ...state,
-      [payload.createdKey]: createRequestState({ state, payload }),
+      [payload.createdKey]: createQueryRequestState({ state, payload }),
     };
   }
-  if (type.includes(actionTypePatterns.success)) {
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.query].success)) {
     return {
       ...state,
-      [payload.createdKey]: createSuccessState({ payload }),
+      [payload.createdKey]: createQuerySuccessState({ payload }),
     };
   }
-  if (type.includes(actionTypePatterns.failure)) {
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.query].failure)) {
     return {
       ...state,
-      [payload.createdKey]: createFailureState({ state, payload }),
+      [payload.createdKey]: createQueryFailureState({ state, payload }),
     };
   }
-  if (type.includes(actionTypePatterns.invalidate)) {
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.query].invalidate)) {
     return {
       ...state,
-      [payload.createdKey]: createInvalidateState({ state, payload }),
+      [payload.createdKey]: createQueryInvalidateState({ state, payload }),
     };
   }
-  if (type.includes(actionTypePatterns.reset)) {
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.query].reset)) {
     return {
       ...state,
-      [payload.createdKey]: createResetState(),
+      [payload.createdKey]: createQueryResetState(),
     };
   }
+
+  // Mutation
+
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.mutation].request)) {
+    return {
+      ...state,
+      [payload.createdKey]: createMutationRequestState({ state, payload }),
+    };
+  }
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.mutation].success)) {
+    return {
+      ...state,
+      [payload.createdKey]: createMutationSuccessState({ payload }),
+    };
+  }
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.mutation].failure)) {
+    return {
+      ...state,
+      [payload.createdKey]: createMutationFailureState({ state, payload }),
+    };
+  }
+  if (type.includes(actionTypePatterns[EFFECT_TYPES.mutation].reset)) {
+    return {
+      ...state,
+      [payload.createdKey]: createMutationResetState(),
+    };
+  }
+
   return state;
 };

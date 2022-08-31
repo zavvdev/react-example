@@ -1,20 +1,6 @@
-import { ACTION_TYPES, DATA_STATUS_TYPES } from "packages/redux-saga-fetched/config";
+import { DATA_STATUS_TYPES, EFFECT_TYPES } from "packages/redux-saga-fetched/config";
 
-export const createActionType = ({ createdKey, actionTypePattern }) => {
-  return `${createdKey}_${actionTypePattern}`;
-};
-
-export const createKey = (key) => key.join("_");
-
-export const createActionTypePatterns = (domain) => ({
-  request: `${domain}@${ACTION_TYPES.request}`,
-  success: `${domain}@${ACTION_TYPES.success}`,
-  failure: `${domain}@${ACTION_TYPES.failure}`,
-  invalidate: `${domain}@${ACTION_TYPES.invalidate}`,
-  reset: `${domain}@${ACTION_TYPES.reset}`,
-});
-
-export const createState = ({
+export const createQueryState = ({
   isLoading,
   isFetching,
   isLoaded,
@@ -23,6 +9,7 @@ export const createState = ({
   status,
   data,
 }) => ({
+  type: EFFECT_TYPES.query,
   isLoading,
   isFetching,
   isLoaded,
@@ -32,7 +19,7 @@ export const createState = ({
   data,
 });
 
-export const createResetState = () => createState({
+export const createQueryResetState = () => createQueryState({
   isLoading: false,
   isFetching: false,
   isLoaded: false,
@@ -42,10 +29,10 @@ export const createResetState = () => createState({
   data: null,
 });
 
-export const createRequestState = ({ state, payload }) => {
+export const createQueryRequestState = ({ state, payload }) => {
   const isLoading = !state[payload.createdKey]?.data;
   const isFetching = !!state[payload.createdKey]?.data;
-  return createState({
+  return createQueryState({
     isLoading,
     isFetching,
     isLoaded: false,
@@ -56,7 +43,7 @@ export const createRequestState = ({ state, payload }) => {
   });
 };
 
-export const createSuccessState = ({ payload }) => createState({
+export const createQuerySuccessState = ({ payload }) => createQueryState({
   isLoading: false,
   isFetching: false,
   isLoaded: true,
@@ -66,7 +53,9 @@ export const createSuccessState = ({ payload }) => createState({
   data: payload.data,
 });
 
-export const createFailureState = ({ state, payload }) => createState({
+export const createQueryFailureState = (
+  { state, payload },
+) => createQueryState({
   isLoading: false,
   isFetching: false,
   isLoaded: false,
@@ -76,7 +65,9 @@ export const createFailureState = ({ state, payload }) => createState({
   data: state[payload.createdKey]?.data || null,
 });
 
-export const createInvalidateState = ({ state, payload }) => createState({
+export const createQueryInvalidateState = (
+  { state, payload },
+) => createQueryState({
   isLoading: state[payload.createdKey]?.isLoading,
   isFetching: state[payload.createdKey]?.isFetching,
   isLoaded: state[payload.createdKey]?.isLoaded,

@@ -1,5 +1,9 @@
-import { createActionType, createActionTypePatterns, createKey } from "packages/redux-saga-fetched/utils";
-import { ACTION_TYPES } from "packages/redux-saga-fetched/config";
+import {
+  createActionType,
+  createActionTypePatterns,
+  createKey,
+} from "packages/redux-saga-fetched/utils";
+import { ACTION_TYPES, EFFECT_TYPES } from "packages/redux-saga-fetched/config";
 
 export const getCreateActionTypeFromKey = ({
   domain,
@@ -7,25 +11,55 @@ export const getCreateActionTypeFromKey = ({
   const createdKey = createKey(key);
   const actionTypePatterns = createActionTypePatterns(domain);
   switch (actionType) {
-    case ACTION_TYPES.request:
+    // Query
+
+    case ACTION_TYPES[EFFECT_TYPES.query].request:
       return createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.request,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].request,
       });
-    case ACTION_TYPES.success:
+    case ACTION_TYPES[EFFECT_TYPES.query].success:
       return createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.success,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].success,
       });
-    case ACTION_TYPES.failure:
+    case ACTION_TYPES[EFFECT_TYPES.query].failure:
       return createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.failure,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].failure,
       });
-    case ACTION_TYPES.invalidate:
+    case ACTION_TYPES[EFFECT_TYPES.query].invalidate:
       return createActionType({
         createdKey,
-        actionTypePattern: actionTypePatterns.invalidate,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].invalidate,
+      });
+    case ACTION_TYPES[EFFECT_TYPES.query].reset:
+      return createActionType({
+        createdKey,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.query].reset,
+      });
+
+      // Mutation
+
+    case ACTION_TYPES[EFFECT_TYPES.mutation].request:
+      return createActionType({
+        createdKey,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].request,
+      });
+    case ACTION_TYPES[EFFECT_TYPES.mutation].success:
+      return createActionType({
+        createdKey,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].success,
+      });
+    case ACTION_TYPES[EFFECT_TYPES.mutation].failure:
+      return createActionType({
+        createdKey,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].failure,
+      });
+    case ACTION_TYPES[EFFECT_TYPES.mutation].reset:
+      return createActionType({
+        createdKey,
+        actionTypePattern: actionTypePatterns[EFFECT_TYPES.mutation].reset,
       });
     default:
       return null;

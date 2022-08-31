@@ -8,9 +8,6 @@ import { createActionTypePatterns } from "packages/redux-saga-fetched/utils";
 import { getCreateActionTypeFromKey } from "packages/redux-saga-fetched/modules/createActionTypeFromKey";
 import { getReset } from "packages/redux-saga-fetched/modules/reset";
 
-/* TODO: Create separate states for query and mutation.
-Mutation should not consist isFetching and isValid states
-*/
 export const init = ({
   domain,
 }) => {
