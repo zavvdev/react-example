@@ -1,16 +1,21 @@
 import {
   call,
-  takeLatest,
+  put,
+  takeLeading,
 } from "redux-saga/effects";
 import { http } from "core/api/http";
 import { HTTP_API_ENDPOINTS } from "core/config/http";
 import { apiMutation, apiQuery } from "core/store/api";
 import { USERS_API_ACTION_TYPES, USERS_API_KEYS } from "core/store/api/users/config";
+import { usersApiActions } from "core/store/api/users/actions";
 
-function* getAll() {
+function* getAll({ payload }) {
   yield call(apiQuery, {
     key: [USERS_API_KEYS.getAll],
     fn: () => http.get(HTTP_API_ENDPOINTS.users.getAll()),
+    options: {
+      useCache: !payload?.refetch,
+    },
   });
 }
 
@@ -30,15 +35,15 @@ function* postOne(action) {
       ],
     },
   });
-  yield call(getAll);
+  yield put(usersApiActions.getAll());
 }
 
 export function* usersApiMiddleware() {
-  yield takeLatest(
+  yield takeLeading(
     USERS_API_ACTION_TYPES.getAll,
     getAll,
   );
-  yield takeLatest(
+  yield takeLeading(
     USERS_API_ACTION_TYPES.postOne,
     postOne,
   );
