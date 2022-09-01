@@ -21,7 +21,10 @@ export const getMutation = (
 }) {
   const invalidate = getInvalidate({ actionTypePatterns, domain });
   const createdKey = createKey(key);
-  const { invalidateKeys } = options || DEFAULT_MUTATION_OPTIONS;
+  const { invalidateKeys } = {
+    ...DEFAULT_MUTATION_OPTIONS,
+    ...(options || {}),
+  };
   try {
     yield put({
       type: createActionType({

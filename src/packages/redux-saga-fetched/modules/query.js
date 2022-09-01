@@ -1,5 +1,5 @@
 import {
-  call, delay, fork, put, select,
+  call, delay, put, select, spawn,
 } from "redux-saga/effects";
 import { getInvalidate } from "packages/redux-saga-fetched/modules/invalidate";
 import { createActionType, createKey } from "packages/redux-saga-fetched/utils";
@@ -28,7 +28,10 @@ export const getQuery = (
 }) {
   const invalidate = getInvalidate({ actionTypePatterns, domain });
 
-  const { useCache, invalidateInterval } = options || DEFAULT_QUERY_OPTIONS;
+  const { useCache, invalidateInterval } = {
+    ...DEFAULT_QUERY_OPTIONS,
+    ...(options || {}),
+  };
   const createdKey = createKey(key);
 
   try {
@@ -59,7 +62,7 @@ export const getQuery = (
       },
     });
     if (invalidateInterval) {
-      yield fork(delayedInvalidate, {
+      yield spawn(delayedInvalidate, {
         key,
         invalidateFn: invalidate,
         ms: invalidateInterval,

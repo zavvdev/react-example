@@ -7,10 +7,10 @@ export const getInvalidate = ({
   domain,
 }) => function* invalidate(key) {
   const createdKey = createKey(key);
-  const isAlreadyInvalidated = yield select(
-    (store) => store?.[domain]?.[createKey]?.isValid,
+  const isNotInvalidated = yield select(
+    (store) => store?.[domain]?.[createdKey]?.isValid === true,
   );
-  if (!isAlreadyInvalidated) {
+  if (isNotInvalidated) {
     yield put({
       type: createActionType({
         createdKey,

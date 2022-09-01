@@ -16,15 +16,15 @@ export const getReset = (
   { actionTypePatterns, domain },
 ) => function* reset(key) {
   const createdKey = createKey(key);
-  const isAlreadyReset = yield select(
+  const isNotReset = yield select(
     (store) => {
-      return store?.[domain]?.[createdKey]?.status === DATA_STATUS_TYPES.reset;
+      return store?.[domain]?.[createdKey]?.status !== DATA_STATUS_TYPES.reset;
     },
   );
   const effectType = yield select(
     (store) => store?.[domain]?.[createdKey]?.type,
   );
-  if (!isAlreadyReset) {
+  if (isNotReset) {
     yield put({
       type: createActionType({
         createdKey,
