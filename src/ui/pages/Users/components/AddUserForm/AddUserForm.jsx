@@ -1,9 +1,7 @@
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { usersApiActions } from "core/store/api/users/actions";
-import { selectUsersApiPostOneIsLoaded, selectUsersApiPostOneIsLoading } from "core/store/api/users/selectors";
+import { usePostOneUserMutation } from "core/store/api/users/api";
 import { Button } from "ui/components/Button/Button";
 import { Input } from "ui/components/Input/Input";
 import { useAddUserFormStyles } from "ui/pages/Users/components/AddUserForm/AddUserForm.styles";
@@ -17,11 +15,11 @@ import { NAMESPACES } from "ui/i18n/config";
 export function AddUserForm() {
   const { t } = useTranslation([NAMESPACES.users, NAMESPACES.common]);
   const classes = useAddUserFormStyles();
-  const dispatch = useDispatch();
 
-  const isPosting = useSelector(selectUsersApiPostOneIsLoading);
-  const isPosted = useSelector(selectUsersApiPostOneIsLoaded);
-  // const isError = useSelector(selectUsersApiPostOneIsError);
+  const [postUser, {
+    isLoading,
+    isSuccess,
+  }] = usePostOneUserMutation();
 
   const {
     values,
@@ -37,12 +35,12 @@ export function AddUserForm() {
     initialValues: FORM_INITIAL_VALUES,
     enableReinitialize: true,
     onSubmit: () => {
-      dispatch(usersApiActions.postOne({
+      postUser({
         name: values[FORM_FIELD_TYPES.name],
         email: values[FORM_FIELD_TYPES.email],
         company: values[FORM_FIELD_TYPES.company],
         role: values[FORM_FIELD_TYPES.role],
-      }));
+      });
     },
   });
 
@@ -56,10 +54,10 @@ export function AddUserForm() {
   };
 
   useEffect(() => {
-    if (isPosted) {
+    if (isSuccess) {
       resetForm();
     }
-  }, [isPosted, resetForm]);
+  }, [isSuccess, resetForm]);
 
   return (
     <div className={classes.root}>
@@ -103,10 +101,10 @@ export function AddUserForm() {
       <Button
         fullWidth
         type="submit"
-        disabled={!isValid || isPosting}
+        disabled={!isValid || isLoading}
         onClick={handleSubmit}
       >
-        {isPosting
+        {isLoading
           ? t(`${NAMESPACES.common}:labels.loading`)
           : t("form.submit")}
       </Button>

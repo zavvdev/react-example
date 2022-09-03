@@ -1,11 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { themeReducer } from "core/store/theme/reducer";
-import { THEME_DOMAIN } from "core/store/theme/config";
-import { apiReducer } from "core/store/api";
-import { API_DOMAIN } from "core/store/api/config";
+import { THEME_DOMAIN, themeReducer } from "core/store/theme/slice";
+import { HTTP_API_DOMAIN, httpApi } from "core/store/api/http";
 
 const rootReducer = combineReducers({
-  [API_DOMAIN]: apiReducer,
+  [HTTP_API_DOMAIN]: httpApi.reducer,
   [THEME_DOMAIN]: themeReducer,
 });
 

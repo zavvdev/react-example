@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { APP_LANGUAGES } from "core/config/i18n";
-import { themeActions } from "core/store/theme/actions";
+import { toggleDarkMode } from "core/store/theme/slice";
 import { selectIsDarkMode } from "core/store/theme/selectors";
 import { NAMESPACES } from "ui/i18n/config";
 import { ThemeSwitch } from "ui/components/ThemeSwitch/ThemeSwitch";
@@ -22,7 +22,7 @@ export function Actions() {
   };
 
   const handleThemeToggle = () => {
-    dispatch(themeActions.toggleDarkMode());
+    dispatch(toggleDarkMode());
   };
 
   return (

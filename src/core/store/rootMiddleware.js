@@ -1,8 +1,12 @@
+import { createListenerMiddleware } from "@reduxjs/toolkit";
 import { themeMiddleware } from "core/store/theme/middleware";
-import { combineMiddleware } from "core/store/utils";
-import { usersApiMiddleware } from "core/store/api/users/middleware";
 
-export const rootMiddleware = combineMiddleware([
-  usersApiMiddleware,
+export const rootMiddleware = createListenerMiddleware();
+
+const middlewareList = [
   themeMiddleware,
-]);
+];
+
+middlewareList.forEach((middleware) => {
+  rootMiddleware.startListening(middleware);
+});

@@ -1,11 +1,9 @@
 import {
   configureStore as createStore,
 } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
 import { rootReducer } from "core/store/rootReducer";
+import { httpApi } from "core/store/api/http";
 import { rootMiddleware } from "core/store/rootMiddleware";
-
-const middleware = createSagaMiddleware();
 
 const configureStore = (args = {}) => {
   const { initialState = {} } = args;
@@ -13,14 +11,13 @@ const configureStore = (args = {}) => {
     reducer: rootReducer,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware({
-        thunk: false,
-      }).concat(middleware);
+      return getDefaultMiddleware()
+        .prepend(rootMiddleware.middleware)
+        .concat(httpApi.middleware);
     },
   });
 };
 
 const store = configureStore();
-middleware.run(rootMiddleware);
 
 export { store, configureStore };

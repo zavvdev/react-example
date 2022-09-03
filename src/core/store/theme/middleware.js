@@ -1,13 +1,12 @@
-import { select, takeLatest } from "redux-saga/effects";
-import { THEME_ACTION_TYPES } from "core/store/theme/config";
+import { toggleDarkMode } from "core/store/theme/slice";
 import { selectIsDarkMode } from "core/store/theme/selectors";
 import { themeService } from "core/store/theme/service";
 
-function* toggleDarkMode() {
-  const isDarkMode = yield select(selectIsDarkMode);
-  themeService.saveDarkModeState(isDarkMode);
-}
-
-export function* themeMiddleware() {
-  yield takeLatest(THEME_ACTION_TYPES.toggleDarkMode, toggleDarkMode);
-}
+// TODO: listenerMiddleware types are not enhanced
+export const themeMiddleware = ({
+  actionCreator: toggleDarkMode,
+  effect: (_, listenerApi) => {
+    const isDarkMode = selectIsDarkMode(listenerApi.getOriginalState());
+    themeService.saveDarkModeState(!isDarkMode);
+  },
+});
