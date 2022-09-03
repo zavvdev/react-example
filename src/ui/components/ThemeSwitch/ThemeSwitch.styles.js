@@ -28,6 +28,7 @@ export const useThemeSwitchStyles = createUseStyles((theme) => ({
 
     "& svg": {
       color: theme.palette.white.main,
+      width: "17px",
     },
   },
   switcherDark: {

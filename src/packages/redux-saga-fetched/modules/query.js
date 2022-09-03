@@ -17,6 +17,7 @@ import {
 */
 
 function* delayedInvalidate({ key, invalidateFn, ms }) {
+  yield Promise.resolve();
   yield delay(ms);
   yield call(invalidateFn, key);
 }
@@ -26,15 +27,16 @@ export const getQuery = (
 ) => function* query({
   key, fn, options,
 }) {
-  const invalidate = getInvalidate({ actionTypePatterns, domain });
-
-  const { useCache, invalidateInterval } = {
-    ...DEFAULT_QUERY_OPTIONS,
-    ...(options || {}),
-  };
   const createdKey = createKey(key);
 
   try {
+    const invalidate = getInvalidate({ actionTypePatterns, domain });
+
+    const { useCache, invalidateInterval } = {
+      ...DEFAULT_QUERY_OPTIONS,
+      ...(options || {}),
+    };
+
     const isValid = yield select((store) => {
       return store?.[domain]?.[createdKey]?.isValid;
     });
