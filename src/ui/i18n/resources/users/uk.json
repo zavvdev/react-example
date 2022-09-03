@@ -1,5 +1,10 @@
 {
   "form": {
     "submit": "Додати"
+  },
+  "userTile": {
+    "delete": "Видалити",
+    "deleting": "Видалення..",
+    "deleteConfirm": "Видалити цього користувача?"
   }
 }

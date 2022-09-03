@@ -1,6 +1,9 @@
-import { httpApi } from "core/store/api/http";
+import { httpApi } from "core/store/httpApi";
 import { HTTP_API_ENDPOINTS, HTTP_METHODS } from "core/config/http";
-import { USERS_API_TAGS } from "core/store/api/users/config";
+
+export const USERS_API_TAGS = {
+  getAll: "getAllUsers",
+};
 
 export const usersApi = httpApi.injectEndpoints({
   endpoints: (build) => ({
@@ -25,10 +28,22 @@ export const usersApi = httpApi.injectEndpoints({
       },
       invalidatesTags: [USERS_API_TAGS.getAll],
     }),
+    deleteOneUserById: build.mutation({
+      query({
+        userId,
+      }) {
+        return {
+          url: HTTP_API_ENDPOINTS.users.deleteOneById(userId),
+          method: HTTP_METHODS.delete,
+        };
+      },
+      invalidatesTags: [USERS_API_TAGS.getAll],
+    }),
   }),
 });
 
 export const {
   useGetAllUsersQuery,
   usePostOneUserMutation,
+  useDeleteOneUserByIdMutation,
 } = usersApi;

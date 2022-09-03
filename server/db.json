@@ -55,34 +55,6 @@
       "email": "billrobinson@yahoo.com",
       "company": "Apple",
       "role": "QA Engineer"
-    },
-    {
-      "name": "Igor",
-      "email": "jad@gmail.com",
-      "company": "Onix",
-      "role": "FD",
-      "id": 9
-    },
-    {
-      "name": "Igor",
-      "email": "jad@gmail.com",
-      "company": "Onix",
-      "role": "FD",
-      "id": 10
-    },
-    {
-      "name": "Igor",
-      "email": "jad@gmail.com",
-      "company": "Onix",
-      "role": "FD",
-      "id": 11
-    },
-    {
-      "name": "Igor",
-      "email": "jad@gmail.com",
-      "company": "Onix",
-      "role": "FD",
-      "id": 12
     }
   ]
 }

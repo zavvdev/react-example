@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
-import { usePostOneUserMutation } from "core/store/api/users/api";
+import { usePostOneUserMutation } from "core/store/api/users";
 import { Button } from "ui/components/Button/Button";
 import { Input } from "ui/components/Input/Input";
 import { useAddUserFormStyles } from "ui/pages/Users/components/AddUserForm/AddUserForm.styles";
@@ -19,6 +19,7 @@ export function AddUserForm() {
   const [postUser, {
     isLoading,
     isSuccess,
+    isError,
   }] = usePostOneUserMutation();
 
   const {
@@ -58,6 +59,13 @@ export function AddUserForm() {
       resetForm();
     }
   }, [isSuccess, resetForm]);
+
+  useEffect(() => {
+    if (isError) {
+      // eslint-disable-next-line no-alert
+      alert(t(`${NAMESPACES.common}:errors.unexpected`));
+    }
+  }, [isError, t]);
 
   return (
     <div className={classes.root}>

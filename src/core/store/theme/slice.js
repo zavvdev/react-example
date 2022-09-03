@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { themeService } from "core/store/theme/service";
+import { getDarkModeState } from "core/store/theme/utils";
 
 export const THEME_DOMAIN = "theme";
 
 const initialThemeState = {
-  isDarkMode: themeService.getDarkModeState(),
+  isDarkMode: getDarkModeState(),
 };
 
 const themeSlice = createSlice({

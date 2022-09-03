@@ -3,10 +3,4 @@ import { themeMiddleware } from "core/store/theme/middleware";
 
 export const rootMiddleware = createListenerMiddleware();
 
-const middlewareList = [
-  themeMiddleware,
-];
-
-middlewareList.forEach((middleware) => {
-  rootMiddleware.startListening(middleware);
-});
+[themeMiddleware].forEach(rootMiddleware.startListening);

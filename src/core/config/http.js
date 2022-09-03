@@ -12,5 +12,6 @@ export const HTTP_API_ENDPOINTS = {
   users: {
     getAll: () => "/users",
     postOne: () => "/users",
+    deleteOneById: (userId) => `/users/${userId}`,
   },
 };

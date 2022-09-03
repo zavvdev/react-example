@@ -2,7 +2,7 @@ import {
   configureStore as createStore,
 } from "@reduxjs/toolkit";
 import { rootReducer } from "core/store/rootReducer";
-import { httpApi } from "core/store/api/http";
+import { httpApi } from "core/store/httpApi";
 import { rootMiddleware } from "core/store/rootMiddleware";
 
 const configureStore = (args = {}) => {
