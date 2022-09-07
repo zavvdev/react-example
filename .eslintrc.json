@@ -21,89 +21,128 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx"],
-        "moduleDirectory": ["node_modules", "src"]
+        "extensions": [
+          ".js",
+          ".jsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src"
+        ]
       }
     }
   },
   "overrides": [
     {
-      "files": ["./src/core/store/**/*"],
+      "files": [
+        "./src/core/store/**/*"
+      ],
       "rules": {
-        "no-param-reassign": ["error", {
-          "props": true,
-          "ignorePropertyModificationsFor": ["state"]
-        }]
+        "no-param-reassign": [
+          "error",
+          {
+            "props": true,
+            "ignorePropertyModificationsFor": [
+              "state"
+            ]
+          }
+        ]
       }
     },
     {
-      "files": ["./src/core/**/*"],
+      "files": [
+        "./src/core/**/*"
+      ],
       "rules": {
-        "no-restricted-imports": ["error", {
-          "patterns": [
-            {
-              "group": [".*"],
-              "message": "Relative imports prohibited. Use absolute path."
-            },
-            {
-              "group": ["ui/**/*"],
-              "message": "Imports from ui prohibited. Core should not depend on ui."
-            }
-          ]
-        }]
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  ".*"
+                ],
+                "message": "Relative imports prohibited. Use absolute path."
+              },
+              {
+                "group": [
+                  "ui/**/*"
+                ],
+                "message": "Imports from ui prohibited. Core should not depend on ui."
+              }
+            ]
+          }
+        ]
       }
     }
   ],
   "rules": {
-    "sort-imports": ["error", {
-      "ignoreCase": true,
-      "ignoreDeclarationSort": true
-    }],
-    "import/order": ["error", {
-      "groups": [
-        "builtin",
-        "external", 
-        "type",
-        "internal"
-      ],
-      "pathGroups": [
-        { 
-          "pattern": "core/**", 
-          "group": "internal",
-          "position": "before"
-        }, 
-        { 
-          "pattern": "packages/**", 
-          "group": "internal",
-          "position": "before"
-        }, 
-        { 
-          "pattern": "ui/**", 
-          "group": "internal",
-          "position": "before"
-        }
-      ]
-    }],
-    "quotes": ["error", "double"],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "type",
+          "internal"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "core/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "ui/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
     "arrow-body-style": "off",
-    "react/function-component-definition": [2, {
-      "namedComponents": "function-declaration"
-    }],
-    "max-len": [2, {
-      "code": 80,
-      "ignorePattern": "^import"
-    }],
-    "no-restricted-imports": ["error", {
-      "patterns": [
-        {
-          "group": [".*"],
-          "message": "Relative imports prohibited. Use absolute path."
-        }
-      ]
-    }]
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "function-declaration"
+      }
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 80,
+        "ignorePattern": "^import"
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": [
+              ".*"
+            ],
+            "message": "Relative imports prohibited. Use absolute path."
+          }
+        ]
+      }
+    ]
   },
-  "ignorePatterns": ["build/"]
+  "ignorePatterns": [
+    "build/"
+  ]
 }

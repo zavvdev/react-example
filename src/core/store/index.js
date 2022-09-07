@@ -2,8 +2,9 @@ import {
   configureStore as createStore,
 } from "@reduxjs/toolkit";
 import { rootReducer } from "core/store/rootReducer";
-import { httpApi } from "core/store/httpApi";
-import { rootMiddleware } from "core/store/rootMiddleware";
+import { httpApi } from "core/store/api/http";
+import { listenerMiddleware } from "core/store/listenerMiddleware";
+import "core/store/rootMiddleware";
 
 const configureStore = (args = {}) => {
   const { initialState = {} } = args;
@@ -12,7 +13,7 @@ const configureStore = (args = {}) => {
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware()
-        .prepend(rootMiddleware.middleware)
+        .prepend(listenerMiddleware.middleware)
         .concat(httpApi.middleware);
     },
   });

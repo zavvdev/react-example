@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
-import { APP_DEFAULT_LANGUAGE, APP_LANGUAGES } from "core/config/i18n";
 import { localStorageService } from "core/services/LocalStorageService";
+import { APP_DEFAULT_LANGUAGE, APP_LANGUAGES } from "ui/i18n/config";
 import { resources } from "ui/i18n/resources";
 
 const languageDetector = new LanguageDetector();

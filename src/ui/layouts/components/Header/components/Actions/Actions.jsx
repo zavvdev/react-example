@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { APP_LANGUAGES } from "core/config/i18n";
 import { toggleDarkMode } from "core/store/theme/slice";
 import { selectIsDarkMode } from "core/store/theme/selectors";
-import { NAMESPACES } from "ui/i18n/config";
+import { APP_LANGUAGES, NAMESPACES } from "ui/i18n/config";
 import { ThemeSwitch } from "ui/components/ThemeSwitch/ThemeSwitch";
 import { LanguageSwitch } from "ui/components/LanguageSwitch/LanguageSwitch";
 import { useActionsStyles } from "ui/layouts/components/Header/components/Actions/Actions.styles";

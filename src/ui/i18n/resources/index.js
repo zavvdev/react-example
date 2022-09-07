@@ -1,4 +1,4 @@
-import { APP_LANGUAGES } from "core/config/i18n";
+import { APP_LANGUAGES } from "ui/i18n/config";
 import { en } from "ui/i18n/resources/_en";
 import { uk } from "ui/i18n/resources/_uk";
 

@@ -15,7 +15,11 @@ export function UsersList() {
   const { data: usersData, isLoading, isError } = useGetAllUsersQuery();
   const [
     deleteUser,
-    { isLoading: isDeleting, isSuccess: isDeleted, isError: isDeleteError },
+    {
+      isLoading: isDeleting,
+      isSuccess: isDeleted,
+      isError: isDeleteError,
+    },
   ] = useDeleteOneUserByIdMutation();
 
   const handleDelete = (userId) => {
