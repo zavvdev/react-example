@@ -6,7 +6,8 @@
   "extends": [
     "airbnb",
     "airbnb/hooks",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -32,51 +33,52 @@
       }
     }
   },
-  "overrides": [
-    {
-      "files": [
-        "./src/core/store/**/*"
-      ],
-      "rules": {
-        "no-param-reassign": [
-          "error",
-          {
-            "props": true,
-            "ignorePropertyModificationsFor": [
-              "state"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "./src/core/**/*"
-      ],
-      "rules": {
-        "no-restricted-imports": [
-          "error",
-          {
-            "patterns": [
-              {
-                "group": [
-                  ".*"
-                ],
-                "message": "Relative imports prohibited. Use absolute path."
-              },
-              {
-                "group": [
-                  "ui/**/*"
-                ],
-                "message": "Imports from ui prohibited. Core should not depend on ui."
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ],
+  // "overrides": [
+  //   {
+  //     "files": [
+  //       "./src/core/store/**/*"
+  //     ],
+  //     "rules": {
+  //       "no-param-reassign": [
+  //         "error",
+  //         {
+  //           "props": true,
+  //           "ignorePropertyModificationsFor": [
+  //             "state"
+  //           ]
+  //         }
+  //       ]
+  //     }
+  //   },
+  //   {
+  //     "files": [
+  //       "./src/core/**/*"
+  //     ],
+  //     "rules": {
+  //       "no-restricted-imports": [
+  //         "error",
+  //         {
+  //           "patterns": [
+  //             {
+  //               "group": [
+  //                 ".*"
+  //               ],
+  //               "message": "Relative imports prohibited. Use absolute path."
+  //             },
+  //             {
+  //               "group": [
+  //                 "ui/**/*"
+  //               ],
+  //               "message": "Imports from ui prohibited. Core should not depend on ui."
+  //             }
+  //           ]
+  //         }
+  //       ]
+  //     }
+  //   }
+  // ],
   "rules": {
+    "prettier/prettier": "error",
     "sort-imports": [
       "error",
       {
@@ -84,33 +86,29 @@
         "ignoreDeclarationSort": true
       }
     ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "type",
-          "internal"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "core/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "ui/**",
-            "group": "internal",
-            "position": "before"
-          }
-        ]
-      }
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ],
+    // "import/order": [
+    //   "error",
+    //   {
+    //     "groups": [
+    //       "builtin",
+    //       "external",
+    //       "type",
+    //       "internal"
+    //     ],
+    //     "pathGroups": [
+    //       {
+    //         "pattern": "core/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "ui/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       }
+    //     ]
+    //   }
+    // ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
