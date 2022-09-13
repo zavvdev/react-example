@@ -13,6 +13,6 @@ export const useMainLayoutStyles = createUseStyles((theme) => ({
     paddingBottom: "200px",
   },
   content: {
-    paddingTop: "16px",
+    paddingTop: "36px",
   },
 }));

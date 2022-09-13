@@ -1,7 +1,10 @@
 {
   "appName": "Books-Shmuks",
   "errors": {
-    "unexpected": "Something went wrong. Try again later"
+    "unexpected": "❌ Something went wrong. Try again later"
+  },
+  "labels": {
+    "loading": "👀 Loading.."
   },
   "formValidationErrors": {
     "required": "Required",

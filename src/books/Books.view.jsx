@@ -1,7 +1,31 @@
-import { useBooksStyles } from "books/Books.styles";
+import { Typography } from "app/components/shared/Typography/Typography";
+import { useGetAllBooksQuery } from "books/store/api";
+import { BookItem } from "books/components/containers/BookItem/BookItem";
+import { useTranslation } from "react-i18next";
+import { I18N_NAMESPACES } from "app/i18n/config";
 
 export function BooksView() {
-  const classes = useBooksStyles();
+  const { t } = useTranslation(I18N_NAMESPACES.common);
+  const { data: books, isLoading, isError, isSuccess } = useGetAllBooksQuery();
 
-  return <div className={classes.list}>List</div>;
+  return (
+    <div>
+      {isSuccess &&
+        books.map((book) => (
+          <BookItem
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            date={book.date}
+            price={book.price}
+            cover={book.cover}
+            onAddToCart={() => {}}
+            onRemoveFromCart={() => {}}
+            isInCart={false}
+          />
+        ))}
+      {isLoading && <Typography>{t("labels.loading")}</Typography>}
+      {isError && <Typography>{t("errors.unexpected")}</Typography>}
+    </div>
+  );
 }
