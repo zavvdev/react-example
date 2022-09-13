@@ -3,7 +3,11 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import { localStorageService } from "app/services/LocalStorageService";
 import { APP_DEFAULT_LANGUAGE, APP_LANGUAGES } from "app/i18n/config";
-import { resources } from "app/i18n/resources";
+import { en } from "app/i18n/en";
+
+export const resources = {
+  [APP_LANGUAGES.en]: en,
+};
 
 const languageDetector = new LanguageDetector();
 

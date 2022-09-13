@@ -1,7 +1,7 @@
 import { useAppHeaderStyles } from "app/components/containers/AppHeader/AppHeader.styles";
 import { ThemeSwitch } from "app/components/shared/ThemeSwitch/ThemeSwitch";
 import { Typography } from "app/components/shared/Typography/Typography";
-import { NAMESPACES } from "app/i18n/config";
+import { I18N_NAMESPACES } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
 import { selectIsDarkMode } from "app/store/theme/selectors";
 import { toggleDarkMode } from "app/store/theme/slice";
@@ -13,7 +13,7 @@ export function AppHeader() {
   const dispatch = useDispatch();
   const classes = useAppHeaderStyles();
   const isDarkMode = useSelector(selectIsDarkMode);
-  const { t } = useTranslation(NAMESPACES.common);
+  const { t } = useTranslation(I18N_NAMESPACES.common);
 
   const handleChangeTheme = () => {
     dispatch(toggleDarkMode());

@@ -4,7 +4,6 @@ export const APP_LANGUAGES = {
 
 export const APP_DEFAULT_LANGUAGE = APP_LANGUAGES.en;
 
-export const NAMESPACES = {
+export const I18N_NAMESPACES = {
   common: "common",
-  dashboard: "dashboard",
 };

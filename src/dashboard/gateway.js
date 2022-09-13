@@ -1,4 +1,3 @@
-import { Dashboard as DashboardView } from "dashboard/Dashboard.view";
-import { resources as dashboardI18nResources } from "dashboard/i18n";
+import { DashboardView } from "dashboard/Dashboard.view";
 
-export { DashboardView, dashboardI18nResources };
+export { DashboardView };

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GENERAL_ROUTES } from "app/router/config";
-import { Dashboard } from "app/pages/Dashboard";
+import { DashboardPage } from "app/pages/DashboardPage";
+import { BooksPage } from "app/pages/BooksPage";
 
 export function Router() {
   return (
@@ -8,7 +9,8 @@ export function Router() {
       <Routes>
         {/* General Routes */}
 
-        <Route path={GENERAL_ROUTES.dashboard} element={<Dashboard />} />
+        <Route path={GENERAL_ROUTES.dashboard} element={<DashboardPage />} />
+        <Route path={GENERAL_ROUTES.books} element={<BooksPage />} />
 
         {/* --------- */}
 

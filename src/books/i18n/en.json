@@ -1,0 +1,7 @@
+{
+  "bookItem": {
+    "author": "Author: {{author}}",
+    "addToCard": "Add to cart",
+    "order": "Order now!"
+  }
+}
