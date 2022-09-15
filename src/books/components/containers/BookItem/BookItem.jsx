@@ -1,9 +1,8 @@
-import { Typography } from "app/components/shared/Typography/Typography";
+import { Button, Typography } from "books/gateway/input";
 import PropTypes from "prop-types";
 import { useBookItemStyles } from "books/components/containers/BookItem/BookItem.styles";
 import { useTranslation } from "react-i18next";
 import { BOOKS_I18N_NAMESPACE } from "books/i18n";
-import { Button } from "app/components/shared/Button/Button";
 
 export function BookItem({
   title,

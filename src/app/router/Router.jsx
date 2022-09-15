@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GENERAL_ROUTES } from "app/router/config";
-import { DashboardPage } from "app/pages/DashboardPage";
 import { BooksPage } from "app/pages/BooksPage";
+import { DashboardPage } from "app/pages/DashboardPage";
 
 export function Router() {
   return (

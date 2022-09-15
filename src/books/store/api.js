@@ -1,4 +1,4 @@
-import { httpApi } from "app/store/httpApi";
+import { httpApi } from "books/gateway/input";
 import { BOOKS_HTTP_API_ENDPOINTS } from "books/http/config";
 import { BOOKS_API_TAGS } from "books/store/config";
 

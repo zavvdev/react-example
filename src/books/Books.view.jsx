@@ -1,8 +1,7 @@
-import { Typography } from "app/components/shared/Typography/Typography";
+import { I18N_NAMESPACES, Typography } from "books/gateway/input";
 import { useGetAllBooksQuery } from "books/store/api";
 import { BookItem } from "books/components/containers/BookItem/BookItem";
 import { useTranslation } from "react-i18next";
-import { I18N_NAMESPACES } from "app/i18n/config";
 
 export function BooksView() {
   const { t } = useTranslation(I18N_NAMESPACES.common);

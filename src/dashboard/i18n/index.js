@@ -1,5 +1,4 @@
-import { i18n } from "app/i18n";
-import { APP_LANGUAGES } from "app/i18n/config";
+import { APP_LANGUAGES, i18n } from "dashboard/gateway/input";
 import en from "dashboard/i18n/en.json";
 
 export const DASHBOARD_I18N_NAMESPACE = "dashboard";
