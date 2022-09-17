@@ -135,6 +135,11 @@
             "target": "./src/!(app)/gateway/**/input.js",
             "from": "./src/!(app)/{!(gateway)/**/*,gateway/**/!(output.js),*}",
             "message": "Direct imports from other features prohibited. Import only exposed feature modules from its own output gateway"
+          },
+          {
+            "target": "./src/!(app)/gateway/**/output.js",
+            "from": "./src/!(app)/gateway/**/input.js",
+            "message": "Output gateways cannot import from input gateways"
           }
         ]
       }
