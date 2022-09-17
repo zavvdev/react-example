@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import { selectCartBooks } from "cart/store/selectors";
 import { removeBookFromCart } from "cart/store/slice";
-import { useTranslation } from "react-i18next";
 import { Button, GENERAL_ROUTES, Typography } from "cart/gateway/input";
 import { CartBook } from "cart/components/containers/CartBook/CartBook";
 import { CART_I18N_NAMESPACE } from "cart/i18n";
-import { Link, useNavigate } from "react-router-dom";
 import { useCartStyles } from "cart/Cart.styles";
 
 export function CartView() {

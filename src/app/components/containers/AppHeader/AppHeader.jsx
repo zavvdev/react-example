@@ -1,3 +1,6 @@
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { useAppHeaderStyles } from "app/components/containers/AppHeader/AppHeader.styles";
 import { ThemeSwitch } from "app/components/shared/ThemeSwitch/ThemeSwitch";
 import { Typography } from "app/components/shared/Typography/Typography";
@@ -6,9 +9,6 @@ import { GENERAL_ROUTES } from "app/router/config";
 import { selectIsDarkMode } from "app/store/theme/selectors";
 import { toggleDarkMode } from "app/store/theme/slice";
 import { selectCartBooksLength } from "cart/gateway/output";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 export function AppHeader() {
   const dispatch = useDispatch();

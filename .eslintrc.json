@@ -60,103 +60,27 @@
         "ignoreDeclarationSort": true
       }
     ],
-    // "import/order": [
-    //   "error",
-    //   {
-    //     "groups": [
-    //       "builtin",
-    //       "external",
-    //       "type",
-    //       "internal"
-    //     ],
-    //     "pathGroups": [
-    //       {
-    //         "pattern": "**/*/assets/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/components/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/config/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/gateway/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/hooks/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/http/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/i18n/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/layouts/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/pages/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/propTypes/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/providers/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/router/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/services/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/store/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/styles/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       },
-    //       {
-    //         "pattern": "**/*/utils/**",
-    //         "group": "internal",
-    //         "position": "before"
-    //       }
-    //     ]
-    //   }
-    // ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "type",
+          "internal"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "app/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
-    "arrow-body-style": "off",
     "react/function-component-definition": [
       2,
       {

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 import { BookItem } from "books/components/containers/BookItem/BookItem";
 import {
   addBookToCart,
@@ -8,7 +9,6 @@ import {
   Typography,
 } from "books/gateway/input";
 import { useGetAllBooksQuery } from "books/store/api";
-import { useDispatch, useSelector } from "react-redux";
 
 export function BooksView() {
   const dispatch = useDispatch();

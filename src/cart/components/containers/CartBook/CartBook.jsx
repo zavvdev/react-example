@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { useCartBookStyles } from "cart/components/containers/CartBook/CartBook.styles";
 import { Typography } from "cart/gateway/input";
-import { useTranslation } from "react-i18next";
 import { CART_I18N_NAMESPACE } from "cart/i18n";
 
 export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
