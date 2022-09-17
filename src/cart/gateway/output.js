@@ -3,6 +3,7 @@ import { CART_STORE_DOMAIN } from "cart/store/config";
 import {
   addBookToCart,
   cartReducer,
+  clearBooksCart,
   removeBookFromCart,
 } from "cart/store/slice";
 import { selectCartBooks, selectCartBooksLength } from "cart/store/selectors";
@@ -15,4 +16,5 @@ export {
   selectCartBooks,
   addBookToCart,
   removeBookFromCart,
+  clearBooksCart,
 };

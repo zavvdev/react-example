@@ -18,8 +18,12 @@ const cartSlice = createSlice({
       );
       state.books = nextBooks;
     },
+    clearBooksCart(state) {
+      state.books = [];
+    },
   },
 });
 
-export const { addBookToCart, removeBookFromCart } = cartSlice.actions;
+export const { addBookToCart, removeBookFromCart, clearBooksCart } =
+  cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

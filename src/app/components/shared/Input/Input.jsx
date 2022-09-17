@@ -3,6 +3,7 @@ import cx from "clsx";
 import { useInputStyles } from "app/components/shared/Input/Input.styles";
 
 export function Input({
+  type,
   name,
   placeholder,
   className,
@@ -23,6 +24,7 @@ export function Input({
   return (
     <div>
       <input
+        type={type}
         name={name}
         placeholder={placeholder}
         className={inputClasses}
@@ -36,6 +38,7 @@ export function Input({
 }
 
 Input.propTypes = {
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
