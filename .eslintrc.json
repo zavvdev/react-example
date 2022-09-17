@@ -114,12 +114,22 @@
           {
             "target": "./src/!(app)/{!(gateway)/**/*,gateway/**/!(input.js),*}",
             "from": "./src/app/**/*",
-            "message": "Direct imports from 'app' to feature prohibited. Accept all incoming modules in the 'gateway/input.js' file"
+            "message": "Direct imports from 'app' to feature prohibited. Import all incoming modules in the 'gateway/input.js' file"
           },
           {
             "target": "./src/app/**/*",
             "from": "./src/!(app)/{!(gateway)/**/*,gateway/**/!(output.js),*}",
-            "message": "Direct imports from feature to 'app' prohibited. Consume all incoming modules from the 'gateway/output.js' file"
+            "message": "Direct imports from feature to 'app' prohibited. Import all exposed feature modules from the 'gateway/output.js' file"
+          },
+          {
+            "target": "./src/!(app)/gateway/**/input.js",
+            "from": "./src/!(app)/gateway/**/input.js",
+            "message": "Input gateways should only consume modules from gateway outputs of the other features"
+          },
+          {
+            "target": "./src/!(app)/gateway/**/output.js",
+            "from": "./src/!(app)/gateway/**/output.js",
+            "message": "Output gateways should only expose modules from its own feature"
           }
         ]
       }
