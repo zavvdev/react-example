@@ -1,9 +1,11 @@
 import { createUseStyles } from "react-jss";
 
-export const useBookItemStyles = createUseStyles({
+export const useBookItemStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
-    marginBottom: "36px",
+    marginBottom: "26px",
+    paddingBottom: "16px",
+    borderBottom: `1px solid ${theme.borderColor}`,
     "@media screen and (max-width: 500px)": {
       display: "block",
     },
@@ -28,4 +30,4 @@ export const useBookItemStyles = createUseStyles({
   addToCartBtn: {
     marginTop: "16px",
   },
-});
+}));

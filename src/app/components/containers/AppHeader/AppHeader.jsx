@@ -30,7 +30,7 @@ export function AppHeader() {
         <Typography tag="span">{t("appName")}</Typography>
       </Link>
       <div className={classes.side}>
-        <Typography>
+        <Typography tag="div">
           <Link className={classes.cart} to={GENERAL_ROUTES.cart}>
             {t("appHeader.cart", {
               count: cartBooksLength,

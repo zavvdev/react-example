@@ -12,13 +12,16 @@ export const useCartBookStyles = createUseStyles((theme) => ({
   inner: {
     display: "flex",
     alignItems: "center",
-    "@media screen and (max-width: 450px)": {
+    "@media screen and (max-width: 500px)": {
       display: "block",
     },
   },
   cover: {
     height: "90px",
     marginRight: "16px",
+    "@media screen and (max-width: 500px)": {
+      marginBottom: "8px",
+    },
   },
   title: {
     fontSize: "15px",
