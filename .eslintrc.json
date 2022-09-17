@@ -33,50 +33,24 @@
       }
     }
   },
-  // "overrides": [
-  //   {
-  //     "files": [
-  //       "./src/core/store/**/*"
-  //     ],
-  //     "rules": {
-  //       "no-param-reassign": [
-  //         "error",
-  //         {
-  //           "props": true,
-  //           "ignorePropertyModificationsFor": [
-  //             "state"
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //   },
-  //   {
-  //     "files": [
-  //       "./src/core/**/*"
-  //     ],
-  //     "rules": {
-  //       "no-restricted-imports": [
-  //         "error",
-  //         {
-  //           "patterns": [
-  //             {
-  //               "group": [
-  //                 ".*"
-  //               ],
-  //               "message": "Relative imports prohibited. Use absolute path."
-  //             },
-  //             {
-  //               "group": [
-  //                 "ui/**/*"
-  //               ],
-  //               "message": "Imports from ui prohibited. Core should not depend on ui."
-  //             }
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //   }
-  // ],
+  "overrides": [
+    {
+      "files": [
+        "**/*/store/**/*"
+      ],
+      "rules": {
+        "no-param-reassign": [
+          "error",
+          {
+            "props": true,
+            "ignorePropertyModificationsFor": [
+              "state"
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "rules": {
     "prettier/prettier": "error",
     "sort-imports": [
@@ -97,12 +71,82 @@
     //     ],
     //     "pathGroups": [
     //       {
-    //         "pattern": "core/**",
+    //         "pattern": "**/*/assets/**",
     //         "group": "internal",
     //         "position": "before"
     //       },
     //       {
-    //         "pattern": "ui/**",
+    //         "pattern": "**/*/components/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/config/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/gateway/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/hooks/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/http/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/i18n/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/layouts/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/pages/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/propTypes/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/providers/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/router/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/services/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/store/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/styles/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "**/*/utils/**",
     //         "group": "internal",
     //         "position": "before"
     //       }

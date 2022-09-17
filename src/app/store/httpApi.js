@@ -1,7 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { HTTP_ENDPOINT } from "app/http/config";
-import { http } from "app/http";
 import { errorTrackingService } from "app/services/ErrorTrackingService";
+import { http } from "app/http";
 
 export const HTTP_API_DOMAIN = "httpApi";
 

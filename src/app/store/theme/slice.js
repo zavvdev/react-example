@@ -11,7 +11,6 @@ const themeSlice = createSlice({
   initialState: initialThemeState,
   reducers: {
     toggleDarkMode(state) {
-      // eslint-disable-next-line no-param-reassign
       state.isDarkMode = !state.isDarkMode;
     },
   },

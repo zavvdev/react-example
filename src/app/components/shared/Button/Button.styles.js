@@ -16,6 +16,9 @@ export const useButtonStyles = createUseStyles((theme) => ({
       backgroundColor: theme.palette.primary.dark,
     },
   },
+  rootFullWidth: {
+    width: "100%",
+  },
   disabled: {
     cursor: "default",
     pointerEvents: "none",

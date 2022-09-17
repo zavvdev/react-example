@@ -1,8 +1,8 @@
 import "app/i18n/index";
 import "app/styles/global.css";
-import { Router } from "app/router/Router";
 import { StoreProvider } from "app/providers/StoreProvider";
 import { ThemeProvider } from "app/providers/ThemeProvider";
+import { Router } from "app/router/Router";
 
 export function App() {
   return (

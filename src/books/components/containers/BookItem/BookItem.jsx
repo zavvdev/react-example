@@ -1,7 +1,7 @@
-import { Button, Typography } from "books/gateway/input";
 import PropTypes from "prop-types";
-import { useBookItemStyles } from "books/components/containers/BookItem/BookItem.styles";
 import { useTranslation } from "react-i18next";
+import { useBookItemStyles } from "books/components/containers/BookItem/BookItem.styles";
+import { Button, Typography } from "books/gateway/input";
 import { BOOKS_I18N_NAMESPACE } from "books/i18n";
 
 export function BookItem({
@@ -19,7 +19,7 @@ export function BookItem({
 
   return (
     <div className={classes.root}>
-      <img src={cover} alt="title" className={classes.cover} />
+      <img src={cover} alt={title} className={classes.cover} />
       <div>
         <Typography className={classes.title} tag="h2">
           {title}

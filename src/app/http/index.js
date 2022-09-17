@@ -1,7 +1,7 @@
 import axios from "axios";
 import { HTTP_ENDPOINT } from "app/http/config";
-import { createHttpService } from "app/services/HttpService";
 import { requestInterceptor, responseInterceptor } from "app/http/interceptors";
+import { createHttpService } from "app/services/HttpService";
 
 export const createAxiosInstance = ({ endpoint, interceptors }) => {
   const instance = axios.create({

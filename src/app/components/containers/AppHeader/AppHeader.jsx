@@ -5,6 +5,7 @@ import { I18N_NAMESPACES } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
 import { selectIsDarkMode } from "app/store/theme/selectors";
 import { toggleDarkMode } from "app/store/theme/slice";
+import { selectCartBooksLength } from "cart/gateway/output";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,6 +15,7 @@ export function AppHeader() {
   const classes = useAppHeaderStyles();
   const isDarkMode = useSelector(selectIsDarkMode);
   const { t } = useTranslation(I18N_NAMESPACES.common);
+  const cartBooksLength = useSelector(selectCartBooksLength);
 
   const handleChangeTheme = () => {
     dispatch(toggleDarkMode());
@@ -29,9 +31,9 @@ export function AppHeader() {
       </Link>
       <div className={classes.side}>
         <Typography>
-          <Link className={classes.cart} to="/">
+          <Link className={classes.cart} to={GENERAL_ROUTES.cart}>
             {t("appHeader.cart", {
-              count: 0,
+              count: cartBooksLength,
             })}
           </Link>
         </Typography>
