@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { useCartBookStyles } from "cart/components/containers/CartBook/CartBook.styles";
-import { Typography } from "cart/gateway/input";
+import { Shared } from "cart/gateway/input";
 import { CART_I18N_NAMESPACE } from "cart/i18n";
 
 export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
@@ -13,14 +13,14 @@ export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
       <div className={classes.inner}>
         <img src={cover} alt={title} className={classes.cover} />
         <div>
-          <Typography className={classes.title} tag="h2">
+          <Shared.Typography className={classes.title} tag="h2">
             {title}
-          </Typography>
+          </Shared.Typography>
           <div>
-            <Typography tag="i">{author}</Typography>
-            <Typography className={classes.price} tag="div">
+            <Shared.Typography tag="i">{author}</Shared.Typography>
+            <Shared.Typography className={classes.price} tag="div">
               {price}
-            </Typography>
+            </Shared.Typography>
           </div>
         </div>
       </div>

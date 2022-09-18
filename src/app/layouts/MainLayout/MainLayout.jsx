@@ -1,6 +1,6 @@
 import { childrenPropType } from "app/propTypes/children";
 import { useMainLayoutStyles } from "app/layouts/MainLayout/MainLayout.styles";
-import { AppHeader } from "app/components/containers/AppHeader/AppHeader";
+import { Containers } from "app/components/containers";
 
 export function MainLayout({ children }) {
   const classes = useMainLayoutStyles();
@@ -8,7 +8,7 @@ export function MainLayout({ children }) {
   return (
     <div className={classes.root}>
       <div className={classes.inner}>
-        <AppHeader />
+        <Containers.AppHeader />
         <div className={classes.content}>{children}</div>
       </div>
     </div>

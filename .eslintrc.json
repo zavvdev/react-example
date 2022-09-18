@@ -140,6 +140,31 @@
             "target": "./src/!(app)/gateway/**/output.js",
             "from": "./src/!(app)/gateway/**/input.js",
             "message": "Output gateways cannot import from input gateways"
+          },
+          {
+            "target": "./src/{app/!(components)/**/*,!(app)/**/*,app/*}",
+            "from": "./src/app/components/{*/!(index.js),*/!(index.js)/**}",
+            "message": "All components from 'app' should be imported from its corresponding registry. For example, Shared 'app' components should be imported from app/components/shared/index.js"
+          },
+          {
+            "target": "./src/{app/!(layouts)/**/*,!(app)/**/*,app/*}",
+            "from": "./src/app/layouts/{!(index.js),!(index.js)/**}",
+            "message": "All layouts from 'app' should be imported from its corresponding registry (app/layouts/index.js)"
+          },
+          {
+            "target": "./src/!(app)/{!(components)/**/*,*}",
+            "from": "./src/!(app)/components/{*/!(index.js),*/!(index.js)/**}",
+            "message": "All components from feature should be imported from its corresponding registry. For example, Shared feature components should be imported from [feature-name]/components/shared/index.js"
+          },
+          {
+            "target": "./src/!(app)/{!(layouts)/**/*,*}",
+            "from": "./src/!(app)/layouts/{!(index.js),!(index.js)/**}",
+            "message": "All layouts from feature should be imported from its corresponding registry. ([feature-name]/layouts/index.js)"
+          },
+          {
+            "target": "./src/!(app)/{!(pages)/**/*,*}",
+            "from": "./src/!(app)/pages/{!(index.js),!(index.js)/**}",
+            "message": "All pages from feature should be imported from its corresponding registry. ([feature-name]/pages/index.js)"
           }
         ]
       }

@@ -1,10 +1,10 @@
-import { MainLayout } from "app/layouts/MainLayout/MainLayout";
+import { Layouts } from "app/layouts";
 import { BooksView } from "books/gateway/output";
 
 export function BooksPage() {
   return (
-    <MainLayout>
+    <Layouts.MainLayout>
       <BooksView />
-    </MainLayout>
+    </Layouts.MainLayout>
   );
 }

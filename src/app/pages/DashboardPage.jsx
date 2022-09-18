@@ -1,10 +1,10 @@
-import { MainLayout } from "app/layouts/MainLayout/MainLayout";
+import { Layouts } from "app/layouts";
 import { DashboardView } from "dashboard/gateway/output";
 
 export function DashboardPage() {
   return (
-    <MainLayout>
+    <Layouts.MainLayout>
       <DashboardView />
-    </MainLayout>
+    </Layouts.MainLayout>
   );
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Button, GENERAL_ROUTES, Typography } from "dashboard/gateway/input";
+import { GENERAL_ROUTES, Shared } from "dashboard/gateway/input";
 import { DASHBOARD_I18N_NAMESPACE } from "dashboard/i18n";
 import { useDashboardStyles } from "dashboard/Dashboard.styles";
 
@@ -11,10 +11,10 @@ export function DashboardView() {
 
   return (
     <div className={classes.root}>
-      <Typography tag="h1">{t("title")}</Typography>
-      <Button onClick={() => navigate(GENERAL_ROUTES.books)}>
+      <Shared.Typography tag="h1">{t("title")}</Shared.Typography>
+      <Shared.Button onClick={() => navigate(GENERAL_ROUTES.books)}>
         {t("button")}
-      </Button>
+      </Shared.Button>
     </div>
   );
 }

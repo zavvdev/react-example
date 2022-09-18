@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { selectCartBooks } from "cart/store/selectors";
 import { removeBookFromCart } from "cart/store/slice";
-import { Button, GENERAL_ROUTES, Typography } from "cart/gateway/input";
-import { CartBook } from "cart/components/containers/CartBook/CartBook";
+import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
+import { CartContainers } from "cart/components/containers";
 import { CART_I18N_NAMESPACE } from "cart/i18n";
 import { useCartStyles } from "cart/Cart.styles";
 
@@ -19,11 +19,11 @@ export function CartView() {
     <div>
       {cartBooks.length > 0 ? (
         <div>
-          <Typography tag="div" className={classes.selectMore}>
+          <Shared.Typography tag="div" className={classes.selectMore}>
             <Link to={GENERAL_ROUTES.books}>{t("selectMore")}</Link>
-          </Typography>
+          </Shared.Typography>
           {cartBooks.map((book) => (
-            <CartBook
+            <CartContainers.CartBook
               key={book.id}
               cover={book.cover}
               title={book.title}
@@ -37,16 +37,16 @@ export function CartView() {
         </div>
       ) : (
         <>
-          <Typography>{t("empty")}</Typography>
-          <Typography>
+          <Shared.Typography>{t("empty")}</Shared.Typography>
+          <Shared.Typography>
             <Link to={GENERAL_ROUTES.books}>{t("addBooks")}</Link>
-          </Typography>
+          </Shared.Typography>
         </>
       )}
       {cartBooks.length > 0 && (
-        <Button fullWidth onClick={() => navigate(GENERAL_ROUTES.order)}>
+        <Shared.Button fullWidth onClick={() => navigate(GENERAL_ROUTES.order)}>
           {t("order")}
-        </Button>
+        </Shared.Button>
       )}
     </div>
   );

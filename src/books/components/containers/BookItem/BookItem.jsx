@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { useBookItemStyles } from "books/components/containers/BookItem/BookItem.styles";
-import { Button, Typography } from "books/gateway/input";
+import { Shared } from "books/gateway/input";
 import { BOOKS_I18N_NAMESPACE } from "books/i18n";
 
 export function BookItem({
@@ -21,26 +21,26 @@ export function BookItem({
     <div className={classes.root}>
       <img src={cover} alt={title} className={classes.cover} />
       <div>
-        <Typography className={classes.title} tag="h2">
+        <Shared.Typography className={classes.title} tag="h2">
           {title}
-        </Typography>
+        </Shared.Typography>
         <div className={classes.infoWrap}>
-          <Typography tag="i">{date}, </Typography>
-          <Typography tag="span">
+          <Shared.Typography tag="i">{date}, </Shared.Typography>
+          <Shared.Typography tag="span">
             {t("bookItem.author", {
               author,
             })}
-          </Typography>
+          </Shared.Typography>
         </div>
-        <Typography className={classes.price} tag="div">
+        <Shared.Typography className={classes.price} tag="div">
           {price}
-        </Typography>
-        <Button
+        </Shared.Typography>
+        <Shared.Button
           className={classes.addToCartBtn}
           onClick={isInCart ? onRemoveFromCart : onAddToCart}
         >
           {isInCart ? t("bookItem.alreadyInCart") : t("bookItem.addToCart")}
-        </Button>
+        </Shared.Button>
       </div>
     </div>
   );

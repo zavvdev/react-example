@@ -1,10 +1,10 @@
-import { MainLayout } from "app/layouts/MainLayout/MainLayout";
+import { Layouts } from "app/layouts";
 import { OrderView } from "order/gateway/output";
 
 export function OrderPage() {
   return (
-    <MainLayout>
+    <Layouts.MainLayout>
       <OrderView />
-    </MainLayout>
+    </Layouts.MainLayout>
   );
 }

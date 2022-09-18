@@ -8,14 +8,12 @@ import { useOrderStyles } from "order/Order.styles";
 import { usePostOrderMutation } from "order/store/api";
 import { ORDER_I18N_NAMESPACE } from "order/i18n";
 import {
-  Button,
   clearBooksCart,
   FORM_VALIDATION_ERROR_TYPES,
   GENERAL_ROUTES,
   I18N_NAMESPACES,
-  Input,
   selectCartBooks,
-  Typography,
+  Shared,
 } from "order/gateway/input";
 
 export function OrderView() {
@@ -89,13 +87,13 @@ export function OrderView() {
         <div>
           <ul>
             {cartBooks.map(({ title }) => (
-              <Typography className={classes.li} key={title} tag="li">
+              <Shared.Typography className={classes.li} key={title} tag="li">
                 {title}
-              </Typography>
+              </Shared.Typography>
             ))}
           </ul>
           <div className={classes.formWrap}>
-            <Input
+            <Shared.Input
               type="email"
               name="email"
               value={values.email}
@@ -104,17 +102,20 @@ export function OrderView() {
               onBlur={handleBlur}
               errorText={getFieldError("email")}
             />
-            <Button disabled={!isValid || isLoading} onClick={handleSubmit}>
+            <Shared.Button
+              disabled={!isValid || isLoading}
+              onClick={handleSubmit}
+            >
               {isLoading ? t("submitting") : t("submit")}
-            </Button>
+            </Shared.Button>
           </div>
         </div>
       ) : (
         <div>
-          <Typography>{t("empty")}</Typography>
-          <Typography tag="div">
+          <Shared.Typography>{t("empty")}</Shared.Typography>
+          <Shared.Typography tag="div">
             <Link to={GENERAL_ROUTES.books}>{t("selectBooks")}</Link>
-          </Typography>
+          </Shared.Typography>
         </div>
       )}
     </div>

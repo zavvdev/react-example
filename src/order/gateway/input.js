@@ -1,6 +1,4 @@
-import { Button } from "app/components/shared/Button/Button";
-import { Input } from "app/components/shared/Input/Input";
-import { Typography } from "app/components/shared/Typography/Typography";
+import { Shared } from "app/components/shared";
 import { APP_LANGUAGES, I18N_NAMESPACES } from "app/i18n/config";
 import { i18n } from "app/i18n/index";
 import { GENERAL_ROUTES } from "app/router/config";
@@ -11,9 +9,7 @@ import { clearBooksCart, selectCartBooks } from "cart/gateway/output";
 
 export {
   selectCartBooks,
-  Button,
-  Input,
-  Typography,
+  Shared,
   APP_LANGUAGES,
   i18n,
   GENERAL_ROUTES,

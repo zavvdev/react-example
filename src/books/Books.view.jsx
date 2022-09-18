@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { BookItem } from "books/components/containers/BookItem/BookItem";
+import { BooksContainers } from "books/components/containers";
 import {
   addBookToCart,
   I18N_NAMESPACES,
   removeBookFromCart,
   selectCartBooks,
-  Typography,
+  Shared,
 } from "books/gateway/input";
 import { useGetAllBooksQuery } from "books/store/api";
 
@@ -20,7 +20,7 @@ export function BooksView() {
     <div>
       {isSuccess &&
         books.map((book) => (
-          <BookItem
+          <BooksContainers.BookItem
             key={book.id}
             title={book.title}
             author={book.author}
@@ -46,8 +46,12 @@ export function BooksView() {
             }
           />
         ))}
-      {isLoading && <Typography>{t("labels.loading")}</Typography>}
-      {isError && <Typography>{t("errors.unexpected")}</Typography>}
+      {isLoading && (
+        <Shared.Typography>{t("labels.loading")}</Shared.Typography>
+      )}
+      {isError && (
+        <Shared.Typography>{t("errors.unexpected")}</Shared.Typography>
+      )}
     </div>
   );
 }
