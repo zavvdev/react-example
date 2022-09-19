@@ -8,11 +8,11 @@ import { useOrderStyles } from "order/Order.styles";
 import { usePostOrderMutation } from "order/store/api";
 import { ORDER_I18N_NAMESPACE } from "order/i18n";
 import {
-  clearBooksCart,
+  cartActions,
+  cartSelectors,
   FORM_VALIDATION_ERROR_TYPES,
   GENERAL_ROUTES,
   I18N_NAMESPACES,
-  selectCartBooks,
   Shared,
 } from "order/gateway/input";
 
@@ -20,7 +20,7 @@ export function OrderView() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation(ORDER_I18N_NAMESPACE);
-  const cartBooks = useSelector(selectCartBooks);
+  const cartBooks = useSelector(cartSelectors.selectCartBooks);
   const classes = useOrderStyles();
 
   const [postOrder, { isLoading, isError, isSuccess }] = usePostOrderMutation();
@@ -76,7 +76,7 @@ export function OrderView() {
     if (isSuccess) {
       // eslint-disable-next-line no-alert
       alert(t("orderSuccess"));
-      dispatch(clearBooksCart());
+      dispatch(cartActions.clearBooksCart());
       navigate(GENERAL_ROUTES.books);
     }
   }, [dispatch, isSuccess, navigate, t]);

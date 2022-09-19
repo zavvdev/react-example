@@ -5,17 +5,17 @@ import { GENERAL_ROUTES } from "app/router/config";
 import { FORM_VALIDATION_ERROR_TYPES } from "app/config/formValidation";
 import { httpApi } from "app/store/httpApi";
 import { HTTP_METHODS } from "app/http/config";
-import { clearBooksCart, selectCartBooks } from "cart/gateway/output";
+import { cartActions, cartSelectors } from "cart/gateway/output";
 
 export {
-  selectCartBooks,
+  cartSelectors,
   Shared,
   APP_LANGUAGES,
   i18n,
   GENERAL_ROUTES,
   FORM_VALIDATION_ERROR_TYPES,
   I18N_NAMESPACES,
-  clearBooksCart,
+  cartActions,
   httpApi,
   HTTP_METHODS,
 };

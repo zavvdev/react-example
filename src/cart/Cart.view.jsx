@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { selectCartBooks } from "cart/store/selectors";
-import { removeBookFromCart } from "cart/store/slice";
+import { cartSelectors } from "cart/store/selectors";
+import { cartActions } from "cart/store/domain";
 import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
 import { CartContainers } from "cart/components/containers";
 import { CART_I18N_NAMESPACE } from "cart/i18n";
@@ -11,7 +11,7 @@ import { useCartStyles } from "cart/Cart.styles";
 export function CartView() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartBooks = useSelector(selectCartBooks);
+  const cartBooks = useSelector(cartSelectors.selectCartBooks);
   const { t } = useTranslation(CART_I18N_NAMESPACE);
   const classes = useCartStyles();
 
@@ -30,7 +30,7 @@ export function CartView() {
               author={book.author}
               price={book.price}
               onRemoveFromCart={() => {
-                dispatch(removeBookFromCart({ bookId: book.id }));
+                dispatch(cartActions.removeBookFromCart({ bookId: book.id }));
               }}
             />
           ))}

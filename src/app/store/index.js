@@ -2,7 +2,6 @@ import { configureStore as createStore } from "@reduxjs/toolkit";
 import { rootReducer } from "app/store/rootReducer";
 import { httpApi } from "app/store/httpApi";
 import { listenerMiddleware } from "app/store/listenerMiddleware";
-import "app/store/rootMiddleware";
 
 const configureStore = (args = {}) => {
   const { initialState = {} } = args;

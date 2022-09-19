@@ -6,19 +6,19 @@ import { ThemeSwitch } from "app/components/shared/ThemeSwitch/ThemeSwitch";
 import { Typography } from "app/components/shared/Typography/Typography";
 import { I18N_NAMESPACES } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
-import { selectIsDarkMode } from "app/store/theme/selectors";
-import { toggleDarkMode } from "app/store/theme/slice";
-import { selectCartBooksLength } from "cart/gateway/output";
+import { themeSelectors } from "app/store/theme/selectors";
+import { themeActions } from "app/store/theme/domain";
+import { cartSelectors } from "cart/gateway/output";
 
 export function AppHeader() {
   const dispatch = useDispatch();
-  const classes = useAppHeaderStyles();
-  const isDarkMode = useSelector(selectIsDarkMode);
   const { t } = useTranslation(I18N_NAMESPACES.common);
-  const cartBooksLength = useSelector(selectCartBooksLength);
+  const classes = useAppHeaderStyles();
+  const isDarkMode = useSelector(themeSelectors.selectIsDarkMode);
+  const cartBooksLength = useSelector(cartSelectors.selectCartBooksLength);
 
   const handleChangeTheme = () => {
-    dispatch(toggleDarkMode());
+    dispatch(themeActions.toggleDarkMode());
   };
 
   return (
