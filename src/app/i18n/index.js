@@ -5,7 +5,7 @@ import { APP_DEFAULT_LANGUAGE, APP_LANGUAGES } from "app/i18n/config";
 import { en } from "app/i18n/en";
 import { localStorageService } from "app/services/LocalStorageService";
 
-export const resources = {
+const resources = {
   [APP_LANGUAGES.en]: en,
 };
 

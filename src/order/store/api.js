@@ -1,7 +1,7 @@
 import { HTTP_METHODS, httpApi } from "order/gateway/input";
 import { ORDER_HTTP_API_ENDPOINTS } from "order/store/config";
 
-export const orderApi = httpApi.injectEndpoints({
+const orderApi = httpApi.injectEndpoints({
   endpoints: (build) => ({
     postOrder: build.mutation({
       query: ({ email, books }) => ({

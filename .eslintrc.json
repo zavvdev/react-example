@@ -107,6 +107,12 @@
         ]
       }
     ],
+    "import/no-unused-modules": [
+      "error",
+      {
+        "unusedExports": true
+      }
+    ],
     "import/no-restricted-paths": [
       "error",
       {

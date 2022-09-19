@@ -18,4 +18,4 @@ const configureStore = (args = {}) => {
 
 const store = configureStore();
 
-export { store, configureStore };
+export { store };
