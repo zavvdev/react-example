@@ -1,6 +1,16 @@
-import common from "app/i18n/common/en.json";
-import { I18N_NAMESPACES } from "app/i18n/config";
-
-export const en = {
-  [I18N_NAMESPACES.common]: common,
+export const appEn = {
+  appName: "Books-Shmuks",
+  errors: {
+    unexpected: "❌ Something went wrong. Try again later",
+  },
+  labels: {
+    loading: "👀 Loading..",
+  },
+  formValidationErrors: {
+    required: "Required",
+    invalidEmailFormat: "Invalid email format",
+  },
+  appHeader: {
+    cart: "Cart: ({{count}})",
+  },
 };

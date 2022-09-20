@@ -7,6 +7,7 @@
     "airbnb",
     "airbnb/hooks",
     "plugin:react/recommended",
+    "plugin:unicorn/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -17,7 +18,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "unicorn"
   ],
   "settings": {
     "import/resolver": {
@@ -49,10 +51,35 @@
           }
         ]
       }
+    },
+    {
+      "files": [
+        "./src/app/propTypes/**/*"
+      ],
+      "rules": {
+        "unicorn/prevent-abbreviations": "off"
+      }
+    },
+    {
+      "files": [
+        "./src/app/i18n/index.js"
+      ],
+      "rules": {
+        "unicorn/prefer-export-from": "off"
+      }
     }
   ],
   "rules": {
     "prettier/prettier": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ],
     "sort-imports": [
       "error",
       {
@@ -81,6 +108,9 @@
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
+    "unicorn/prefer-spread": "off",
+    "unicorn/no-unused-properties": "error",
+    "unicorn/no-unsafe-regex": "error",
     "react/function-component-definition": [
       2,
       {

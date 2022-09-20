@@ -1,11 +1,11 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { HTTP_ENDPOINT } from "app/http/config";
+import { HTTP_CONFIG } from "app/http/config";
 import { errorTrackingService } from "app/services/ErrorTrackingService";
 import { http } from "app/http";
 
 export const HTTP_API_DOMAIN = "httpApi";
 
-const createHttpBaseQuery = ({ baseUrl } = { baseUrl: "" }) => {
+const createHttpBaseQuery = ({ baseUrl }) => {
   return async ({ url, method, data, params }) => {
     try {
       const result = await http.call({
@@ -30,7 +30,7 @@ const createHttpBaseQuery = ({ baseUrl } = { baseUrl: "" }) => {
 export const httpApi = createApi({
   reducerPath: HTTP_API_DOMAIN,
   baseQuery: createHttpBaseQuery({
-    baseUrl: HTTP_ENDPOINT,
+    baseUrl: HTTP_CONFIG.endpoint,
   }),
   endpoints: () => ({}),
 });

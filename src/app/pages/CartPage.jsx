@@ -1,10 +1,10 @@
 import { Layouts } from "app/layouts";
-import { CartView } from "cart/gateway/output";
+import { Cart } from "cart/gateway/output";
 
 export function CartPage() {
   return (
     <Layouts.MainLayout>
-      <CartView />
+      <Cart />
     </Layouts.MainLayout>
   );
 }

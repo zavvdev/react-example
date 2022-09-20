@@ -6,17 +6,16 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useOrderStyles } from "order/Order.styles";
 import { usePostOrderMutation } from "order/store/api";
-import { ORDER_I18N_NAMESPACE } from "order/i18n";
+import { ORDER_I18N_NAMESPACE } from "order/i18n/config";
 import {
   cartActions,
   cartSelectors,
-  FORM_VALIDATION_ERROR_TYPES,
   GENERAL_ROUTES,
-  I18N_NAMESPACES,
+  I18N_CONFIG,
   Shared,
 } from "order/gateway/input";
 
-export function OrderView() {
+export function Order() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation(ORDER_I18N_NAMESPACE);
@@ -28,8 +27,8 @@ export function OrderView() {
   const validationSchema = Yup.object({
     email: Yup.string()
       .trim()
-      .email(FORM_VALIDATION_ERROR_TYPES.invalidEmailFormat)
-      .required(FORM_VALIDATION_ERROR_TYPES.required),
+      .email(I18N_CONFIG.formValidationKeys.invalidEmailFormat)
+      .required(I18N_CONFIG.formValidationKeys.required),
   });
 
   const initialValues = {
@@ -57,10 +56,10 @@ export function OrderView() {
   });
 
   const getFieldError = (fieldType) => {
-    let result = null;
+    let result;
     const errorType = errors[fieldType];
     if (errorType && touched[fieldType]) {
-      result = t(`${I18N_NAMESPACES.common}:formValidationErrors.${errorType}`);
+      result = t(`${I18N_CONFIG.namespace}:formValidationErrors.${errorType}`);
     }
     return result;
   };

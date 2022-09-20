@@ -5,10 +5,10 @@ import { cartSelectors } from "cart/store/selectors";
 import { cartActions } from "cart/store/domain";
 import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
 import { CartContainers } from "cart/components/containers";
-import { CART_I18N_NAMESPACE } from "cart/i18n";
+import { CART_I18N_NAMESPACE } from "cart/i18n/config";
 import { useCartStyles } from "cart/Cart.styles";
 
-export function CartView() {
+export function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartBooks = useSelector(cartSelectors.selectCartBooks);

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { useBookItemStyles } from "books/components/containers/BookItem/BookItem.styles";
 import { Shared } from "books/gateway/input";
-import { BOOKS_I18N_NAMESPACE } from "books/i18n";
+import { BOOKS_I18N_NAMESPACE } from "books/i18n/config";
 
 export function BookItem({
   title,

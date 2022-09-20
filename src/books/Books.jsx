@@ -4,14 +4,14 @@ import { BooksContainers } from "books/components/containers";
 import {
   cartActions,
   cartSelectors,
-  I18N_NAMESPACES,
+  I18N_CONFIG,
   Shared,
 } from "books/gateway/input";
 import { useGetAllBooksQuery } from "books/store/api";
 
-export function BooksView() {
+export function Books() {
   const dispatch = useDispatch();
-  const { t } = useTranslation(I18N_NAMESPACES.common);
+  const { t } = useTranslation(I18N_CONFIG.namespace);
   const { data: books, isLoading, isError, isSuccess } = useGetAllBooksQuery();
   const cartBooks = useSelector(cartSelectors.selectCartBooks);
 

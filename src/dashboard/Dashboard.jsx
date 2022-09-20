@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { GENERAL_ROUTES, Shared } from "dashboard/gateway/input";
-import { DASHBOARD_I18N_NAMESPACE } from "dashboard/i18n";
+import { DASHBOARD_I18N_NAMESPACE } from "dashboard/i18n/config";
 import { useDashboardStyles } from "dashboard/Dashboard.styles";
 
-export function DashboardView() {
+export function Dashboard() {
   const classes = useDashboardStyles();
   const { t } = useTranslation(DASHBOARD_I18N_NAMESPACE);
   const navigate = useNavigate();
