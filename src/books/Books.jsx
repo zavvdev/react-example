@@ -10,8 +10,8 @@ import {
 import { useGetAllBooksQuery } from "books/store/api";
 
 export function Books() {
-  const dispatch = useDispatch();
   const { t } = useTranslation(I18N_CONFIG.namespace);
+  const dispatch = useDispatch();
   const { data: books, isLoading, isError, isSuccess } = useGetAllBooksQuery();
   const cartBooks = useSelector(cartSelectors.selectCartBooks);
 

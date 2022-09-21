@@ -16,9 +16,9 @@ import {
 } from "order/gateway/input";
 
 export function Order() {
+  const { t } = useTranslation(ORDER_I18N_NAMESPACE);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { t } = useTranslation(ORDER_I18N_NAMESPACE);
   const cartBooks = useSelector(cartSelectors.selectCartBooks);
   const classes = useOrderStyles();
 

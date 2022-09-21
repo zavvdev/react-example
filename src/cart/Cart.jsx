@@ -9,10 +9,10 @@ import { CART_I18N_NAMESPACE } from "cart/i18n/config";
 import { useCartStyles } from "cart/Cart.styles";
 
 export function Cart() {
+  const { t } = useTranslation(CART_I18N_NAMESPACE);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartBooks = useSelector(cartSelectors.selectCartBooks);
-  const { t } = useTranslation(CART_I18N_NAMESPACE);
   const classes = useCartStyles();
 
   return (
