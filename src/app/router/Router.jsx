@@ -13,7 +13,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { history } from "app/router/history";
+import { routerHistory } from "app/router/history";
 import { GENERAL_ROUTES } from "app/router/config";
 import { BooksPage } from "app/pages/BooksPage";
 import { DashboardPage } from "app/pages/DashboardPage";
@@ -22,7 +22,7 @@ import { OrderPage } from "app/pages/OrderPage";
 
 export function Router() {
   return (
-    <HistoryRouter history={history}>
+    <HistoryRouter history={routerHistory}>
       <Routes>
         {/* General Routes */}
 
