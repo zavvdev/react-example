@@ -1,4 +1,4 @@
-name=$1
+name="$(echo $1 | tr '[A-Z]' '[a-z]')"
 nameUppercase="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}"
 if [ ! -d "src/${name}" ]
 then
