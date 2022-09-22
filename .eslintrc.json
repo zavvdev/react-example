@@ -59,14 +59,6 @@
       "rules": {
         "unicorn/prevent-abbreviations": "off"
       }
-    },
-    {
-      "files": [
-        "./src/app/i18n/index.js"
-      ],
-      "rules": {
-        "unicorn/prefer-export-from": "off"
-      }
     }
   ],
   "rules": {

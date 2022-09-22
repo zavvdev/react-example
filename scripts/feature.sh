@@ -1,5 +1,7 @@
 name=$1
 nameUppercase="$(tr '[:lower:]' '[:upper:]' <<< ${name:0:1})${name:1}"
+if [ ! -d "src/${name}" ]
+then
 mkdir -p src/${name};
 touch src/${name}/${nameUppercase}.jsx
 touch src/${name}/${nameUppercase}.styles.js
@@ -32,3 +34,4 @@ EOT
 cat <<EOT >> src/${name}/gateway/input.js
 // input
 EOT
+fi
