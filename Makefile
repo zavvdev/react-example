@@ -1,6 +1,5 @@
 feature:
-	$(shell bash ./scripts/feature.sh $(name))
-
-shared:
-	$(shell bash ./scripts/shared.sh $(name))
+	node ./scripts/feature/script.js $(name)
 	
+shared:
+	node ./scripts/shared/script.js $(name)
