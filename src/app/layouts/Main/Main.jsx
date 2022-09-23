@@ -1,9 +1,9 @@
 import { childrenPropType } from "app/propTypes/children";
-import { useMainLayoutStyles } from "app/layouts/MainLayout/MainLayout.styles";
+import { useMainStyles } from "app/layouts/Main/Main.styles";
 import { Containers } from "app/components/containers";
 
-export function MainLayout({ children }) {
-  const classes = useMainLayoutStyles();
+export function Main({ children }) {
+  const classes = useMainStyles();
 
   return (
     <div className={classes.root}>
@@ -15,6 +15,6 @@ export function MainLayout({ children }) {
   );
 }
 
-MainLayout.propTypes = {
+Main.propTypes = {
   children: childrenPropType.isRequired,
 };

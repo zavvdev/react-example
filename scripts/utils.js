@@ -1,7 +1,10 @@
 const fs = require("node:fs");
 
 function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  if (typeof string === "string") {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  return undefined;
 }
 
 function success() {

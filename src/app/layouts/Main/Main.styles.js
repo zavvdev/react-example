@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 
-export const useMainLayoutStyles = createUseStyles((theme) => ({
+export const useMainStyles = createUseStyles((theme) => ({
   root: {
     boxSizing: "border-box",
     minHeight: "100vh",

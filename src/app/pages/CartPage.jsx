@@ -3,8 +3,8 @@ import { Cart } from "cart/gateway/output";
 
 export function CartPage() {
   return (
-    <Layouts.MainLayout>
+    <Layouts.Main>
       <Cart />
-    </Layouts.MainLayout>
+    </Layouts.Main>
   );
 }

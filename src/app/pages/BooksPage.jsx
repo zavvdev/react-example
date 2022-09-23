@@ -3,8 +3,8 @@ import { Books } from "books/gateway/output";
 
 export function BooksPage() {
   return (
-    <Layouts.MainLayout>
+    <Layouts.Main>
       <Books />
-    </Layouts.MainLayout>
+    </Layouts.Main>
   );
 }

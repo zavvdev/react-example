@@ -3,8 +3,8 @@ import { Dashboard } from "dashboard/gateway/output";
 
 export function DashboardPage() {
   return (
-    <Layouts.MainLayout>
+    <Layouts.Main>
       <Dashboard />
-    </Layouts.MainLayout>
+    </Layouts.Main>
   );
 }

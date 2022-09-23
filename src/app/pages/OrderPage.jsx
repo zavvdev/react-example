@@ -3,8 +3,8 @@ import { Order } from "order/gateway/output";
 
 export function OrderPage() {
   return (
-    <Layouts.MainLayout>
+    <Layouts.Main>
       <Order />
-    </Layouts.MainLayout>
+    </Layouts.Main>
   );
 }

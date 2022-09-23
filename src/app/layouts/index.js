@@ -1,5 +1,5 @@
-import { MainLayout } from "app/layouts/MainLayout/MainLayout";
+import { Main } from "app/layouts/Main/Main";
 
 export const Layouts = {
-  MainLayout,
+  Main,
 };
