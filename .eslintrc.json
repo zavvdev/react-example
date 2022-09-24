@@ -59,6 +59,17 @@
       "rules": {
         "unicorn/prevent-abbreviations": "off"
       }
+    },
+    {
+      "files": [
+        "./src/**/config.js"
+      ],
+      "rules": {
+        "id-match": [
+          "error",
+          "^[A-Z_\\d\\W]+$"
+        ]
+      }
     }
   ],
   "rules": {
