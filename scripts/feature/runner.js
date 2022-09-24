@@ -8,27 +8,32 @@ const {
 } = require("./templates");
 
 try {
-  const NAME = process.argv[2].toLowerCase();
-  const NAME_CAP = capitalize(NAME);
-  const DIR = `src/${NAME}`;
-  const MAIN_FILE = `${DIR}/${NAME_CAP}.jsx`;
-  const STYLES_FILE = `${DIR}/${NAME_CAP}.styles.js`;
-  const GATEWAY_DIR = `${DIR}/gateway`;
-  const INPUT_FILE = `${GATEWAY_DIR}/input.js`;
-  const OUTPUT_FILE = `${GATEWAY_DIR}/output.js`;
+  const NAME = process.argv[2]?.toLowerCase();
 
-  if (!fs.existsSync(DIR)) {
-    fs.mkdirSync(DIR);
-    fs.appendFile(MAIN_FILE, getComponentFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
-    fs.appendFile(STYLES_FILE, getStylesFileTemplate({ nameCap: NAME_CAP }), () => { });
+  if (NAME) {
+    const NAME_CAP = capitalize(NAME);
+    const DIR = `src/${NAME}`;
+    const MAIN_FILE = `${DIR}/${NAME_CAP}.jsx`;
+    const STYLES_FILE = `${DIR}/${NAME_CAP}.styles.js`;
+    const GATEWAY_DIR = `${DIR}/gateway`;
+    const INPUT_FILE = `${GATEWAY_DIR}/input.js`;
+    const OUTPUT_FILE = `${GATEWAY_DIR}/output.js`;
 
-    fs.mkdirSync(GATEWAY_DIR);
-    fs.appendFile(INPUT_FILE, getInputFileTemplate(), () => { });
-    fs.appendFile(OUTPUT_FILE, getOutputFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
+    if (!fs.existsSync(DIR)) {
+      fs.mkdirSync(DIR);
+      fs.appendFile(MAIN_FILE, getComponentFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
+      fs.appendFile(STYLES_FILE, getStylesFileTemplate({ nameCap: NAME_CAP }), () => { });
 
-    success();
+      fs.mkdirSync(GATEWAY_DIR);
+      fs.appendFile(INPUT_FILE, getInputFileTemplate(), () => { });
+      fs.appendFile(OUTPUT_FILE, getOutputFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
+
+      success();
+    } else {
+      info(`Feature with name "${NAME}" already exists`);
+    }
   } else {
-    info(`Feature with name "${NAME}" already exists`);
+    throw new Error("Provide name of the feature");
   }
 } catch (e) {
   error(e.message);
