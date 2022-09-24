@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import cx from "clsx";
-import { useInputStyles } from "app/components/shared/Input/Input.styles";
+import { useInputStyles } from "app/shared/Input/Input.styles";
 
 export function Input({
   type,

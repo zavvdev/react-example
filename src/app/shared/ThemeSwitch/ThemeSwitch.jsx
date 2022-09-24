@@ -1,6 +1,6 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { useThemeSwitchStyles } from "app/components/shared/ThemeSwitch/ThemeSwitch.styles";
+import { useThemeSwitchStyles } from "app/shared/ThemeSwitch/ThemeSwitch.styles";
 
 export function ThemeSwitch({ isDark, onToggle, className }) {
   const classes = useThemeSwitchStyles();

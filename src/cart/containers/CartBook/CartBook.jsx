@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { useCartBookStyles } from "cart/components/containers/CartBook/CartBook.styles";
+import { useCartBookStyles } from "cart/containers/CartBook/CartBook.styles";
 import { Shared } from "cart/gateway/input";
 import { CART_I18N_NAMESPACE } from "cart/i18n/config";
 

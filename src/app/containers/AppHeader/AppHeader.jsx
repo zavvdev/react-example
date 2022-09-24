@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAppHeaderStyles } from "app/components/containers/AppHeader/AppHeader.styles";
-import { ThemeSwitch } from "app/components/shared/ThemeSwitch/ThemeSwitch";
-import { Typography } from "app/components/shared/Typography/Typography";
+import { useAppHeaderStyles } from "app/containers/AppHeader/AppHeader.styles";
+import { ThemeSwitch } from "app/shared/ThemeSwitch/ThemeSwitch";
+import { Typography } from "app/shared/Typography/Typography";
 import { I18N_CONFIG } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
 import { themeSelectors } from "app/store/theme/selectors";

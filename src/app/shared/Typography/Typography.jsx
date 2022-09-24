@@ -1,7 +1,7 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
 import { childrenPropType } from "app/propTypes/children";
-import { useTypographyStyles } from "app/components/shared/Typography/Typography.styles";
+import { useTypographyStyles } from "app/shared/Typography/Typography.styles";
 
 export function Typography({ children, tag, className }) {
   const classes = useTypographyStyles();

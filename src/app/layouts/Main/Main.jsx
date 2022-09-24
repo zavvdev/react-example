@@ -1,6 +1,6 @@
 import { childrenPropType } from "app/propTypes/children";
 import { useMainStyles } from "app/layouts/Main/Main.styles";
-import { Containers } from "app/components/containers";
+import { Containers } from "app/containers";
 
 export function Main({ children }) {
   const classes = useMainStyles();

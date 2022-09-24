@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { BooksContainers } from "books/components/containers";
+import { BooksContainers } from "books/containers";
 import {
   cartActions,
   cartSelectors,

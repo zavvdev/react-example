@@ -1,7 +1,7 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
 import { childrenPropType } from "app/propTypes/children";
-import { useButtonStyles } from "app/components/shared/Button/Button.styles";
+import { useButtonStyles } from "app/shared/Button/Button.styles";
 
 export function Button({ children, className, onClick, disabled, fullWidth }) {
   const classes = useButtonStyles();

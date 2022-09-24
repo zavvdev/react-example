@@ -170,24 +170,9 @@
             "message": "Output gateways cannot import from input gateways"
           },
           {
-            "target": "./src/{app/!(components)/**/*,!(app)/**/*,app/*}",
-            "from": "./src/app/components/{*/!(index.js),*/!(index.js)/**}",
-            "message": "All components from 'app' should be imported from its corresponding registry. For example, Shared 'app' components should be imported from app/components/shared/index.js"
-          },
-          {
-            "target": "./src/{app/!(layouts)/**/*,!(app)/**/*,app/*}",
-            "from": "./src/app/layouts/{!(index.js),!(index.js)/**}",
-            "message": "All layouts from 'app' should be imported from its corresponding registry (app/layouts/index.js)"
-          },
-          {
-            "target": "./src/!(app)/{!(components)/**/*,*}",
-            "from": "./src/!(app)/components/{*/!(index.js),*/!(index.js)/**}",
-            "message": "All components from feature should be imported from its corresponding registry. For example, Shared feature components should be imported from [feature-name]/components/shared/index.js"
-          },
-          {
-            "target": "./src/!(app)/{!(layouts)/**/*,*}",
-            "from": "./src/!(app)/layouts/{!(index.js),!(index.js)/**}",
-            "message": "All layouts from feature should be imported from its corresponding registry. ([feature-name]/layouts/index.js)"
+            "target": "./src/*/{!(containers|layouts|shared)/**/*,*}",
+            "from": "./src/*/{containers,layouts,shared}/{!(index.js),!(index.js)/**,**/!(index.js)}",
+            "message": "All containers, layouts and shared components should be imported from its corresponding registry. For example, shared 'app' components should be imported from app/shared/index.js"
           },
           {
             "target": "./src/!(app)/{!(pages)/**/*,*}",
