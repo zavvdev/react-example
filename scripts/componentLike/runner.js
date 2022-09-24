@@ -59,7 +59,7 @@ try {
     const STYLES_FILE = `${DIR}/${NAME_CAP}.styles.js`;
 
     const REGISTRY_NAMED_EXPORT = `${FEATURE_CAP || ''}${TYPE_CAP}`;
-    const EXPORT_PATTERN = `export const ${REGISTRY_NAMED_EXPORT} = {`;
+    const EXPORT_PATTERN = new RegExp('^export const ([A-Z][a-z]*)?' + `${TYPE_CAP} = {$`, 'm');
 
     if (!fs.existsSync(DOMAIN_DIR)) {
       throw new Error(`"${DOMAIN}" ${FEATURE ? "feature" : "folder"} is not exists.`);

@@ -19,7 +19,8 @@
   },
   "plugins": [
     "react",
-    "unicorn"
+    "unicorn",
+    "canonical"
   ],
   "settings": {
     "import/resolver": {
@@ -65,9 +66,68 @@
         "./src/**/config.js"
       ],
       "rules": {
-        "id-match": [
+        "canonical/id-match": [
           "error",
-          "^[A-Z_\\d\\W]+$"
+          "^[A-Z_\\d\\W]+$",
+          {
+            "ignoreNamedImports": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "./src/*/shared/index.js"
+      ],
+      "rules": {
+        "canonical/id-match": [
+          "error",
+          "^([A-Z][a-z]*)?Shared$",
+          {
+            "ignoreNamedImports": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "./src/*/containers/index.js"
+      ],
+      "rules": {
+        "canonical/id-match": [
+          "error",
+          "^([A-Z][a-z]*)?Containers$",
+          {
+            "ignoreNamedImports": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "./src/*/layouts/index.js"
+      ],
+      "rules": {
+        "canonical/id-match": [
+          "error",
+          "^([A-Z][a-z]*)?Layouts$",
+          {
+            "ignoreNamedImports": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "./src/!(app)/pages/index.js"
+      ],
+      "rules": {
+        "canonical/id-match": [
+          "error",
+          "^([A-Z][a-z]*)?Pages$",
+          {
+            "ignoreNamedImports": true
+          }
         ]
       }
     }

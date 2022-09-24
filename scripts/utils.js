@@ -33,7 +33,7 @@ function appendFirstLineToFile({ filePath, content }) {
 function appendToFileAfterPattern({ filePath, pattern, content }) {
   const fileContent = fs.readFileSync(filePath).toString().split('\n');
   if (fileContent?.length > 0) {
-    const numberOfLineWithPattern = fileContent.findIndex(i => i.includes(pattern)) + 1;
+    const numberOfLineWithPattern = fileContent.findIndex(i => pattern.test(i)) + 1;
     if (numberOfLineWithPattern) {
       fileContent.splice(numberOfLineWithPattern, 0, content);
       fs.writeFileSync(filePath, fileContent.join('\n'));
