@@ -17,7 +17,6 @@ try {
     ];
 
     if (issues.length > 0) {
-      error('Some modules in your project are not satisfying dependency rules!');
       issues.forEach(issue => {
         console.log('--------------------');
         console.log(`Path: ${issue.filePath}`);
