@@ -32,4 +32,5 @@ try {
     console.log(`Message: ${issue.message}.`)
     console.log('--------------------');
   });
+  process.exit();
 }
