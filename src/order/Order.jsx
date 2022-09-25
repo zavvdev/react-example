@@ -14,8 +14,6 @@ import {
   I18N_CONFIG,
   Shared,
 } from "order/gateway/input";
-// eslint-disable-next-line import/named, no-unused-vars
-import { CartBook } from "cart/containers";
 
 export function Order() {
   const { t } = useTranslation(ORDER_I18N_NAMESPACE);

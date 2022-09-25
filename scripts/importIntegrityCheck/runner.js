@@ -20,17 +20,17 @@ try {
   ];
 
   if (issues.length > 0) {
-    throw new Error();
+    throw new Error('Integrity issues found.');
   } else {
     success('No issues was found');
   }
-} catch {
+} catch (e) {
   error('Some modules in your project are not satisfying dependency rules!');
   issues.forEach(issue => {
     console.log('--------------------');
-    console.log(`Path: ${issue.filePath}`)
-    console.log(`Message: ${issue.message}.`)
+    console.log(`Path: ${issue.filePath}`);
+    console.log(`Message: ${issue.message}`);
     console.log('--------------------');
   });
-  process.exit();
+  throw new Error(e.message);
 }
