@@ -130,6 +130,14 @@
           }
         ]
       }
+    },
+    {
+      "files": [
+        "./src/*/*"
+      ],
+      "rules": {
+        "canonical/filename-no-index": "error"
+      }
     }
   ],
   "rules": {

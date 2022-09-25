@@ -15,20 +15,16 @@ const {
   getRegistryFileImportTemplate,
   getRegistryAppendedExportTemplate,
 } = require("./templates");
+const {
+  COMPONENT_LIKE_TYPES
+} = require("../config");
 
 try {
-  const TYPES = {
-    containers: "containers",
-    layouts: "layouts",
-    shared: "shared",
-    pages: "pages",
-  };
-
   const TYPE_SINGULAR_BY_TYPES = {
-    [TYPES.containers]: "container",
-    [TYPES.layouts]: "layout",
-    [TYPES.shared]: "shared",
-    [TYPES.pages]: "page",
+    [COMPONENT_LIKE_TYPES.containers]: "container",
+    [COMPONENT_LIKE_TYPES.layouts]: "layout",
+    [COMPONENT_LIKE_TYPES.shared]: "shared",
+    [COMPONENT_LIKE_TYPES.pages]: "page",
   };
 
   const TYPE = process.argv[2]?.toLowerCase();
@@ -36,8 +32,8 @@ try {
   const FEATURE_ARG = process.argv[4]?.toLowerCase();
   const FEATURE = FEATURE_ARG === "app" ? undefined : FEATURE_ARG;
 
-  if (TYPE && NAME && Object.values(TYPES).includes(TYPE)) {
-    if (TYPE === TYPES.pages && !FEATURE) {
+  if (TYPE && NAME && Object.values(COMPONENT_LIKE_TYPES).includes(TYPE)) {
+    if (TYPE === COMPONENT_LIKE_TYPES.pages && !FEATURE) {
       throw new Error(
         "\"app\" domain pages is an endpoint registry. Create it manually"
       );

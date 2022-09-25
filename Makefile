@@ -12,3 +12,6 @@ layout:
 
 page:
 	node ./scripts/componentLike/runner.js pages $(name) $(for)
+
+iic:
+	node ./scripts/importIntegrityCheck/runner.js $(for)

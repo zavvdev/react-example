@@ -7,8 +7,11 @@ function capitalize(string) {
   return undefined;
 }
 
-function success() {
+function success(msg) {
   console.log("(✔) Done!");
+  if (msg) {
+    console.log(msg);
+  }
 }
 
 function info(msg) {
@@ -59,6 +62,10 @@ function createFolders(paths = []) {
   }
 }
 
+function hasFileExt(str) {
+  return /^.*\.[^\\]+$/.test(str);
+}
+
 module.exports = {
   capitalize,
   success,
@@ -67,4 +74,5 @@ module.exports = {
   appendFirstLineToFile,
   appendToFileAfterPattern,
   createFolders,
+  hasFileExt,
 };
