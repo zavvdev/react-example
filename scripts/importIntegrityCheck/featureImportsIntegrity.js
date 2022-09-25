@@ -1,6 +1,6 @@
 const glob = require("glob");
 const fs = require("node:fs");
-const { info, hasFileExt } = require("../utils");
+const { info, hasFileExt, getImportIntegrityPattern } = require("../utils");
 
 const getFeatureNames = (rootContent) => {
   return rootContent
@@ -14,10 +14,6 @@ const getRootContentPattern = (rootDir) => {
 
 const getFeatureFilesPattern = (rootDir, domain) => {
   return `${rootDir}/${domain ? `${domain}/` : '!(app)/'}{!(gateway)/**/*.@(js|jsx),gateway/**/!(input.js),*.@(js|jsx)}`
-};
-
-const getImportIntegrityPattern = (excludeFeatures) => {
-  return new RegExp(`import (.*) from ('|")\\b(${excludeFeatures.join('|')})(\/)([A-Za-z])*(.*)\\b('|")`);
 };
 
 function checkFeatureImportsIntegrity({ rootDir, domain }) {

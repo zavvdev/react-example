@@ -66,6 +66,10 @@ function hasFileExt(str) {
   return /^.*\.[^\\]+$/.test(str);
 }
 
+function getImportIntegrityPattern(excluded) {
+  return new RegExp(`import (.*) from ('|")\\b(${excluded.join('|')})(\/)([A-Za-z])*(.*)\\b('|")`);
+};
+
 module.exports = {
   capitalize,
   success,
@@ -75,4 +79,5 @@ module.exports = {
   appendToFileAfterPattern,
   createFolders,
   hasFileExt,
+  getImportIntegrityPattern,
 };
