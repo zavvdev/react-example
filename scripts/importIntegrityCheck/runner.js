@@ -12,13 +12,14 @@ try {
     throw new Error(`"${DOMAIN}" directory is not exists`);
   }
 
+  issues = [
+    ...checkFeatureImportsIntegrity({
+      rootDir: ROOT_DIR,
+      domain: DOMAIN,
+    }),
+  ];
+
   if (issues.length > 0) {
-    issues = [
-      ...checkFeatureImportsIntegrity({
-        rootDir: ROOT_DIR,
-        domain: DOMAIN,
-      }),
-    ];
     throw new Error();
   } else {
     success('No issues was found');
