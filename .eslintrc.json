@@ -20,7 +20,8 @@
   "plugins": [
     "react",
     "unicorn",
-    "canonical"
+    "canonical",
+    "folders"
   ],
   "settings": {
     "import/resolver": {
@@ -182,6 +183,7 @@
     "unicorn/prefer-spread": "off",
     "unicorn/no-unused-properties": "error",
     "unicorn/no-unsafe-regex": "error",
+    "folders/match-regex": ["error", "^([a-z]|[A-Z])+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?$", "/src/"],
     "react/function-component-definition": [
       2,
       {
