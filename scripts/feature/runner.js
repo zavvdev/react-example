@@ -1,5 +1,12 @@
 const fs = require("node:fs");
-const { capitalize, success, info, error } = require("../utils");
+const {
+  camelCase,
+  success,
+  info,
+  error,
+  upperFirst,
+  lowerFirst,
+} = require("../utils");
 const {
   getComponentFileTemplate,
   getStylesFileTemplate,
@@ -8,29 +15,38 @@ const {
 } = require("./templates");
 
 try {
-  const NAME = process.argv[2]?.toLowerCase();
+  const NAME = camelCase(process.argv[2]);
 
   if (NAME) {
-    const NAME_CAP = capitalize(NAME);
-    const DIR = `src/${NAME}`;
-    const MAIN_FILE = `${DIR}/${NAME_CAP}.jsx`;
-    const STYLES_FILE = `${DIR}/${NAME_CAP}.styles.js`;
+    const FOLDER_NAME = lowerFirst(NAME);
+    const FILE_NAME = upperFirst(NAME);
+    const DIR = `src/${FOLDER_NAME}`;
+    const MAIN_FILE = `${DIR}/${FILE_NAME}.jsx`;
+    const STYLES_FILE = `${DIR}/${FILE_NAME}.styles.js`;
     const GATEWAY_DIR = `${DIR}/gateway`;
     const INPUT_FILE = `${GATEWAY_DIR}/input.js`;
     const OUTPUT_FILE = `${GATEWAY_DIR}/output.js`;
 
     if (!fs.existsSync(DIR)) {
       fs.mkdirSync(DIR);
-      fs.appendFile(MAIN_FILE, getComponentFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
-      fs.appendFile(STYLES_FILE, getStylesFileTemplate({ nameCap: NAME_CAP }), () => { });
+      fs.appendFile(MAIN_FILE, getComponentFileTemplate({
+        fileName: FILE_NAME,
+        folderName: FOLDER_NAME,
+      }), () => { });
+      fs.appendFile(STYLES_FILE, getStylesFileTemplate({
+        fileName: FILE_NAME,
+      }), () => { });
 
       fs.mkdirSync(GATEWAY_DIR);
       fs.appendFile(INPUT_FILE, getInputFileTemplate(), () => { });
-      fs.appendFile(OUTPUT_FILE, getOutputFileTemplate({ name: NAME, nameCap: NAME_CAP }), () => { });
+      fs.appendFile(OUTPUT_FILE, getOutputFileTemplate({
+        fileName: FILE_NAME,
+        folderName: FOLDER_NAME,
+      }), () => { });
 
       success();
     } else {
-      info(`Feature with name "${NAME}" already exists`);
+      info(`Feature with name "${FOLDER_NAME}" already exists`);
     }
   } else {
     throw new Error("Provide name of the feature");

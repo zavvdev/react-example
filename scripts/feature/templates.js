@@ -1,24 +1,24 @@
-const getComponentFileTemplate = ({ name, nameCap }) => 
-`import { use${nameCap}Styles } from "${name}/${nameCap}.styles";
+const getComponentFileTemplate = ({ fileName, folderName }) =>
+  `import { use${fileName}Styles } from "${folderName}/${fileName}.styles";
 
-export function ${nameCap}() {
-  const classes = use${nameCap}Styles();
-  return <div className={classes.root}>${name} feature</div>;
+export function ${fileName}() {
+  const classes = use${fileName}Styles();
+  return <div className={classes.root}>${folderName} feature</div>;
 }
 `;
 
-const getStylesFileTemplate = ({ nameCap }) => 
-`import { createUseStyles } from "react-jss";
+const getStylesFileTemplate = ({ fileName }) =>
+  `import { createUseStyles } from "react-jss";
 
-export const use${nameCap}Styles = createUseStyles({
+export const use${fileName}Styles = createUseStyles({
   root: {},
 });
 `;
 
 const getInputFileTemplate = () => `// input`;
 
-const getOutputFileTemplate = ({ name, nameCap }) => 
-`export { ${nameCap} } from "${name}/${nameCap}";
+const getOutputFileTemplate = ({ fileName, folderName }) =>
+  `export { ${fileName} } from "${folderName}/${fileName}";
 `
 
 module.exports = {

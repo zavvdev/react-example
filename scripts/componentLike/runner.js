@@ -1,12 +1,14 @@
 const fs = require("node:fs");
 const {
-  capitalize,
+  camelCase,
   success,
   info,
   error,
   appendFirstLineToFile,
   appendToFileAfterPattern,
   createFolders,
+  lowerFirst,
+  upperFirst,
 } = require("../utils");
 const {
   getMainFileTemplate,
@@ -16,21 +18,15 @@ const {
   getRegistryAppendedExportTemplate,
 } = require("./templates");
 const {
-  COMPONENT_LIKE_TYPES
+  COMPONENT_LIKE_TYPES,
+  COMPONENT_LIKE_TYPE_SINGULAR_BY_TYPES,
 } = require("../config");
 
 try {
-  const TYPE_SINGULAR_BY_TYPES = {
-    [COMPONENT_LIKE_TYPES.containers]: "container",
-    [COMPONENT_LIKE_TYPES.layouts]: "layout",
-    [COMPONENT_LIKE_TYPES.shared]: "shared",
-    [COMPONENT_LIKE_TYPES.pages]: "page",
-  };
-
-  const TYPE = process.argv[2]?.toLowerCase();
-  const NAME = process.argv[3]?.toLowerCase();
-  const FEATURE_ARG = process.argv[4]?.toLowerCase();
-  const FEATURE = FEATURE_ARG === "app" ? undefined : FEATURE_ARG;
+  const TYPE = process.argv[2];
+  const NAME = camelCase(process.argv[3]);
+  const FEATURE_ARG = camelCase(process.argv[4]);
+  const FEATURE = FEATURE_ARG === "app" ? undefined : lowerFirst(FEATURE_ARG);
 
   if (TYPE && NAME && Object.values(COMPONENT_LIKE_TYPES).includes(TYPE)) {
     if (TYPE === COMPONENT_LIKE_TYPES.pages && !FEATURE) {
@@ -41,10 +37,10 @@ try {
 
     const DOMAIN = FEATURE || "app";
 
-    const TYPE_SINGULAR_CAP = capitalize(TYPE_SINGULAR_BY_TYPES[TYPE]);
-    const TYPE_CAP = capitalize(TYPE);
-    const NAME_CAP = capitalize(NAME);
-    const FEATURE_CAP = capitalize(FEATURE);
+    const TYPE_SINGULAR_CAP = upperFirst(COMPONENT_LIKE_TYPE_SINGULAR_BY_TYPES[TYPE]);
+    const TYPE_CAP = upperFirst(TYPE);
+    const NAME_CAP = upperFirst(NAME);
+    const FEATURE_CAP = upperFirst(FEATURE);
 
     const DOMAIN_DIR = `src/${DOMAIN}`;
     const TYPE_DIR = `${DOMAIN_DIR}/${TYPE}`;

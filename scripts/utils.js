@@ -1,8 +1,22 @@
 const fs = require("node:fs");
 
-function capitalize(string) {
-  if (typeof string === "string") {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+function upperFirst(str) {
+  if (typeof str === "string") {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  return undefined;
+};
+
+function lowerFirst(str) {
+  if (typeof str === "string") {
+    return str.charAt(0).toLowerCase() + str.slice(1);
+  }
+  return undefined;
+};
+
+function camelCase(str) {
+  if (typeof str === "string") {
+    return str.trim().replace(/[-_\s]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
   }
   return undefined;
 }
@@ -71,7 +85,9 @@ function getImportIntegrityPattern(excluded) {
 };
 
 module.exports = {
-  capitalize,
+  upperFirst,
+  lowerFirst,
+  camelCase,
   success,
   info,
   error,
