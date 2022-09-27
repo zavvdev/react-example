@@ -1,10 +1,10 @@
 const fs = require("node:fs");
-const { error, success } = require("../utils");
+const { error, success, camelCase, lowerFirst } = require("../utils");
 const { checkFeatureImportsIntegrity } = require("./featureImportsIntegrity");
 
 try {
   const ROOT_DIR = "src";
-  const DOMAIN = process.argv[2]?.toLowerCase();
+  const DOMAIN = lowerFirst(camelCase(process.argv[2]));
 
   if (DOMAIN && !fs.existsSync(`${ROOT_DIR}/${DOMAIN}`)) {
     error(`"${DOMAIN}" directory is not exists`);
@@ -23,9 +23,9 @@ try {
         console.log(`Message: ${issue.message}`);
         console.log('--------------------');
       });
-      throw new Error('Import integrity issues found. Check messages above');
+      throw new Error('Integrity issues found. Check messages above');
     } else {
-      success('No import integrity issues found');
+      success('No integrity issues found');
     }
   }
 } catch (e) {

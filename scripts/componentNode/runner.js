@@ -18,8 +18,8 @@ const {
   getRegistryAppendedExportTemplate,
 } = require("./templates");
 const {
-  COMPONENT_LIKE_TYPES,
-  COMPONENT_LIKE_TYPE_SINGULAR_BY_TYPES,
+  COMPONENT_NODE_TYPES,
+  COMPONENT_NODE_TYPE_SINGULAR_BY_TYPES,
 } = require("../config");
 
 try {
@@ -28,8 +28,8 @@ try {
   const FEATURE_ARG = camelCase(process.argv[4]);
   const FEATURE = FEATURE_ARG === "app" ? undefined : lowerFirst(FEATURE_ARG);
 
-  if (TYPE && NAME && Object.values(COMPONENT_LIKE_TYPES).includes(TYPE)) {
-    if (TYPE === COMPONENT_LIKE_TYPES.pages && !FEATURE) {
+  if (TYPE && NAME && Object.values(COMPONENT_NODE_TYPES).includes(TYPE)) {
+    if (TYPE === COMPONENT_NODE_TYPES.pages && !FEATURE) {
       throw new Error(
         "\"app\" domain pages is an endpoint registry. Create it manually"
       );
@@ -37,7 +37,7 @@ try {
 
     const DOMAIN = FEATURE || "app";
 
-    const TYPE_SINGULAR_CAP = upperFirst(COMPONENT_LIKE_TYPE_SINGULAR_BY_TYPES[TYPE]);
+    const TYPE_SINGULAR_CAP = upperFirst(COMPONENT_NODE_TYPE_SINGULAR_BY_TYPES[TYPE]);
     const TYPE_CAP = upperFirst(TYPE);
     const NAME_CAP = upperFirst(NAME);
     const FEATURE_CAP = upperFirst(FEATURE);
