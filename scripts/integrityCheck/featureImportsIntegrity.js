@@ -36,7 +36,7 @@ function checkFeatureImportsIntegrity({ rootDir, domain }) {
         if (fileDomain && importIntegrityPattern.test(fileContent)) {
           issues.push({
             filePath,
-            message: `"${fileDomain}" feature should not use direct imports from other features. Import all incoming modules from the "${fileDomain}" input gateway`,
+            message: `"${fileDomain}" feature should NOT use direct imports from other features. Import all incoming modules from "${fileDomain}" input gateway`,
           })
         }
       });

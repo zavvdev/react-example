@@ -64,7 +64,7 @@
     },
     {
       "files": [
-        "./src/**/config.js"
+        "./src/**/{config.js,*.config.js,consts.js,*.consts.js,constants.js,*.constants.js}"
       ],
       "rules": {
         "canonical/id-match": [
@@ -253,12 +253,12 @@
           {
             "target": "./src/*/{!(containers|layouts|shared)/**/*,*}",
             "from": "./src/*/{containers,layouts,shared}/{!(index.js),!(index.js)/**,**/!(index.js)}",
-            "message": "All containers, layouts and shared components should be imported from its corresponding registry. For example, shared 'app' components should be imported from app/shared/index.js"
+            "message": "All containers, layouts and shared components should be imported from corresponding registry. For example: src/[domain]/shared/index.js"
           },
           {
             "target": "./src/!(app)/{!(pages)/**/*,*}",
             "from": "./src/!(app)/pages/{!(index.js),!(index.js)/**}",
-            "message": "All pages from feature should be imported from its corresponding registry. ([feature-name]/pages/index.js)"
+            "message": "All feature pages should be imported from pages registry. src/[feature]/pages/index.js"
           }
         ]
       }
