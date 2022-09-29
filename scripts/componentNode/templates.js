@@ -35,8 +35,7 @@ export const ${namedExport} = {
 const getRegistryFileImportTemplate = ({ nameCap, domain, type }) =>
   `import { ${nameCap} } from "${domain}/${type}/${nameCap}/${nameCap}";`;
 
-const getRegistryAppendedExportTemplate = ({ nameCap }) =>
-  `  ${nameCap},`;
+const getRegistryAppendedExportTemplate = ({ nameCap }) => `  ${nameCap},`;
 
 module.exports = {
   getMainFileTemplate,

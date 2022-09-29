@@ -1,88 +1,98 @@
 const fs = require("node:fs");
 
-function upperFirst(str) {
-  if (typeof str === "string") {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+function upperFirst(string_) {
+  let result;
+  if (typeof string_ === "string") {
+    result = string_.charAt(0).toUpperCase() + string_.slice(1);
   }
-  return undefined;
-};
-
-function lowerFirst(str) {
-  if (typeof str === "string") {
-    return str.charAt(0).toLowerCase() + str.slice(1);
-  }
-  return undefined;
-};
-
-function camelCase(str) {
-  if (typeof str === "string") {
-    return str.trim().replace(/[-_\s]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
-  }
-  return undefined;
+  return result;
 }
 
-function success(msg) {
+function lowerFirst(string_) {
+  let result;
+  if (typeof string_ === "string") {
+    result = string_.charAt(0).toLowerCase() + string_.slice(1);
+  }
+  return result;
+}
+
+function camelCase(string_) {
+  let result;
+  if (typeof string_ === "string") {
+    result = string_
+      .trim()
+      .replace(/[\s_-]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""));
+  }
+  return result;
+}
+
+function success(message) {
   console.log("(✔) Done!");
-  if (msg) {
-    console.log(msg);
+  if (message) {
+    console.log(message);
   }
 }
 
-function info(msg) {
-  console.log(`(!) ${msg}`);
+function info(message) {
+  console.log(`(!) ${message}`);
 }
 
-function error(msg) {
+function error(message) {
   console.log(`(𐄂) Error!`);
-  console.log(`Message: ${msg}`);
+  console.log(`Message: ${message}`);
 }
 
-function appendFirstLineToFile({ filePath, content }) {
-  const fileContent = fs.readFileSync(filePath).toString().split('\n');
+function appendFirstLineToFile({ filePath, content, infoLogger }) {
+  const fileContent = fs.readFileSync(filePath).toString().split("\n");
   if (fileContent?.length > 0) {
     fileContent.unshift(content);
-    fs.writeFileSync(filePath, fileContent.join('\n'));
+    fs.writeFileSync(filePath, fileContent.join("\n"));
   } else {
-    info(`File "${filePath}" is empty`);
+    infoLogger(`File "${filePath}" is empty`);
   }
 }
 
-function appendToFileAfterPattern({ filePath, pattern, content }) {
-  const fileContent = fs.readFileSync(filePath).toString().split('\n');
+function appendToFileAfterPattern({ filePath, pattern, content, infoLogger }) {
+  const fileContent = fs.readFileSync(filePath).toString().split("\n");
   if (fileContent?.length > 0) {
-    const numberOfLineWithPattern = fileContent.findIndex(i => pattern.test(i)) + 1;
+    const numberOfLineWithPattern =
+      fileContent.findIndex((index) => pattern.test(index)) + 1;
     if (numberOfLineWithPattern) {
       fileContent.splice(numberOfLineWithPattern, 0, content);
-      fs.writeFileSync(filePath, fileContent.join('\n'));
+      fs.writeFileSync(filePath, fileContent.join("\n"));
     } else {
-      info(`Pattern "${pattern}" not found in file "${filePath}"`);
+      infoLogger(`Pattern "${pattern}" not found in file "${filePath}"`);
     }
   } else {
-    info(`File "${filePath}" is empty`);
+    infoLogger(`File "${filePath}" is empty`);
   }
 }
 
 function createFolders(paths = []) {
   try {
     if (paths.length > 0) {
-      paths.forEach(path => {
+      for (const path of paths) {
         if (!fs.existsSync(path)) {
           fs.mkdirSync(path);
         }
-      })
+      }
     }
-  } catch (e) {
-    throw e.message;
+  } catch (error_) {
+    throw error_.message;
   }
 }
 
-function hasFileExt(str) {
-  return /^.*\.[^\\]+$/.test(str);
+function hasFileExtension(string_) {
+  return /^.*\.[^\\]+$/.test(string_);
 }
 
 function getImportIntegrityPattern(excluded) {
-  return new RegExp(`import (.*) from ('|")\\b(${excluded.join('|')})(\/)([A-Za-z])*(.*)\\b('|")`);
-};
+  return new RegExp(
+    `import (.*) from ('|")\\b(${excluded.join(
+      "|",
+    )})(/)([A-Za-z])*(.*)\\b('|")`,
+  );
+}
 
 module.exports = {
   upperFirst,
@@ -94,6 +104,6 @@ module.exports = {
   appendFirstLineToFile,
   appendToFileAfterPattern,
   createFolders,
-  hasFileExt,
+  hasFileExtension,
   getImportIntegrityPattern,
 };

@@ -1,25 +1,25 @@
 const fs = require("node:fs");
 const {
-  camelCase,
-  success,
-  info,
-  error,
   appendFirstLineToFile,
   appendToFileAfterPattern,
+  camelCase,
   createFolders,
+  error,
+  info,
   lowerFirst,
+  success,
   upperFirst,
 } = require("../utils");
 const {
-  getMainFileTemplate,
-  getStylesFileTemplate,
   getFreshRegistryFileTemplate,
-  getRegistryFileImportTemplate,
+  getMainFileTemplate,
   getRegistryAppendedExportTemplate,
+  getRegistryFileImportTemplate,
+  getStylesFileTemplate,
 } = require("./templates");
 const {
-  COMPONENT_NODE_TYPES,
   COMPONENT_NODE_TYPE_SINGULAR_BY_TYPES,
+  COMPONENT_NODE_TYPES,
 } = require("../config");
 
 try {
@@ -31,13 +31,15 @@ try {
   if (TYPE && NAME && Object.values(COMPONENT_NODE_TYPES).includes(TYPE)) {
     if (TYPE === COMPONENT_NODE_TYPES.pages && !FEATURE) {
       throw new Error(
-        "\"app\" domain pages is an endpoint registry. Create it manually"
+        '"app" domain pages is an endpoint registry. Create it manually',
       );
     }
 
     const DOMAIN = FEATURE || "app";
 
-    const TYPE_SINGULAR_CAP = upperFirst(COMPONENT_NODE_TYPE_SINGULAR_BY_TYPES[TYPE]);
+    const TYPE_SINGULAR_CAP = upperFirst(
+      COMPONENT_NODE_TYPE_SINGULAR_BY_TYPES[TYPE],
+    );
     const TYPE_CAP = upperFirst(TYPE);
     const NAME_CAP = upperFirst(NAME);
     const FEATURE_CAP = upperFirst(FEATURE);
@@ -50,32 +52,49 @@ try {
     const MAIN_FILE = `${DIR}/${NAME_CAP}.jsx`;
     const STYLES_FILE = `${DIR}/${NAME_CAP}.styles.js`;
 
-    const REGISTRY_NAMED_EXPORT = `${FEATURE_CAP || ''}${TYPE_CAP}`;
-    const EXPORT_PATTERN = new RegExp('^export const ([A-Z][a-z]*)?' + `${TYPE_CAP} = {$`, 'm');
+    const REGISTRY_NAMED_EXPORT = `${FEATURE_CAP || ""}${TYPE_CAP}`;
+    const EXPORT_PATTERN = new RegExp(
+      `^export const ([A-Z][a-z]*)?${TYPE_CAP} = {$`,
+      "m",
+    );
 
     if (!fs.existsSync(DOMAIN_DIR)) {
-      throw new Error(`"${DOMAIN}" ${FEATURE ? "feature" : "folder"} is not exists.`);
+      throw new Error(
+        `"${DOMAIN}" ${FEATURE ? "feature" : "folder"} is not exists.`,
+      );
     }
 
     createFolders([TYPE_DIR]);
 
     if (!fs.existsSync(DIR)) {
       fs.mkdirSync(DIR);
-      fs.appendFile(MAIN_FILE, getMainFileTemplate({
-        nameCap: NAME_CAP,
-        domain: DOMAIN,
-        type: TYPE,
-      }), () => { });
-      fs.appendFile(STYLES_FILE, getStylesFileTemplate({
-        nameCap: NAME_CAP,
-      }), () => { });
-      if (!fs.existsSync(REGISTRY_FILE)) {
-        fs.appendFile(REGISTRY_FILE, getFreshRegistryFileTemplate({
+      fs.appendFile(
+        MAIN_FILE,
+        getMainFileTemplate({
           nameCap: NAME_CAP,
-          namedExport: REGISTRY_NAMED_EXPORT,
           domain: DOMAIN,
           type: TYPE,
-        }), () => { });
+        }),
+        () => {},
+      );
+      fs.appendFile(
+        STYLES_FILE,
+        getStylesFileTemplate({
+          nameCap: NAME_CAP,
+        }),
+        () => {},
+      );
+      if (!fs.existsSync(REGISTRY_FILE)) {
+        fs.appendFile(
+          REGISTRY_FILE,
+          getFreshRegistryFileTemplate({
+            nameCap: NAME_CAP,
+            namedExport: REGISTRY_NAMED_EXPORT,
+            domain: DOMAIN,
+            type: TYPE,
+          }),
+          () => {},
+        );
       } else {
         appendFirstLineToFile({
           filePath: REGISTRY_FILE,
@@ -84,6 +103,7 @@ try {
             domain: DOMAIN,
             type: TYPE,
           }),
+          infoLogger: info,
         });
         appendToFileAfterPattern({
           filePath: REGISTRY_FILE,
@@ -91,6 +111,7 @@ try {
           content: getRegistryAppendedExportTemplate({
             nameCap: NAME_CAP,
           }),
+          infoLogger: info,
         });
       }
       success();
@@ -100,6 +121,6 @@ try {
   } else {
     throw new Error("Invalid input. Check script parameters in Makefile");
   }
-} catch (e) {
-  error(e.message);
+} catch (error_) {
+  error(error_.message);
 }

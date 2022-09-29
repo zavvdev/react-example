@@ -1,17 +1,17 @@
 const fs = require("node:fs");
 const {
   camelCase,
-  success,
-  info,
   error,
-  upperFirst,
+  info,
   lowerFirst,
+  success,
+  upperFirst,
 } = require("../utils");
 const {
   getComponentFileTemplate,
-  getStylesFileTemplate,
   getInputFileTemplate,
   getOutputFileTemplate,
+  getStylesFileTemplate,
 } = require("./templates");
 
 try {
@@ -29,20 +29,32 @@ try {
 
     if (!fs.existsSync(DIR)) {
       fs.mkdirSync(DIR);
-      fs.appendFile(MAIN_FILE, getComponentFileTemplate({
-        fileName: FILE_NAME,
-        folderName: FOLDER_NAME,
-      }), () => { });
-      fs.appendFile(STYLES_FILE, getStylesFileTemplate({
-        fileName: FILE_NAME,
-      }), () => { });
+      fs.appendFile(
+        MAIN_FILE,
+        getComponentFileTemplate({
+          fileName: FILE_NAME,
+          folderName: FOLDER_NAME,
+        }),
+        () => {},
+      );
+      fs.appendFile(
+        STYLES_FILE,
+        getStylesFileTemplate({
+          fileName: FILE_NAME,
+        }),
+        () => {},
+      );
 
       fs.mkdirSync(GATEWAY_DIR);
-      fs.appendFile(INPUT_FILE, getInputFileTemplate(), () => { });
-      fs.appendFile(OUTPUT_FILE, getOutputFileTemplate({
-        fileName: FILE_NAME,
-        folderName: FOLDER_NAME,
-      }), () => { });
+      fs.appendFile(INPUT_FILE, getInputFileTemplate(), () => {});
+      fs.appendFile(
+        OUTPUT_FILE,
+        getOutputFileTemplate({
+          fileName: FILE_NAME,
+          folderName: FOLDER_NAME,
+        }),
+        () => {},
+      );
 
       success();
     } else {
@@ -51,6 +63,6 @@ try {
   } else {
     throw new Error("Provide name of the feature");
   }
-} catch (e) {
-  error(e.message);
+} catch (error_) {
+  error(error_.message);
 }

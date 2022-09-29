@@ -1,5 +1,5 @@
 const fs = require("node:fs");
-const { error, success, camelCase, lowerFirst } = require("../utils");
+const { camelCase, error, lowerFirst, success } = require("../utils");
 const { checkFeatureImportsIntegrity } = require("./featureImportsIntegrity");
 
 try {
@@ -11,23 +11,23 @@ try {
   } else {
     const issues = [
       ...checkFeatureImportsIntegrity({
-        rootDir: ROOT_DIR,
+        rootDirectory: ROOT_DIR,
         domain: DOMAIN,
       }),
     ];
 
     if (issues.length > 0) {
-      issues.forEach(issue => {
-        console.log('--------------------');
+      for (const issue of issues) {
+        console.log("--------------------");
         console.log(`Path: ${issue.filePath}`);
         console.log(`Message: ${issue.message}`);
-        console.log('--------------------');
-      });
-      throw new Error('Integrity issues found. Check messages above');
+        console.log("--------------------");
+      }
+      throw new Error("Integrity issues found. Check messages above");
     } else {
-      success('No integrity issues found');
+      success("No integrity issues found");
     }
   }
-} catch (e) {
-  throw new Error(e.message);
+} catch (error_) {
+  throw new Error(error_.message);
 }

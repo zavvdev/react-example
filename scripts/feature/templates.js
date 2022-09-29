@@ -19,7 +19,7 @@ const getInputFileTemplate = () => `// input`;
 
 const getOutputFileTemplate = ({ fileName, folderName }) =>
   `export { ${fileName} } from "${folderName}/${fileName}";
-`
+`;
 
 module.exports = {
   getComponentFileTemplate,

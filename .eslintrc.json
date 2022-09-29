@@ -177,21 +177,14 @@
         ]
       }
     ],
-    "react/react-in-jsx-scope": "off",
-    "import/prefer-default-export": "off",
-    "import/no-default-export": "error",
-    "unicorn/prefer-spread": "off",
-    "unicorn/no-unused-properties": "error",
-    "unicorn/no-unsafe-regex": "error",
-    "folders/match-regex": ["error", "^([a-z]|[A-Z])+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?$", "/src/"],
     "react/function-component-definition": [
-      2,
+      "error",
       {
         "namedComponents": "function-declaration"
       }
     ],
     "max-len": [
-      2,
+      "error",
       {
         "code": 80,
         "ignorePattern": "^import"
@@ -262,10 +255,24 @@
           }
         ]
       }
-    ]
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "import/no-default-export": "error",
+    "unicorn/no-unused-properties": "error",
+    "unicorn/no-unsafe-regex": "error",
+    "folders/match-regex": ["error", "^([a-z]|[A-Z])+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?$", "/src/"],
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "unicorn/no-array-reduce": "off",
+    "unicorn/prefer-spread": "off",
+    "unicorn/no-array-for-each": "off"
   },
   "ignorePatterns": [
-    "build/",
-    "scripts/"
+    "build/"
   ]
 }
