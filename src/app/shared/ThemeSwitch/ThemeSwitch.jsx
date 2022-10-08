@@ -1,8 +1,11 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { useThemeSwitchStyles } from "app/shared/ThemeSwitch/ThemeSwitch.styles";
+import { I18N_CONFIG } from "app/i18n/config";
 
 export function ThemeSwitch({ isDark, onToggle, className }) {
+  const { t } = useTranslation(I18N_CONFIG.namespace);
   const classes = useThemeSwitchStyles();
   const rootClasses = cx(classes.root, className);
 
@@ -12,7 +15,9 @@ export function ThemeSwitch({ isDark, onToggle, className }) {
 
   return (
     <button type="button" className={rootClasses} onClick={onToggle}>
-      <div className={switcherClasses}>{isDark ? "🌚" : "🌝"}</div>
+      <div className={switcherClasses}>
+        {isDark ? t("themeSwitch.dark") : t("themeSwitch.light")}
+      </div>
     </button>
   );
 }

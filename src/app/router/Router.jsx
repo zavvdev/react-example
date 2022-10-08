@@ -13,28 +13,42 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import PropTypes from "prop-types";
 import { routerHistory } from "app/router/history";
 import { GENERAL_ROUTES } from "app/router/config";
 import { BooksPage } from "app/pages/BooksPage";
 import { DashboardPage } from "app/pages/DashboardPage";
 import { CartPage } from "app/pages/CartPage";
 import { OrderPage } from "app/pages/OrderPage";
+import { childrenPropType } from "app/propTypes/children";
 
-export function Router() {
+export function Router({ children, history }) {
   return (
-    <HistoryRouter history={routerHistory}>
-      <Routes>
-        {/* General Routes */}
+    <HistoryRouter history={history || routerHistory}>
+      {children || (
+        <Routes>
+          {/* General Routes */}
 
-        <Route path={GENERAL_ROUTES.dashboard} element={<DashboardPage />} />
-        <Route path={GENERAL_ROUTES.books} element={<BooksPage />} />
-        <Route path={GENERAL_ROUTES.cart} element={<CartPage />} />
-        <Route path={GENERAL_ROUTES.order} element={<OrderPage />} />
+          <Route path={GENERAL_ROUTES.dashboard} element={<DashboardPage />} />
+          <Route path={GENERAL_ROUTES.books} element={<BooksPage />} />
+          <Route path={GENERAL_ROUTES.cart} element={<CartPage />} />
+          <Route path={GENERAL_ROUTES.order} element={<OrderPage />} />
 
-        {/* --------- */}
+          {/* --------- */}
 
-        <Route path="*" element={<div />} />
-      </Routes>
+          <Route path="*" element={<div />} />
+        </Routes>
+      )}
     </HistoryRouter>
   );
 }
+
+Router.propTypes = {
+  children: childrenPropType,
+  history: PropTypes.shape({}),
+};
+
+Router.defaultProps = {
+  children: undefined,
+  history: undefined,
+};

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader container should render AppHeader 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <div
+      class="side"
+    >
+      <button
+        class="root"
+        type="button"
+      >
+        <div
+          class="switcher"
+        >
+          themeSwitch.light
+        </div>
+      </button>
+    </div>
+    <a
+      class="logo"
+      href="/"
+    >
+      <span
+        class="root"
+      >
+        appName
+      </span>
+    </a>
+    <div
+      class="side"
+    >
+      <div
+        class="root"
+      >
+        <a
+          class="cart"
+          href="/cart"
+        >
+          appHeader.cart
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

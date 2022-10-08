@@ -3,12 +3,20 @@
     "browser": true,
     "es2021": true
   },
+  "plugins": [
+    "react",
+    "unicorn",
+    "canonical",
+    "folders",
+    "jest"
+  ],
   "extends": [
     "airbnb",
     "airbnb/hooks",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,12 +25,6 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "unicorn",
-    "canonical",
-    "folders"
-  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -266,6 +268,9 @@
     "unicorn/no-unused-properties": "error",
     "unicorn/no-unsafe-regex": "error",
     "folders/match-regex": ["error", "^([a-z]|[A-Z])+((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?$", "/src/"],
+    "unicorn/consistent-function-scoping": ["error", {
+      "checkArrowFunctions": false 
+    }],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "unicorn/no-array-reduce": "off",
