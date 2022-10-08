@@ -1,6 +1,6 @@
 import { render as rtlRender } from "@testing-library/react";
 import { App } from "app/App";
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 
 function render(ui, { store, theme, history, ...renderOptions } = {}) {
   const styling = {

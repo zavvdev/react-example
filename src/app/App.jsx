@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { StoreProvider } from "app/providers/StoreProvider";
 import { ThemeProvider } from "app/providers/ThemeProvider";
 import { Router } from "app/router/Router";
-import { childrenPropType as childrenPropertyType } from "app/propTypes/children";
+import { childrenPropType as childrenPropertyType } from "app/propTypes";
 
 export function App({ children, store, styling, history }) {
   return (

@@ -20,7 +20,7 @@ import { BooksPage } from "app/pages/BooksPage";
 import { DashboardPage } from "app/pages/DashboardPage";
 import { CartPage } from "app/pages/CartPage";
 import { OrderPage } from "app/pages/OrderPage";
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 
 export function Router({ children, history }) {
   return (

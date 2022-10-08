@@ -1,4 +1,4 @@
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 import { useMainStyles } from "app/layouts/Main/Main.styles";
 import { Containers } from "app/containers";
 

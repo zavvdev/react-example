@@ -1,6 +1,6 @@
 import { JssProvider, ThemeProvider as JssThemeProvider } from "react-jss";
 import PropTypes from "prop-types";
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 import { useAppTheme } from "app/hooks/useAppTheme";
 
 export function ThemeProvider({ children, theme, generateId }) {

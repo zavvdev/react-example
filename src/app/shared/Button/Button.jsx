@@ -1,6 +1,6 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 import { useButtonStyles } from "app/shared/Button/Button.styles";
 
 export function Button({ children, className, onClick, disabled, fullWidth }) {

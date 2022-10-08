@@ -58,7 +58,7 @@
     },
     {
       "files": [
-        "./src/app/propTypes/**/*"
+        "./src/app/propTypes.js"
       ],
       "rules": {
         "unicorn/prevent-abbreviations": "off"

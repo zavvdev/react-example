@@ -1,6 +1,6 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { childrenPropType } from "app/propTypes/children";
+import { childrenPropType } from "app/propTypes";
 import { useTypographyStyles } from "app/shared/Typography/Typography.styles";
 
 export function Typography({ children, tag, className }) {
