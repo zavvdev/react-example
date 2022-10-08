@@ -6,8 +6,7 @@ import { ThemeSwitch } from "app/shared/ThemeSwitch/ThemeSwitch";
 import { Typography } from "app/shared/Typography/Typography";
 import { I18N_CONFIG } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
-import { themeSelectors } from "app/store/theme/selectors";
-import { themeActions } from "app/store/theme/domain";
+import { themeActions, themeSelectors } from "app/store/theme/domain";
 import { cartSelectors } from "cart/gateway/output";
 
 export function AppHeader() {

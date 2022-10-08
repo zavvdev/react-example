@@ -1,26 +1,27 @@
 import { render as rtlRender } from "@testing-library/react";
-import { App } from "app/App";
-import { childrenPropType } from "app/propTypes";
+import { Wrapper } from "app/tests/Wrapper";
 
-function render(ui, { store, theme, history, ...renderOptions } = {}) {
+function render(
+  ui,
+  { initialStoreState, theme, history, ...renderOptions } = {},
+) {
   const styling = {
     theme,
     generateId: (rule) => rule?.key,
   };
 
-  function Wrapper({ children }) {
-    return (
-      <App store={store} styling={styling} history={history}>
+  return rtlRender(ui, {
+    wrapper: ({ children }) => (
+      <Wrapper
+        initialStoreState={initialStoreState}
+        styling={styling}
+        history={history}
+      >
         {children}
-      </App>
-    );
-  }
-
-  Wrapper.propTypes = {
-    children: childrenPropType.isRequired,
-  };
-
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+      </Wrapper>
+    ),
+    ...renderOptions,
+  });
 }
 
 export const testUtils = {

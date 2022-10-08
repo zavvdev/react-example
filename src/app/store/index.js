@@ -3,7 +3,7 @@ import { rootReducer } from "app/store/rootReducer";
 import { httpApi } from "app/store/httpApi";
 import { listenerMiddleware } from "app/store/listenerMiddleware";
 
-const configureStore = (arguments_ = {}) => {
+export const configureStore = (arguments_ = {}) => {
   const { initialState = {} } = arguments_;
   return createStore({
     reducer: rootReducer,
