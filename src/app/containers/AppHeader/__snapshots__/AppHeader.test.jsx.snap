@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppHeader container should render AppHeader 1`] = `
+exports[`AppHeader container should render AppHeader (snapshot) 1`] = `
 <DocumentFragment>
   <div
     class="root"

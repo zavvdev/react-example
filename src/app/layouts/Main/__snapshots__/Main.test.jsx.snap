@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main layout should render Main layout 1`] = `
+exports[`Main layout should render Main layout (snapshot) 1`] = `
 <DocumentFragment>
   <div
     class="root"
