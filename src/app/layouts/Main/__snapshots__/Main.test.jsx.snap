@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main layout should render Main layout 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <div
+      class="inner"
+    >
+      <div
+        class="root"
+      >
+        <div
+          class="side"
+        >
+          <button
+            class="root"
+            type="button"
+          >
+            <div
+              class="switcher"
+            >
+              themeSwitch.light
+            </div>
+          </button>
+        </div>
+        <a
+          class="logo"
+          href="/"
+        >
+          <span
+            class="root"
+          >
+            appName
+          </span>
+        </a>
+        <div
+          class="side"
+        >
+          <div
+            class="root"
+          >
+            <a
+              class="cart"
+              href="/cart"
+            >
+              appHeader.cart
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content"
+      >
+        <div>
+          childrenMock
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

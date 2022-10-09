@@ -1,4 +1,4 @@
-class LocalStorageService {
+export class LocalStorageService {
   constructor(webApiLocalStorage) {
     this.repository = webApiLocalStorage;
   }

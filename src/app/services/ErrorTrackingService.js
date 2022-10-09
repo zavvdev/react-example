@@ -1,4 +1,4 @@
-class ErrorTrackingService {
+export class ErrorTrackingService {
   constructor(trackerApi) {
     this.repository = trackerApi;
   }
