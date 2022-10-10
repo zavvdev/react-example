@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeSwitch should render ThemeSwitch (dark mode) 1`] = `
+<DocumentFragment>
+  <button
+    class="root"
+    type="button"
+  >
+    <div
+      class="switcher switcherDark"
+    >
+      themeSwitch.dark
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`ThemeSwitch should render ThemeSwitch (light mode) 1`] = `
+<DocumentFragment>
+  <button
+    class="root"
+    type="button"
+  >
+    <div
+      class="switcher"
+    >
+      themeSwitch.light
+    </div>
+  </button>
+</DocumentFragment>
+`;

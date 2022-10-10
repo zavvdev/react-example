@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography should render Typography with custom tag 1`] = `
+<DocumentFragment>
+  <h1
+    class="root"
+  >
+    mock2
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Typography should render Typography with default tag 1`] = `
+<DocumentFragment>
+  <p
+    class="root"
+  >
+    mock
+  </p>
+</DocumentFragment>
+`;

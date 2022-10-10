@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render Input 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      class="input"
+      name="mock"
+      type="text"
+      value="42"
+    />
+  </div>
+</DocumentFragment>
+`;
