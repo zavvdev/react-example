@@ -1,5 +1,5 @@
 import { render as rtlRender } from "@testing-library/react";
-import { Wrapper } from "app/tests/Wrapper";
+import { TestWrapper } from "app/tests/TestWrapper";
 
 function render(
   ui,
@@ -12,13 +12,13 @@ function render(
 
   return rtlRender(ui, {
     wrapper: ({ children }) => (
-      <Wrapper
+      <TestWrapper
         initialStoreState={initialStoreState}
         styling={styling}
         history={history}
       >
         {children}
-      </Wrapper>
+      </TestWrapper>
     ),
     ...renderOptions,
   });

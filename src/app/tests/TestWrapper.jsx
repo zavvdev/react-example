@@ -3,7 +3,7 @@ import { App } from "app/App";
 import { childrenPropType } from "app/propTypes";
 import { configureStore } from "app/store";
 
-export function Wrapper({ children, initialStoreState, styling, history }) {
+export function TestWrapper({ children, initialStoreState, styling, history }) {
   return (
     <App
       store={configureStore({ initialState: initialStoreState })}
@@ -15,7 +15,7 @@ export function Wrapper({ children, initialStoreState, styling, history }) {
   );
 }
 
-Wrapper.propTypes = {
+TestWrapper.propTypes = {
   children: childrenPropType.isRequired,
   initialStoreState: PropTypes.shape({}),
   styling: PropTypes.shape({
@@ -25,7 +25,7 @@ Wrapper.propTypes = {
   history: PropTypes.shape({}),
 };
 
-Wrapper.defaultProps = {
+TestWrapper.defaultProps = {
   initialStoreState: undefined,
   styling: undefined,
   history: undefined,
