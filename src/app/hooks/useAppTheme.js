@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { themeSelectors } from "app/store/theme/domain";
+import { themeSelectors } from "app/store/theme/selectors";
 import { appDarkTheme } from "app/styles/theme/dark";
 import { appLightTheme } from "app/styles/theme/light";
 

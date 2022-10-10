@@ -5,6 +5,7 @@ import {
 } from "app/store/theme/utils";
 import { THEME_STORE_DOMAIN } from "app/store/theme/config";
 import { listenerMiddleware } from "app/store/listenerMiddleware";
+import { themeSelectors } from "app/store/theme/selectors";
 
 const buildThemeStoreState = ({ isDarkMode }) => ({
   isDarkMode,
@@ -13,8 +14,6 @@ const buildThemeStoreState = ({ isDarkMode }) => ({
 const initialThemeState = buildThemeStoreState({
   isDarkMode: getDarkModeStateFromLocalStorage(),
 });
-
-/* Slice */
 
 const themeSlice = createSlice({
   name: THEME_STORE_DOMAIN,
@@ -28,25 +27,14 @@ const themeSlice = createSlice({
 const themeActions = themeSlice.actions;
 const themeReducer = themeSlice.reducer;
 
-/* Selectors */
-
-const selectIsDarkMode = (state) => {
-  return state[THEME_STORE_DOMAIN].isDarkMode;
-};
-const themeSelectors = {
-  selectIsDarkMode,
-};
-
-/* Middleware */
-
 listenerMiddleware.startListening({
   actionCreator: themeActions.toggleDarkMode,
   effect: (_, listenerApi) => {
-    const isDarkMode = selectIsDarkMode(listenerApi.getOriginalState());
+    const isDarkMode = themeSelectors.selectIsDarkMode(
+      listenerApi.getOriginalState(),
+    );
     saveDarkModeStateToLocalStorage(!isDarkMode);
   },
 });
 
-/* --------- */
-
-export { themeActions, themeReducer, themeSelectors, buildThemeStoreState };
+export { themeActions, themeReducer, buildThemeStoreState };
