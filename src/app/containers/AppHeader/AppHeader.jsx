@@ -26,7 +26,7 @@ export function AppHeader() {
       <div className={classes.side}>
         <ThemeSwitch isDark={isDarkMode} onToggle={handleChangeTheme} />
       </div>
-      <Link className={classes.logo} to={GENERAL_ROUTES.dashboard}>
+      <Link className={classes.logo} to={GENERAL_ROUTES.books}>
         <Typography tag="span">{t("appName")}</Typography>
       </Link>
       <div className={classes.side}>

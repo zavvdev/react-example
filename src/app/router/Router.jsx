@@ -10,6 +10,7 @@ https://reactrouter.com/en/v6.3.0/api#unstable_historyrouter
 */
 import {
   unstable_HistoryRouter as HistoryRouter,
+  Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -17,7 +18,6 @@ import PropTypes from "prop-types";
 import { routerHistory } from "app/router/history";
 import { GENERAL_ROUTES } from "app/router/config";
 import { BooksPage } from "app/pages/BooksPage";
-import { DashboardPage } from "app/pages/DashboardPage";
 import { CartPage } from "app/pages/CartPage";
 import { OrderPage } from "app/pages/OrderPage";
 import { childrenPropType } from "app/propTypes";
@@ -29,7 +29,7 @@ export function Router({ children, history }) {
         <Routes>
           {/* General Routes */}
 
-          <Route path={GENERAL_ROUTES.dashboard} element={<DashboardPage />} />
+          <Route path="/" element={<Navigate to={GENERAL_ROUTES.books} />} />
           <Route path={GENERAL_ROUTES.books} element={<BooksPage />} />
           <Route path={GENERAL_ROUTES.cart} element={<CartPage />} />
           <Route path={GENERAL_ROUTES.order} element={<OrderPage />} />
