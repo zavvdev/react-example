@@ -16,7 +16,7 @@ export function Input({
   const inputClasses = cx(
     classes.input,
     {
-      [classes.inputError]: !!errorText,
+      [classes.inputError]: Boolean(errorText),
     },
     className,
   );
@@ -32,7 +32,7 @@ export function Input({
         onBlur={onBlur}
         value={value}
       />
-      {!!errorText && <div className={classes.error}>{errorText}</div>}
+      {Boolean(errorText) && <div className={classes.error}>{errorText}</div>}
     </div>
   );
 }
