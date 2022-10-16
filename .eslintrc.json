@@ -246,9 +246,19 @@
             "message": "Output gateways cannot import from input gateways"
           },
           {
-            "target": "./src/*/{!(containers|layouts|shared)/**/*,*}",
-            "from": "./src/*/{containers,layouts,shared}/{!(index.js),!(index.js)/**,**/!(index.js)}",
-            "message": "All containers, layouts and shared components should be imported from corresponding registry. For example: src/[domain]/shared/index.js"
+            "target": "./src/*/{!(containers)/**/*,*}",
+            "from": "./src/*/containers/{!(index.js),!(index.js)/**,**/!(index.js)}",
+            "message": "All containers should be imported from corresponding registry (src/[domain]/containers/index.js)"
+          },
+          {
+            "target": "./src/*/{!(layouts)/**/*,*}",
+            "from": "./src/*/layouts/{!(index.js),!(index.js)/**,**/!(index.js)}",
+            "message": "All layouts should be imported from corresponding registry (src/[domain]/layouts/index.js)"
+          },
+          {
+            "target": "./src/*/{!(shared)/**/*,*}",
+            "from": "./src/*/shared/{!(index.js),!(index.js)/**,**/!(index.js)}",
+            "message": "All shared components should be imported from corresponding registry (src/[domain]/shared/index.js)"
           },
           {
             "target": "./src/!(app)/{!(pages)/**/*,*}",

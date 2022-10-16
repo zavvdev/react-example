@@ -2,8 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAppHeaderStyles } from "app/containers/AppHeader/AppHeader.styles";
-import { ThemeSwitch } from "app/shared/ThemeSwitch/ThemeSwitch";
-import { Typography } from "app/shared/Typography/Typography";
+import { Shared } from "app/shared";
 import { I18N_CONFIG } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
 import { themeActions } from "app/store/theme/domain";
@@ -24,19 +23,19 @@ export function AppHeader() {
   return (
     <div className={classes.root}>
       <div className={classes.side}>
-        <ThemeSwitch isDark={isDarkMode} onToggle={handleChangeTheme} />
+        <Shared.ThemeSwitch isDark={isDarkMode} onToggle={handleChangeTheme} />
       </div>
       <Link className={classes.logo} to={GENERAL_ROUTES.books}>
-        <Typography tag="span">{t("appName")}</Typography>
+        <Shared.Typography tag="span">{t("appName")}</Shared.Typography>
       </Link>
       <div className={classes.side}>
-        <Typography tag="div">
+        <Shared.Typography tag="div">
           <Link className={classes.cart} to={GENERAL_ROUTES.cart}>
             {t("appHeader.cart", {
               count: cartBooksLength,
             })}
           </Link>
-        </Typography>
+        </Shared.Typography>
       </div>
     </div>
   );
