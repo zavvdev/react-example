@@ -2,7 +2,7 @@ import {
   buildThemeStoreState,
   themeActions,
   themeReducer,
-} from "app/store/theme/domain";
+} from "app/store/theme/slice";
 
 describe("theme store domain", () => {
   test("should build theme state", () => {

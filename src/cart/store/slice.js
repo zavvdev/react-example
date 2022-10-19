@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CART_STORE_DOMAIN } from "cart/store/config";
 
-const cartInitialState = {
+const buildCartStoreState = ({ books }) => ({
+  books,
+});
+
+const cartInitialState = buildCartStoreState({
   books: [],
-};
+});
 
 const cartSlice = createSlice({
   name: CART_STORE_DOMAIN,

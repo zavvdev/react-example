@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { cartSelectors } from "cart/store/selectors";
-import { cartActions } from "cart/store/domain";
+import { cartActions } from "cart/store/slice";
 import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
 import { CartContainers } from "cart/containers";
 import { CART_I18N_NAMESPACE } from "cart/i18n/config";

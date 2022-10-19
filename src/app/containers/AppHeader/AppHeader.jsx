@@ -5,7 +5,7 @@ import { useAppHeaderStyles } from "app/containers/AppHeader/AppHeader.styles";
 import { Shared } from "app/shared";
 import { I18N_CONFIG } from "app/i18n/config";
 import { GENERAL_ROUTES } from "app/router/config";
-import { themeActions } from "app/store/theme/domain";
+import { themeActions } from "app/store/theme/slice";
 import { themeSelectors } from "app/store/theme/selectors";
 import { cartSelectors } from "cart/gateway/output";
 

@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  getDarkModeStateFromLocalStorage,
-  saveDarkModeStateToLocalStorage,
-} from "app/store/theme/utils";
+import { getDarkModeStateFromLocalStorage } from "app/store/theme/helpers";
 import { THEME_STORE_DOMAIN } from "app/store/theme/config";
-import { listenerMiddleware } from "app/store/listenerMiddleware";
-import { themeSelectors } from "app/store/theme/selectors";
 
 const buildThemeStoreState = ({ isDarkMode }) => ({
   isDarkMode,
@@ -24,17 +19,8 @@ const themeSlice = createSlice({
     },
   },
 });
+
 const themeActions = themeSlice.actions;
 const themeReducer = themeSlice.reducer;
-
-listenerMiddleware.startListening({
-  actionCreator: themeActions.toggleDarkMode,
-  effect: (_, listenerApi) => {
-    const isDarkMode = themeSelectors.selectIsDarkMode(
-      listenerApi.getOriginalState(),
-    );
-    saveDarkModeStateToLocalStorage(!isDarkMode);
-  },
-});
 
 export { themeActions, themeReducer, buildThemeStoreState };
