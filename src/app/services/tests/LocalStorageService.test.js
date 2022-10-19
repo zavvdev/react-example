@@ -21,22 +21,40 @@ describe("LocalStorageService", () => {
     expect(result).toBe(returnValue);
   });
 
-  test("should call 'set' method", () => {
-    const key = "setKey";
-    const value = "setValue";
-    localStorageService.set(key, value);
-    expect(webApiLocalStorageMock.setItem).toBeCalledWith(key, value);
+  test("should call 'set' method and return saved key-value pair", () => {
+    const expectedSavedData = {
+      key: "setKey",
+      value: "setValue",
+    };
+    webApiLocalStorageMock.getItem.mockReturnValue(expectedSavedData.value);
+    const savedData = localStorageService.set(
+      expectedSavedData.key,
+      expectedSavedData.value,
+    );
+    expect(webApiLocalStorageMock.setItem).toBeCalledWith(
+      expectedSavedData.key,
+      expectedSavedData.value,
+    );
+    expect(savedData).toEqual(expectedSavedData);
   });
 
-  test("should call 'remove' method", () => {
-    const key = "removeKey";
-    localStorageService.remove(key);
-    expect(webApiLocalStorageMock.removeItem).toBeCalledWith(key);
+  test("should call 'remove' method and return removed key-value pair", () => {
+    const expectedReturnData = {
+      key: "setKey",
+      value: undefined,
+    };
+    webApiLocalStorageMock.getItem.mockReturnValue(expectedReturnData.value);
+    const returnData = localStorageService.remove(expectedReturnData.key);
+    expect(webApiLocalStorageMock.removeItem).toBeCalledWith(
+      expectedReturnData.key,
+    );
+    expect(returnData).toEqual(expectedReturnData);
   });
 
-  test("should call 'clear' method", () => {
-    localStorageService.clear();
+  test("should call 'clear' method and return storage length", () => {
+    const storageLengthAfterClear = localStorageService.clear();
     expect(webApiLocalStorageMock.clear).toBeCalled();
+    expect(storageLengthAfterClear).toBe(webApiLocalStorageMock.length);
   });
 
   test("should call 'getByIndex' method", () => {
@@ -46,5 +64,11 @@ describe("LocalStorageService", () => {
     const result = localStorageService.getByIndex(index);
     expect(webApiLocalStorageMock.key).toBeCalledWith(index);
     expect(result).toBe(returnValue);
+  });
+
+  test("should get storage length", () => {
+    expect(localStorageService.getStorageLength()).toBe(
+      webApiLocalStorageMock.length,
+    );
   });
 });

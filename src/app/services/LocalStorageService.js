@@ -9,14 +9,23 @@ export class LocalStorageService {
 
   set(key, value) {
     this.repository.setItem(key, value);
+    return {
+      key,
+      value: this.repository.getItem(key),
+    };
   }
 
   remove(key) {
     this.repository.removeItem(key);
+    return {
+      key,
+      value: this.repository.getItem(key),
+    };
   }
 
   clear() {
     this.repository.clear();
+    return this.repository.length;
   }
 
   getByIndex(index) {

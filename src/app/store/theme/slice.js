@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getDarkModeStateFromLocalStorage } from "app/store/theme/helpers";
+import { themeDataStorageHelper } from "app/store/theme/helpers";
 import { THEME_STORE_DOMAIN } from "app/store/theme/config";
 
 const buildThemeStoreState = ({ isDarkMode }) => ({
@@ -7,7 +7,7 @@ const buildThemeStoreState = ({ isDarkMode }) => ({
 });
 
 const initialThemeState = buildThemeStoreState({
-  isDarkMode: getDarkModeStateFromLocalStorage(),
+  isDarkMode: themeDataStorageHelper.getDarkModeState(),
 });
 
 const themeSlice = createSlice({
