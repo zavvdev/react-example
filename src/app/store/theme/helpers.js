@@ -1,15 +1,17 @@
 import { localStorageService } from "app/services/LocalStorageService";
 import { IS_DARK_THEME_LOCAL_STORAGE_KEY } from "app/store/theme/config";
 
-export const createThemeDataStorageHelper = (localStorage) => ({
+export const createThemeDataStorageHelper = (localStorageServiceInstance) => ({
   saveDarkModeState(darkModeState) {
-    return localStorage.set(
+    return localStorageServiceInstance.set(
       IS_DARK_THEME_LOCAL_STORAGE_KEY,
       `${darkModeState}`,
     );
   },
   getDarkModeState() {
-    const rawStorageValue = localStorage.get(IS_DARK_THEME_LOCAL_STORAGE_KEY);
+    const rawStorageValue = localStorageServiceInstance.get(
+      IS_DARK_THEME_LOCAL_STORAGE_KEY,
+    );
     return Boolean(JSON.parse(rawStorageValue));
   },
 });
