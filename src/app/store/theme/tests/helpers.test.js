@@ -1,40 +1,28 @@
-import { createThemeDataStorageHelper } from "app/store/theme/helpers";
+import {
+  getDarkModeStateFromLocalStorage,
+  saveDarkModeStateToLocalStorage,
+} from "app/store/theme/helpers";
 import { IS_DARK_THEME_LOCAL_STORAGE_KEY } from "app/store/theme/config";
 
-const localStorageServiceMock = {
-  set: jest.fn(),
-  get: jest.fn(),
-};
-const themeDataStorageHelper = createThemeDataStorageHelper(
-  localStorageServiceMock,
-);
-
-describe("themeDataStorageHelper", () => {
-  test("should call 'set' method & return proper key-value pair", () => {
+describe("theme helpers", () => {
+  test("saveDarkModeStateToLocalStorage", () => {
     const expectedSavedStorageState = {
       key: IS_DARK_THEME_LOCAL_STORAGE_KEY,
       value: false,
     };
-    localStorageServiceMock.set.mockReturnValue(expectedSavedStorageState);
-    const savedStorageState = themeDataStorageHelper.saveDarkModeState(
-      expectedSavedStorageState.value,
-    );
-    expect(localStorageServiceMock.set).toBeCalledWith(
-      expectedSavedStorageState.key,
+    saveDarkModeStateToLocalStorage(expectedSavedStorageState.value);
+    expect(window.localStorage.getItem(expectedSavedStorageState.key)).toEqual(
       String(expectedSavedStorageState.value),
     );
-    expect(savedStorageState).toEqual(expectedSavedStorageState);
   });
 
-  test("should call 'get' method with key accessor & return value", () => {
+  test("getDarkModeStateFromLocalStorage", () => {
     const expectedSavedStorageState = true;
-    localStorageServiceMock.get.mockReturnValue(
-      String(expectedSavedStorageState),
-    );
-    const savedStorageState = themeDataStorageHelper.getDarkModeState();
-    expect(localStorageServiceMock.get).toBeCalledWith(
+    window.localStorage.setItem(
       IS_DARK_THEME_LOCAL_STORAGE_KEY,
+      expectedSavedStorageState,
     );
+    const savedStorageState = getDarkModeStateFromLocalStorage();
     expect(savedStorageState).toEqual(expectedSavedStorageState);
   });
 });

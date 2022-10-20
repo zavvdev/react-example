@@ -1,12 +1,12 @@
 import { themeActions } from "app/store/theme/slice";
 import { themeSelectors } from "app/store/theme/selectors";
-import { themeDataStorageHelper } from "app/store/theme/helpers";
+import { saveDarkModeStateToLocalStorage } from "app/store/theme/helpers";
 
-function saveDarkModeToLocalStorageEffect(_, listenerApi) {
+export function saveDarkModeToLocalStorageEffect(_, listenerApi) {
   const isDarkMode = themeSelectors.selectIsDarkMode(
     listenerApi.getOriginalState(),
   );
-  themeDataStorageHelper.saveDarkModeState(!isDarkMode);
+  saveDarkModeStateToLocalStorage(!isDarkMode);
 }
 
 const toggleDarkModeMiddleware = {
