@@ -9,9 +9,9 @@ export function saveDarkModeToLocalStorageEffect(_, listenerApi) {
   saveDarkModeStateToLocalStorage(!isDarkMode);
 }
 
-const toggleDarkModeMiddleware = {
-  actionCreator: themeActions.toggleDarkMode,
-  effect: saveDarkModeToLocalStorageEffect,
-};
-
-export const themeMiddlewares = [toggleDarkModeMiddleware];
+export const themeMiddlewares = [
+  {
+    actionCreator: themeActions.toggleDarkMode,
+    effect: saveDarkModeToLocalStorageEffect,
+  },
+];
