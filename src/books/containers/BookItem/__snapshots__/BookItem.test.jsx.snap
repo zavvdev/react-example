@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookItem container should render BookItem which has isInCart=false 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <img
+      alt="Mock"
+      class="cover"
+      src="https://mock.com/42"
+    />
+    <div>
+      <h2
+        class="root title"
+      >
+        Mock
+      </h2>
+      <div
+        class="infoWrap"
+      >
+        <i
+          class="root"
+        >
+          12/12/22, 
+        </i>
+        <span
+          class="root"
+        >
+          bookItem.author
+        </span>
+      </div>
+      <div
+        class="root price"
+      >
+        $42
+      </div>
+      <button
+        class="root addToCartBtn"
+        type="button"
+      >
+        bookItem.addToCart
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`BookItem container should render BookItem which has isInCart=true 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <img
+      alt="Mock"
+      class="cover"
+      src="https://mock.com/42"
+    />
+    <div>
+      <h2
+        class="root title"
+      >
+        Mock
+      </h2>
+      <div
+        class="infoWrap"
+      >
+        <i
+          class="root"
+        >
+          12/12/22, 
+        </i>
+        <span
+          class="root"
+        >
+          bookItem.author
+        </span>
+      </div>
+      <div
+        class="root price"
+      >
+        $42
+      </div>
+      <button
+        class="root addToCartBtn"
+        type="button"
+      >
+        bookItem.alreadyInCart
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
