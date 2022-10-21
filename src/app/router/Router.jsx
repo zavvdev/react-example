@@ -27,14 +27,10 @@ export function Router({ children, history }) {
     <HistoryRouter history={history || routerHistory}>
       {children || (
         <Routes>
-          {/* General Routes */}
-
           <Route path="/" element={<Navigate to={GENERAL_ROUTES.books} />} />
           <Route path={GENERAL_ROUTES.books} element={<BooksPage />} />
           <Route path={GENERAL_ROUTES.cart} element={<CartPage />} />
           <Route path={GENERAL_ROUTES.order} element={<OrderPage />} />
-
-          {/* --------- */}
 
           <Route path="*" element={<div />} />
         </Routes>
