@@ -1,24 +1,16 @@
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { BooksContainers } from "books/containers";
-import {
-  cartActions,
-  cartSelectors,
-  I18N_CONFIG,
-  Shared,
-} from "books/gateway/input";
-import { useGetAllBooksQuery } from "books/store/api";
+import { I18N_CONFIG, Shared } from "books/gateway/input";
+import { useBooks } from "books/hooks/useBooks";
 
 export function Books() {
   const { t } = useTranslation(I18N_CONFIG.namespace);
-  const dispatch = useDispatch();
-  const { data: books, isLoading, isError, isSuccess } = useGetAllBooksQuery();
-  const cartBooks = useSelector(cartSelectors.selectCartBooks);
+  const books = useBooks();
 
   return (
     <div>
-      {isSuccess &&
-        books.map((book) => (
+      {books.isSuccess &&
+        books.data.map((book) => (
           <BooksContainers.BookItem
             key={book.id}
             title={book.title}
@@ -26,29 +18,15 @@ export function Books() {
             date={book.date}
             price={book.price}
             cover={book.cover}
-            onAddToCart={() =>
-              dispatch(
-                cartActions.addBookToCart({
-                  book,
-                }),
-              )
-            }
-            onRemoveFromCart={() => {
-              dispatch(
-                cartActions.removeBookFromCart({
-                  bookId: book.id,
-                }),
-              );
-            }}
-            isInCart={
-              cartBooks.findIndex((cartBook) => cartBook.id === book.id) !== -1
-            }
+            onAddToCart={() => books.onAddToCart(book)}
+            onRemoveFromCart={() => books.onRemoveFromCart(book.id)}
+            isInCart={books.getIsBookInCart(book.id)}
           />
         ))}
-      {isLoading && (
+      {books.isLoading && (
         <Shared.Typography>{t("labels.loading")}</Shared.Typography>
       )}
-      {isError && (
+      {books.isError && (
         <Shared.Typography>{t("errors.unexpected")}</Shared.Typography>
       )}
     </div>
