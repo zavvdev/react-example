@@ -1,7 +1,7 @@
 import { httpApi } from "books/gateway/input";
 import { BOOKS_API_TAGS, BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 
-const getAllBooksResponseAdapter = (response) =>
+export const getAllBooksResponseAdapter = (response) =>
   response.map((book) => ({
     id: book?.id,
     title: book?.title,

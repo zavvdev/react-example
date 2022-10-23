@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CART_STORE_DOMAIN } from "cart/store/config";
 
-const buildCartStoreState = ({ books }) => ({
+export const buildCartStoreState = ({ books }) => ({
   books,
 });
 

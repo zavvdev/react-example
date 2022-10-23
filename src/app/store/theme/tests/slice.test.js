@@ -4,7 +4,7 @@ import {
   themeReducer,
 } from "app/store/theme/slice";
 
-describe("theme store domain", () => {
+describe("theme store slice", () => {
   test("should build theme state", () => {
     const expectedState = {
       isDarkMode: true,
