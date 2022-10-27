@@ -7,7 +7,3 @@ export {
   buildCartStoreState,
   CART_STORE_DOMAIN,
 } from "cart/gateway/output";
-
-// always in the end
-export { testUtils } from "app/tests/utils";
-export { apiServerMock } from "app/tests/mocks/apiServerMock";

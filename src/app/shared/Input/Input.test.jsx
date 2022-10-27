@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { testUtils } from "app/tests/utils";
 import { Input } from "app/shared/Input/Input";
+import { testUtils } from "__tests__/utils";
 
 const properties = {
   type: "text",

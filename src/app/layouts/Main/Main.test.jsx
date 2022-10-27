@@ -1,5 +1,5 @@
-import { testUtils } from "app/tests/utils";
 import { Main } from "app/layouts/Main/Main";
+import { testUtils } from "__tests__/utils";
 
 const childrenMock = "childrenMock";
 

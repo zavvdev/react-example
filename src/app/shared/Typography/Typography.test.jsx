@@ -1,5 +1,5 @@
-import { testUtils } from "app/tests/utils";
 import { Typography } from "app/shared/Typography/Typography";
+import { testUtils } from "__tests__/utils";
 
 describe("Typography", () => {
   test("should render Typography with default tag", () => {

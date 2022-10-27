@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { testUtils } from "books/gateway/input";
 import { BookItem } from "books/containers/BookItem/BookItem";
+import { testUtils } from "__tests__/utils";
 
 describe("BookItem container", () => {
   test("should render BookItem which has isInCart=false", () => {

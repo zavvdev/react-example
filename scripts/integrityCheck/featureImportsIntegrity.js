@@ -13,12 +13,12 @@ const getFeatureNames = (rootContent) => {
 };
 
 const getRootContentPattern = (rootDirectory) => {
-  return `${rootDirectory}/!(app)`;
+  return `${rootDirectory}/!(app|__tests__)`;
 };
 
 const getFeatureFilesPattern = (rootDirectory, domain) => {
   return `${rootDirectory}/${
-    domain ? `${domain}/` : "!(app)/"
+    domain ? `${domain}/` : "!(app|__tests__)/"
   }{!(gateway)/**/*.@(js|jsx),gateway/**/!(input.js),*.@(js|jsx)}`;
 };
 
@@ -47,7 +47,7 @@ function checkFeatureImportsIntegrity({ rootDirectory, domain }) {
           issues.push({
             filePath,
             // eslint-disable-next-line max-len
-            message: `"${fileDomain}" feature should NOT use direct imports from other features. Import all incoming modules from "${fileDomain}" input gateway`,
+            message: `"${fileDomain}" should NOT use direct imports from other features. Import all incoming modules from "${fileDomain}" input gateway`,
           });
         }
       }

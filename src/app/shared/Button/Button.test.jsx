@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { testUtils } from "app/tests/utils";
 import { Button } from "app/shared/Button/Button";
+import { testUtils } from "__tests__/utils";
 
 const properties = {
   children: "Button",

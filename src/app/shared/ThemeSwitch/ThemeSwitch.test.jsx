@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { testUtils } from "app/tests/utils";
 import { ThemeSwitch } from "app/shared/ThemeSwitch/ThemeSwitch";
+import { testUtils } from "__tests__/utils";
 
 const properties = {
   onToggle: jest.fn(),

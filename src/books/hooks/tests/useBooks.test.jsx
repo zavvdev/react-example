@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 import { BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 import { useBooks } from "books/hooks/useBooks";
 import {
-  apiServerMock,
   buildCartStoreState,
   CART_STORE_DOMAIN,
   cartSelectors,
-  testUtils,
 } from "books/gateway/input";
 import { getAllBooksResponseAdapter } from "books/store/api";
+import { testUtils } from "__tests__/utils";
+import { apiServerMock } from "__tests__/mocks/apiServerMock";
 
 const getAllBooksApiResponse = [
   {

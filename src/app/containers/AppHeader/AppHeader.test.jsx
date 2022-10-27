@@ -1,5 +1,5 @@
-import { testUtils } from "app/tests/utils";
 import { AppHeader } from "app/containers/AppHeader/AppHeader";
+import { testUtils } from "__tests__/utils";
 
 describe("AppHeader container", () => {
   test("should render AppHeader", () => {
