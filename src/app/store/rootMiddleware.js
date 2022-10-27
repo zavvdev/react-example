@@ -7,4 +7,4 @@ const listenerMiddleware = createListenerMiddleware();
   listenerMiddleware.startListening(middleware);
 });
 
-export { listenerMiddleware };
+export const { middleware: rootMiddleware } = listenerMiddleware;

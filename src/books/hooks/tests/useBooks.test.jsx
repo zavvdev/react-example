@@ -8,7 +8,7 @@ import {
   CART_STORE_DOMAIN,
   cartSelectors,
 } from "books/gateway/input";
-import { getAllBooksResponseAdapter } from "books/store/api";
+import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 import { testUtils } from "__tests__/utils";
 import { apiServerMock } from "__tests__/mocks/apiServerMock";
 

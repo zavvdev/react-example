@@ -1,17 +1,16 @@
-import { httpApi } from "books/gateway/input";
-import { BOOKS_API_TAGS, BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { httpQuery } from "books/gateway/input";
+import {
+  BOOKS_API_DOMAIN,
+  BOOKS_API_TAGS,
+  BOOKS_HTTP_API_ENDPOINTS,
+} from "books/store/config";
+import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 
-export const getAllBooksResponseAdapter = (response) =>
-  response.map((book) => ({
-    id: book?.id,
-    title: book?.title,
-    author: book?.author_fullname,
-    date: book?.publish_date,
-    price: book?.price,
-    cover: book?.cover_url,
-  }));
-
-const booksApi = httpApi.injectEndpoints({
+const booksApi = createApi({
+  reducerPath: BOOKS_API_DOMAIN,
+  baseQuery: httpQuery,
+  tagTypes: [BOOKS_API_TAGS.getAllBooks],
   endpoints: (build) => ({
     getAllBooks: build.query({
       query: () => ({
@@ -26,3 +25,9 @@ const booksApi = httpApi.injectEndpoints({
 });
 
 export const { useGetAllBooksQuery } = booksApi;
+
+export const booksApiSetup = {
+  middleware: booksApi.middleware,
+  reducer: booksApi.reducer,
+  reducerPath: booksApi.reducerPath,
+};

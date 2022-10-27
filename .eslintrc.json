@@ -296,7 +296,8 @@
     "unicorn/no-array-reduce": "off",
     "unicorn/prefer-spread": "off",
     "unicorn/no-array-for-each": "off",
-    "unicorn/no-null": "off"
+    "unicorn/no-null": "off",
+    "unicorn/consistent-destructuring": "off"
   },
   "ignorePatterns": [
     "build/",
