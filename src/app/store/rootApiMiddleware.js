@@ -1,7 +1,4 @@
-import { booksApiSetup } from "books/gateway/output";
-import { orderApiSetup } from "order/gateway/output";
+import { booksApi } from "books/gateway/output";
+import { orderApi } from "order/gateway/output";
 
-export const rootApiMiddleware = [
-  booksApiSetup.middleware,
-  orderApiSetup.middleware,
-];
+export const rootApiMiddleware = [booksApi.middleware, orderApi.middleware];

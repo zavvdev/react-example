@@ -1,13 +1,12 @@
-import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
 import { CartContainers } from "cart/containers";
-import { CART_I18N_NAMESPACE } from "cart/i18n/config";
 import { useCartStyles } from "cart/Cart.styles";
 import { useCart } from "cart/hooks/useCart";
+import { useCartTranslation } from "cart/i18n/useCartTranslation";
 
 export function Cart() {
-  const { t } = useTranslation(CART_I18N_NAMESPACE);
+  const { t } = useCartTranslation();
   const navigate = useNavigate();
   const classes = useCartStyles();
   const cart = useCart();

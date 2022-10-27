@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 import { useBookItemStyles } from "books/containers/BookItem/BookItem.styles";
 import { Shared } from "books/gateway/input";
-import { BOOKS_I18N_NAMESPACE } from "books/i18n/config";
+import { useBooksTranslation } from "books/i18n/useBooksTranslation";
 
 export function BookItem({
   title,
@@ -14,7 +13,7 @@ export function BookItem({
   onRemoveFromCart,
   isInCart,
 }) {
-  const { t } = useTranslation(BOOKS_I18N_NAMESPACE);
+  const { t } = useBooksTranslation();
   const classes = useBookItemStyles();
 
   return (

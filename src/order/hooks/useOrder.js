@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import {
   cartActions,
   cartSelectors,
   GENERAL_ROUTES,
 } from "order/gateway/input";
 import { usePostOrderMutation } from "order/store/api";
-import { ORDER_I18N_NAMESPACE } from "order/i18n/config";
+import { useOrderTranslation } from "order/i18n/useOrderTranslation";
 
 export function useOrder() {
-  const { t } = useTranslation(ORDER_I18N_NAMESPACE);
+  const { t } = useOrderTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartBooks = useSelector(cartSelectors.selectCartBooks);

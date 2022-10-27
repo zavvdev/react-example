@@ -7,7 +7,7 @@ import {
 } from "books/store/config";
 import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 
-const booksApi = createApi({
+export const booksApi = createApi({
   reducerPath: BOOKS_API_DOMAIN,
   baseQuery: httpQuery,
   tagTypes: [BOOKS_API_TAGS.getAllBooks],
@@ -25,9 +25,3 @@ const booksApi = createApi({
 });
 
 export const { useGetAllBooksQuery } = booksApi;
-
-export const booksApiSetup = {
-  middleware: booksApi.middleware,
-  reducer: booksApi.reducer,
-  reducerPath: booksApi.reducerPath,
-};

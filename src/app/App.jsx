@@ -1,4 +1,4 @@
-import "app/i18n";
+import "app/i18n/setup";
 import "app/styles/global.css";
 import PropTypes from "prop-types";
 import { StoreProvider } from "app/providers/StoreProvider";

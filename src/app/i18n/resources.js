@@ -1,14 +1,13 @@
-import { I18N_CONFIG } from "app/i18n/config";
-import { appEn } from "app/i18n/en";
-import { BOOKS_I18N_NAMESPACE, booksEn } from "books/gateway/output";
-import { CART_I18N_NAMESPACE, cartEn } from "cart/gateway/output";
-import { ORDER_I18N_NAMESPACE, orderEn } from "order/gateway/output";
+import { appI18n } from "app/i18n";
+import { booksI18n } from "books/gateway/output";
+import { cartI18n } from "cart/gateway/output";
+import { orderI18n } from "order/gateway/output";
 
 export const resources = {
-  [I18N_CONFIG.appLanguages.en]: {
-    [I18N_CONFIG.namespace]: appEn,
-    [BOOKS_I18N_NAMESPACE]: booksEn,
-    [CART_I18N_NAMESPACE]: cartEn,
-    [ORDER_I18N_NAMESPACE]: orderEn,
+  [appI18n.appLanguages.en]: {
+    [appI18n.namespace]: appI18n.translations.en,
+    [booksI18n.namespace]: booksI18n.translations.en,
+    [cartI18n.namespace]: cartI18n.translations.en,
+    [orderI18n.namespace]: orderI18n.translations.en,
   },
 };

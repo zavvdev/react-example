@@ -1,11 +1,10 @@
 import cx from "clsx";
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 import { useThemeSwitchStyles } from "app/shared/ThemeSwitch/ThemeSwitch.styles";
-import { I18N_CONFIG } from "app/i18n/config";
+import { useAppTranslation } from "app/i18n/useAppTranslation";
 
 export function ThemeSwitch({ isDark, onToggle, className }) {
-  const { t } = useTranslation(I18N_CONFIG.namespace);
+  const { t } = useAppTranslation();
   const classes = useThemeSwitchStyles();
   const rootClasses = cx(classes.root, className);
 

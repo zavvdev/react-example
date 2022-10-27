@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 import { useCartBookStyles } from "cart/containers/CartBook/CartBook.styles";
 import { Shared } from "cart/gateway/input";
-import { CART_I18N_NAMESPACE } from "cart/i18n/config";
+import { useCartTranslation } from "cart/i18n/useCartTranslation";
 
 export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
   const classes = useCartBookStyles();
-  const { t } = useTranslation(CART_I18N_NAMESPACE);
+  const { t } = useCartTranslation();
 
   return (
     <div className={classes.root}>

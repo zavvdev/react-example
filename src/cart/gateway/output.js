@@ -6,5 +6,4 @@ export {
   buildCartStoreState,
 } from "cart/store/slice";
 export { cartSelectors } from "cart/store/selectors";
-export { CART_I18N_NAMESPACE } from "cart/i18n/config";
-export { cartEn } from "cart/i18n/en";
+export { cartI18n } from "cart/i18n";

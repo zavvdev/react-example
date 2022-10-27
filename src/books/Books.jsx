@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
 import { BooksContainers } from "books/containers";
-import { I18N_CONFIG, Shared } from "books/gateway/input";
+import { Shared, useAppTranslation } from "books/gateway/input";
 import { useBooks } from "books/hooks/useBooks";
 
 export function Books() {
-  const { t } = useTranslation(I18N_CONFIG.namespace);
+  const { t } = useAppTranslation();
   const books = useBooks();
 
   return (

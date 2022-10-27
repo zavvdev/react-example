@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { useOrderStyles } from "order/Order.styles";
-import { ORDER_I18N_NAMESPACE } from "order/i18n/config";
 import { GENERAL_ROUTES, Shared } from "order/gateway/input";
 import { useOrderForm } from "order/hooks/useOrderForm";
 import { useOrder } from "order/hooks/useOrder";
+import { useOrderTranslation } from "order/i18n/useOrderTranslation";
 
 export function Order() {
-  const { t } = useTranslation(ORDER_I18N_NAMESPACE);
+  const { t } = useOrderTranslation();
   const classes = useOrderStyles();
   const order = useOrder();
   const orderForm = useOrderForm({ onSubmit: order.onSubmit });
