@@ -10,7 +10,7 @@ const initialThemeState = buildThemeStoreState({
   isDarkMode: getDarkModeStateFromLocalStorage(),
 });
 
-const themeSlice = createSlice({
+export const themeSlice = createSlice({
   name: THEME_STORE_DOMAIN,
   initialState: initialThemeState,
   reducers: {

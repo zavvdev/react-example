@@ -9,7 +9,7 @@ const cartInitialState = buildCartStoreState({
   books: [],
 });
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
   name: CART_STORE_DOMAIN,
   initialState: cartInitialState,
   reducers: {
@@ -29,6 +29,5 @@ const cartSlice = createSlice({
 });
 
 const cartActions = cartSlice.actions;
-const cartReducer = cartSlice.reducer;
 
-export { cartActions, cartReducer };
+export { cartActions };
