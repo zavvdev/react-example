@@ -1,11 +1,11 @@
-import { CART_STORE_DOMAIN } from "cart/store/config";
+import { CART_REDUCER_NAME } from "cart/store/config";
 
 const selectCartBooksLength = (state) => {
-  return state[CART_STORE_DOMAIN]?.books?.length || 0;
+  return state[CART_REDUCER_NAME]?.books?.length || 0;
 };
 
 const selectCartBooks = (state) => {
-  return state[CART_STORE_DOMAIN]?.books || [];
+  return state[CART_REDUCER_NAME]?.books || [];
 };
 
 export const cartSelectors = {

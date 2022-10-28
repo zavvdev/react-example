@@ -1,1 +1,1 @@
-export const CART_STORE_DOMAIN = "cart";
+export const CART_REDUCER_NAME = "cart";

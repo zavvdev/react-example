@@ -42,6 +42,14 @@
   "overrides": [
     {
       "files": [
+        "**/*/*.(spec|test).(js|jsx)"
+      ],
+      "rules": {
+        "import/no-restricted-paths": "off"
+      }
+    },
+    {
+      "files": [
         "**/*/store/**/*"
       ],
       "rules": {

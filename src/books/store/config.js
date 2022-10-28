@@ -1,8 +1,5 @@
-const BOOKS_STORE_DOMAIN = "books";
-export const BOOKS_API_DOMAIN = "booksApi";
-
 export const BOOKS_API_TAGS = {
-  getAllBooks: `${BOOKS_STORE_DOMAIN}/getAllBooks`,
+  getAllBooks: "books/getAllBooks",
 };
 
 export const BOOKS_HTTP_API_ENDPOINTS = {

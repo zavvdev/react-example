@@ -22,6 +22,10 @@ const getFeatureFilesPattern = (rootDirectory, domain) => {
   }{!(gateway)/**/*.@(js|jsx),gateway/**/!(input.js),*.@(js|jsx)}`;
 };
 
+const isTestFile = (path) => {
+  return /([\s\w().:\\-])+(.test|.spec).(js|jsx)$/.test(path);
+};
+
 function checkFeatureImportsIntegrity({ rootDirectory, domain }) {
   try {
     if (domain === "app") {
@@ -43,7 +47,11 @@ function checkFeatureImportsIntegrity({ rootDirectory, domain }) {
         const importIntegrityPattern = getImportIntegrityPattern(
           features.filter((f) => f !== fileDomain),
         );
-        if (fileDomain && importIntegrityPattern.test(fileContent)) {
+        if (
+          !isTestFile(filePath) &&
+          fileDomain &&
+          importIntegrityPattern.test(fileContent)
+        ) {
           issues.push({
             filePath,
             // eslint-disable-next-line max-len

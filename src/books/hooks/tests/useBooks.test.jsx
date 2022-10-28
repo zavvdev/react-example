@@ -3,12 +3,10 @@ import { act, renderHook, waitFor } from "@testing-library/react";
 import { useSelector } from "react-redux";
 import { BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 import { useBooks } from "books/hooks/useBooks";
-import {
-  buildCartStoreState,
-  CART_STORE_DOMAIN,
-  cartSelectors,
-} from "books/gateway/input";
 import { getAllBooksResponseAdapter } from "books/store/adapters/response";
+import { CART_REDUCER_NAME } from "cart/store/config";
+import { buildCartStoreState } from "cart/store/slice";
+import { cartSelectors } from "cart/store/selectors";
 import { testUtils } from "__tests__/utils";
 import { apiServerMock } from "__tests__/mocks/apiServerMock";
 
@@ -58,7 +56,7 @@ describe("useBooks", () => {
   test("should add book to cart", async () => {
     const wrapper = testUtils.createWrapper({
       initialStoreState: {
-        [CART_STORE_DOMAIN]: buildCartStoreState({ books: [] }),
+        [CART_REDUCER_NAME]: buildCartStoreState({ books: [] }),
       },
     });
     const { result } = renderHook(() => useBooks(), {
@@ -87,7 +85,7 @@ describe("useBooks", () => {
   test("should remove book from cart", async () => {
     const wrapper = testUtils.createWrapper({
       initialStoreState: {
-        [CART_STORE_DOMAIN]: buildCartStoreState({ books: [] }),
+        [CART_REDUCER_NAME]: buildCartStoreState({ books: [] }),
       },
     });
     const { result } = renderHook(() => useBooks(), {

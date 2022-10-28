@@ -43,8 +43,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "prestart": "eslint --ext .jsx,.js 'src' --max-warnings=0",
-    "lint": "eslint --ext .jsx,.js 'src' --max-warnings=0",
+    "prestart": "eslint --ext .jsx,.js 'src' --max-warnings=0 && make integrity-check",
+    "lint": "eslint --ext .jsx,.js 'src' --max-warnings=0 && make integrity-check",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

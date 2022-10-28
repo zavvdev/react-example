@@ -1,14 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { httpQuery } from "books/gateway/input";
-import {
-  BOOKS_API_DOMAIN,
-  BOOKS_API_TAGS,
-  BOOKS_HTTP_API_ENDPOINTS,
-} from "books/store/config";
+import { BOOKS_API_TAGS, BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 
-export const booksApi = createApi({
-  reducerPath: BOOKS_API_DOMAIN,
+const booksApi = createApi({
+  reducerPath: "booksApi",
   baseQuery: httpQuery,
   tagTypes: [BOOKS_API_TAGS.getAllBooks],
   endpoints: (build) => ({
@@ -25,3 +21,9 @@ export const booksApi = createApi({
 });
 
 export const { useGetAllBooksQuery } = booksApi;
+
+export const booksApiSetup = {
+  reducer: booksApi.reducer,
+  reducerName: booksApi.reducerPath,
+  middleware: booksApi.middleware,
+};

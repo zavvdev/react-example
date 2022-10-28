@@ -1,10 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { httpQuery } from "order/gateway/input";
-import { ORDER_API_DOMAIN, ORDER_HTTP_API_ENDPOINTS } from "order/store/config";
+import { ORDER_HTTP_API_ENDPOINTS } from "order/store/config";
 import { postOrderRequestAdapter } from "order/store/adapters/request";
 
-export const orderApi = createApi({
-  reducerPath: ORDER_API_DOMAIN,
+const orderApi = createApi({
+  reducerPath: "orderApi",
   baseQuery: httpQuery,
   endpoints: (build) => ({
     postOrder: build.mutation({
@@ -18,3 +18,9 @@ export const orderApi = createApi({
 });
 
 export const { usePostOrderMutation } = orderApi;
+
+export const orderApiSetup = {
+  reducer: orderApi.reducer,
+  reducerName: orderApi.reducerPath,
+  middleware: orderApi.middleware,
+};

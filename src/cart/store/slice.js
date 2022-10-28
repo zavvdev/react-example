@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CART_STORE_DOMAIN } from "cart/store/config";
+import { CART_REDUCER_NAME } from "cart/store/config";
 
 export const buildCartStoreState = ({ books }) => ({
   books,
@@ -9,8 +9,8 @@ const cartInitialState = buildCartStoreState({
   books: [],
 });
 
-export const cartSlice = createSlice({
-  name: CART_STORE_DOMAIN,
+const cartSlice = createSlice({
+  name: CART_REDUCER_NAME,
   initialState: cartInitialState,
   reducers: {
     addBookToCart(state, action) {
@@ -31,3 +31,8 @@ export const cartSlice = createSlice({
 const cartActions = cartSlice.actions;
 
 export { cartActions };
+
+export const cartStoreSetup = {
+  reducer: cartSlice.reducer,
+  reducerName: cartSlice.name,
+};

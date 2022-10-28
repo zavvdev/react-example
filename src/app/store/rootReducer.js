@@ -1,12 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { cartSlice } from "cart/gateway/output";
-import { booksApi } from "books/gateway/output";
-import { orderApi } from "order/gateway/output";
+import { cartStoreSetup } from "cart/gateway/output";
+import { booksApiSetup } from "books/gateway/output";
+import { orderApiSetup } from "order/gateway/output";
 
 const rootReducer = combineReducers({
-  [booksApi.reducerPath]: booksApi.reducer,
-  [orderApi.reducerPath]: orderApi.reducer,
-  [cartSlice.name]: cartSlice.reducer,
+  [booksApiSetup.reducerName]: booksApiSetup.reducer,
+  [orderApiSetup.reducerName]: orderApiSetup.reducer,
+  [cartStoreSetup.reducerName]: cartStoreSetup.reducer,
 });
 
 export { rootReducer };
