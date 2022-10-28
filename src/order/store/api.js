@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { httpQuery } from "order/gateway/input";
+import { httpQuery } from "app/store/httpQuery";
 import { ORDER_HTTP_API_ENDPOINTS } from "order/store/config";
 import { postOrderRequestAdapter } from "order/store/adapters/request";
 

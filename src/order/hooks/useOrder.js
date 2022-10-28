@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import {
-  cartActions,
-  cartSelectors,
-  GENERAL_ROUTES,
-} from "order/gateway/input";
+import { GENERAL_ROUTES } from "app/router/config";
+import { cartActions, cartSelectors } from "order/gateway/input";
 import { usePostOrderMutation } from "order/store/api";
 import { useOrderTranslation } from "order/i18n/useOrderTranslation";
 

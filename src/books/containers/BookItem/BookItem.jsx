@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
+import { Shared } from "app/shared";
 import { useBookItemStyles } from "books/containers/BookItem/BookItem.styles";
-import { Shared } from "books/gateway/input";
 import { useBooksTranslation } from "books/i18n/useBooksTranslation";
 
 export function BookItem({

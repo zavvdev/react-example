@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useAppTranslation } from "order/gateway/input";
+import { useAppTranslation } from "app/i18n/useAppTranslation";
 
 export function useOrderForm({ onSubmit }) {
   const appTranslation = useAppTranslation();

@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { httpQuery } from "books/gateway/input";
+import { httpQuery } from "app/store/httpQuery";
 import { BOOKS_API_TAGS, BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 

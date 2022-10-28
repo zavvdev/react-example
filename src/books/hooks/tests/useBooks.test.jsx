@@ -5,7 +5,6 @@ import { BOOKS_HTTP_API_ENDPOINTS } from "books/store/config";
 import { useBooks } from "books/hooks/useBooks";
 import { getAllBooksResponseAdapter } from "books/store/adapters/response";
 import { CART_REDUCER_NAME } from "cart/store/config";
-import { buildCartStoreState } from "cart/store/slice";
 import { cartSelectors } from "cart/store/selectors";
 import { testUtils } from "__tests__/utils";
 import { apiServerMock } from "__tests__/mocks/apiServerMock";
@@ -56,7 +55,7 @@ describe("useBooks", () => {
   test("should add book to cart", async () => {
     const wrapper = testUtils.createWrapper({
       initialStoreState: {
-        [CART_REDUCER_NAME]: buildCartStoreState({ books: [] }),
+        [CART_REDUCER_NAME]: { books: [] },
       },
     });
     const { result } = renderHook(() => useBooks(), {
@@ -85,7 +84,7 @@ describe("useBooks", () => {
   test("should remove book from cart", async () => {
     const wrapper = testUtils.createWrapper({
       initialStoreState: {
-        [CART_REDUCER_NAME]: buildCartStoreState({ books: [] }),
+        [CART_REDUCER_NAME]: { books: [] },
       },
     });
     const { result } = renderHook(() => useBooks(), {

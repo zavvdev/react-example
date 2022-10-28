@@ -40,7 +40,7 @@ function buildHttpApiRoute(route) {
 }
 
 export const testUtils = {
-  createWrapper,
   render,
+  createWrapper,
   buildHttpApiRoute,
 };

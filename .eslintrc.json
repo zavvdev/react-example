@@ -234,11 +234,6 @@
             "message": "Direct imports from feature to __tests__ prohibited. Import only exposed modules from output gateway"
           },
           {
-            "target": "./src/!(app|__tests__)/{!(gateway)/**/*,gateway/**/!(input.js),*}",
-            "from": "./src/app/**/*",
-            "message": "Direct imports from 'app' to feature prohibited. Import all incoming modules in the input gateway"
-          },
-          {
             "target": "./src/app/**/*",
             "from": "./src/!(app|__tests__)/{!(gateway)/**/*,gateway/**/!(output.js),*}",
             "message": "Direct imports from feature to 'app' prohibited. Import all exposed feature modules from its own output gateway"

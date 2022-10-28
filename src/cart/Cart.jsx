@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { GENERAL_ROUTES, Shared } from "cart/gateway/input";
+import { GENERAL_ROUTES } from "app/router/config";
+import { Shared } from "app/shared";
 import { CartContainers } from "cart/containers";
 import { useCartStyles } from "cart/Cart.styles";
 import { useCart } from "cart/hooks/useCart";

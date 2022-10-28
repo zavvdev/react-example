@@ -1,5 +1,5 @@
+import { useAppTranslation } from "app/i18n/useAppTranslation";
 import { BooksContainers } from "books/containers";
-import { useAppTranslation } from "books/gateway/input";
 import { useBooks } from "books/hooks/useBooks";
 
 export function Books() {

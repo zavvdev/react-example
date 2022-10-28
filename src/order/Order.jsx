@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { GENERAL_ROUTES } from "app/router/config";
+import { Shared } from "app/shared";
 import { useOrderStyles } from "order/Order.styles";
-import { GENERAL_ROUTES, Shared } from "order/gateway/input";
 import { useOrderForm } from "order/hooks/useOrderForm";
 import { useOrder } from "order/hooks/useOrder";
 import { useOrderTranslation } from "order/i18n/useOrderTranslation";
