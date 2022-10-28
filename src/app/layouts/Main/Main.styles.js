@@ -4,7 +4,7 @@ export const useMainStyles = createUseStyles((theme) => ({
   root: {
     boxSizing: "border-box",
     minHeight: "100vh",
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.palette.black.main,
     padding: "0 5%",
   },
   inner: {

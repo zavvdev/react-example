@@ -1,6 +1,5 @@
 import { configureStore as createStore } from "@reduxjs/toolkit";
 import { rootReducer } from "app/store/rootReducer";
-import { rootMiddleware } from "app/store/rootMiddleware";
 import { rootApiMiddleware } from "app/store/rootApiMiddleware";
 
 export const configureStore = (arguments_ = {}) => {
@@ -9,9 +8,7 @@ export const configureStore = (arguments_ = {}) => {
     reducer: rootReducer,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware()
-        .prepend(rootMiddleware)
-        .concat(rootApiMiddleware);
+      return getDefaultMiddleware().concat(rootApiMiddleware);
     },
   });
 };

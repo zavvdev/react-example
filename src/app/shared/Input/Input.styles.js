@@ -3,12 +3,12 @@ import { createUseStyles } from "react-jss";
 export const useInputStyles = createUseStyles((theme) => ({
   input: {
     padding: "5px 10px",
-    border: `1px solid ${theme.borderColor}`,
+    border: `1px solid ${theme.palette.gray.dark}`,
     borderRadius: "2px",
     outline: "none",
     boxSizing: "border-box",
-    backgroundColor: theme.backgroundColor,
-    color: theme.typographyColor,
+    backgroundColor: theme.palette.black.main,
+    color: theme.palette.white.dim,
     fontSize: "15px",
     "&:focus": {
       border: `1px solid ${theme.palette.primary.main}`,

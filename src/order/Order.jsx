@@ -15,22 +15,18 @@ export function Order() {
     <div>
       {order.isCartEmpty ? (
         <div>
-          <Shared.Typography>{t("empty")}</Shared.Typography>
-          <Shared.Typography tag="div">
+          <p>{t("empty")}</p>
+          <div>
             <Link to={GENERAL_ROUTES.books}>{t("selectBooks")}</Link>
-          </Shared.Typography>
+          </div>
         </div>
       ) : (
         <div>
           <ul>
             {order.bookTitlesToOrder.map((bootTitle) => (
-              <Shared.Typography
-                className={classes.li}
-                key={bootTitle}
-                tag="li"
-              >
+              <li className={classes.li} key={bootTitle}>
                 {bootTitle}
-              </Shared.Typography>
+              </li>
             ))}
           </ul>
           <div className={classes.formWrap}>

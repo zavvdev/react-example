@@ -1,5 +1,5 @@
 import { BooksContainers } from "books/containers";
-import { Shared, useAppTranslation } from "books/gateway/input";
+import { useAppTranslation } from "books/gateway/input";
 import { useBooks } from "books/hooks/useBooks";
 
 export function Books() {
@@ -22,12 +22,8 @@ export function Books() {
             isInCart={books.getIsBookInCart(book.id)}
           />
         ))}
-      {books.isLoading && (
-        <Shared.Typography>{t("labels.loading")}</Shared.Typography>
-      )}
-      {books.isError && (
-        <Shared.Typography>{t("errors.unexpected")}</Shared.Typography>
-      )}
+      {books.isLoading && <p>{t("labels.loading")}</p>}
+      {books.isError && <p>{t("errors.unexpected")}</p>}
     </div>
   );
 }

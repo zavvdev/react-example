@@ -20,20 +20,16 @@ export function BookItem({
     <div className={classes.root}>
       <img src={cover} alt={title} className={classes.cover} />
       <div>
-        <Shared.Typography className={classes.title} tag="h2">
-          {title}
-        </Shared.Typography>
+        <h2 className={classes.title}>{title}</h2>
         <div className={classes.infoWrap}>
-          <Shared.Typography tag="i">{date}, </Shared.Typography>
-          <Shared.Typography tag="span">
+          <i>{date}, </i>
+          <span>
             {t("bookItem.author", {
               author,
             })}
-          </Shared.Typography>
+          </span>
         </div>
-        <Shared.Typography className={classes.price} tag="div">
-          {price}
-        </Shared.Typography>
+        <div className={classes.price}>{price}</div>
         <Shared.Button
           className={classes.addToCartBtn}
           onClick={isInCart ? onRemoveFromCart : onAddToCart}

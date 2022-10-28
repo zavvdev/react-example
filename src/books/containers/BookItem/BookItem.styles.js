@@ -5,7 +5,7 @@ export const useBookItemStyles = createUseStyles((theme) => ({
     display: "flex",
     marginBottom: "26px",
     paddingBottom: "16px",
-    borderBottom: `1px solid ${theme.borderColor}`,
+    borderBottom: `1px solid ${theme.palette.gray.dark}`,
     "@media screen and (max-width: 500px)": {
       display: "block",
     },

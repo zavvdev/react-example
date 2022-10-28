@@ -12,26 +12,22 @@ exports[`BookItem container should render BookItem which has isInCart=false 1`] 
     />
     <div>
       <h2
-        class="root title"
+        class="title"
       >
         Mock
       </h2>
       <div
         class="infoWrap"
       >
-        <i
-          class="root"
-        >
+        <i>
           12/12/22, 
         </i>
-        <span
-          class="root"
-        >
+        <span>
           bookItem.author
         </span>
       </div>
       <div
-        class="root price"
+        class="price"
       >
         $42
       </div>
@@ -58,26 +54,22 @@ exports[`BookItem container should render BookItem which has isInCart=true 1`] =
     />
     <div>
       <h2
-        class="root title"
+        class="title"
       >
         Mock
       </h2>
       <div
         class="infoWrap"
       >
-        <i
-          class="root"
-        >
+        <i>
           12/12/22, 
         </i>
-        <span
-          class="root"
-        >
+        <span>
           bookItem.author
         </span>
       </div>
       <div
-        class="root price"
+        class="price"
       >
         $42
       </div>

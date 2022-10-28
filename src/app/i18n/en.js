@@ -13,8 +13,4 @@ export const appEn = {
   appHeader: {
     cart: "Cart: ({{count}})",
   },
-  themeSwitch: {
-    dark: "🌚",
-    light: "🌝",
-  },
 };

@@ -5,7 +5,7 @@ export const useCartBookStyles = createUseStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.borderColor}`,
+    borderBottom: `1px solid ${theme.palette.gray.dark}`,
     marginBottom: "16px",
     paddingBottom: "16px",
   },

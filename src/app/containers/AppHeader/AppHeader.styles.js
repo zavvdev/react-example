@@ -6,7 +6,7 @@ export const useAppHeaderStyles = createUseStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.borderColor}`,
+    borderBottom: `1px solid ${theme.palette.gray.dark}`,
     "@media screen and (max-width: 500px)": {
       flexDirection: "column",
     },
@@ -20,16 +20,5 @@ export const useAppHeaderStyles = createUseStyles((theme) => ({
     "@media screen and (max-width: 500px)": {
       margin: "16px 0",
     },
-  },
-  side: {
-    flex: 1,
-    display: "flex",
-    alignItems: "center",
-    "&:last-child": {
-      justifyContent: "flex-end",
-    },
-  },
-  cart: {
-    color: "inherit",
   },
 }));

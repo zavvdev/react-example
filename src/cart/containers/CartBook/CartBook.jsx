@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useCartBookStyles } from "cart/containers/CartBook/CartBook.styles";
-import { Shared } from "cart/gateway/input";
 import { useCartTranslation } from "cart/i18n/useCartTranslation";
 
 export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
@@ -12,14 +11,10 @@ export function CartBook({ cover, title, author, price, onRemoveFromCart }) {
       <div className={classes.inner}>
         <img src={cover} alt={title} className={classes.cover} />
         <div>
-          <Shared.Typography className={classes.title} tag="h2">
-            {title}
-          </Shared.Typography>
+          <h2 className={classes.title}>{title}</h2>
           <div>
-            <Shared.Typography tag="i">{author}</Shared.Typography>
-            <Shared.Typography className={classes.price} tag="div">
-              {price}
-            </Shared.Typography>
+            <i>{author}</i>
+            <div className={classes.price}>{price}</div>
           </div>
         </div>
       </div>

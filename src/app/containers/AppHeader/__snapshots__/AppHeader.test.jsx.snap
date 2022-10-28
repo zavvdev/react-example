@@ -5,44 +5,19 @@ exports[`AppHeader container should render AppHeader 1`] = `
   <div
     class="root"
   >
-    <div
-      class="side"
-    >
-      <button
-        class="root"
-        type="button"
-      >
-        <div
-          class="switcher"
-        >
-          themeSwitch.light
-        </div>
-      </button>
-    </div>
     <a
       class="logo"
       href="/books"
     >
-      <span
-        class="root"
-      >
+      <span>
         appName
       </span>
     </a>
-    <div
-      class="side"
+    <a
+      href="/cart"
     >
-      <div
-        class="root"
-      >
-        <a
-          class="cart"
-          href="/cart"
-        >
-          appHeader.cart
-        </a>
-      </div>
-    </div>
+      appHeader.cart
+    </a>
   </div>
 </DocumentFragment>
 `;

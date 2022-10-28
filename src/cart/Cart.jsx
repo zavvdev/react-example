@@ -15,16 +15,16 @@ export function Cart() {
     <div>
       {cart.isEmpty ? (
         <>
-          <Shared.Typography>{t("empty")}</Shared.Typography>
-          <Shared.Typography>
+          <p>{t("empty")}</p>
+          <p>
             <Link to={GENERAL_ROUTES.books}>{t("addBooks")}</Link>
-          </Shared.Typography>
+          </p>
         </>
       ) : (
         <div>
-          <Shared.Typography tag="div" className={classes.selectMore}>
+          <div className={classes.selectMore}>
             <Link to={GENERAL_ROUTES.books}>{t("selectMore")}</Link>
-          </Shared.Typography>
+          </div>
           {cart.books.map((book) => (
             <CartContainers.CartBook
               key={book.id}
