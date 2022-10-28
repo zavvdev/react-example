@@ -26,9 +26,9 @@ const cartSlice = createSlice({
 
 const cartActions = cartSlice.actions;
 
-export { cartActions };
-
-export const cartStoreSetup = {
+const cartStoreSetup = {
   reducer: cartSlice.reducer,
   reducerName: cartSlice.name,
 };
+
+export { cartActions, cartStoreSetup };
