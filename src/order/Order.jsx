@@ -14,9 +14,10 @@ export function Order() {
 
   return (
     <div>
+      {order.isError && <p>{t("orderError")}</p>}
       {order.isCartEmpty ? (
         <div>
-          <p>{t("empty")}</p>
+          {order.isSuccess ? <p>{t("orderSuccess")}</p> : <p>{t("empty")}</p>}
           <div>
             <Link to={GENERAL_ROUTES.books}>{t("selectBooks")}</Link>
           </div>
