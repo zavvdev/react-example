@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CartBook 1`] = `
+<DocumentFragment>
+  <div
+    class="root"
+  >
+    <div
+      class="inner"
+    >
+      <img
+        alt="Mock title"
+        class="cover"
+        src="https://mock.com/42"
+      />
+      <div>
+        <h2
+          class="title"
+        >
+          Mock title
+        </h2>
+        <div>
+          <i>
+            Mock Author
+          </i>
+          <div
+            class="price"
+          >
+            $42
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="removeBtn"
+      type="button"
+    >
+      cartBook.remove
+    </button>
+  </div>
+</DocumentFragment>
+`;
