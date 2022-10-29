@@ -31,86 +31,84 @@ beforeEach(() => {
   );
 });
 
-describe("useBooks", () => {
-  test("should return books data", async () => {
-    const { result } = renderHook(() => useBooks(), {
-      wrapper: testUtils.createWrapper(),
-    });
-
-    expect(result.current.isLoading).toBe(true);
-    expect(result.current.isSuccess).toBe(false);
-    expect(result.current.isError).toBe(false);
-
-    await waitFor(() =>
-      expect(result.current.data).toEqual(
-        getAllBooksResponseAdapter(getAllBooksApiResponse),
-      ),
-    );
-
-    expect(result.current.isSuccess).toBe(true);
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.isError).toBe(false);
+test("should return books data", async () => {
+  const { result } = renderHook(() => useBooks(), {
+    wrapper: testUtils.createWrapper(),
   });
 
-  test("should add book to cart", async () => {
-    const wrapper = testUtils.createWrapper({
-      initialStoreState: {
-        [CART_REDUCER_NAME]: { books: [] },
-      },
-    });
-    const { result } = renderHook(() => useBooks(), {
+  expect(result.current.isLoading).toBe(true);
+  expect(result.current.isSuccess).toBe(false);
+  expect(result.current.isError).toBe(false);
+
+  await waitFor(() =>
+    expect(result.current.data).toEqual(
+      getAllBooksResponseAdapter(getAllBooksApiResponse),
+    ),
+  );
+
+  expect(result.current.isSuccess).toBe(true);
+  expect(result.current.isLoading).toBe(false);
+  expect(result.current.isError).toBe(false);
+});
+
+test("should add book to cart", async () => {
+  const wrapper = testUtils.createWrapper({
+    initialStoreState: {
+      [CART_REDUCER_NAME]: { books: [] },
+    },
+  });
+  const { result } = renderHook(() => useBooks(), {
+    wrapper,
+  });
+
+  await waitFor(() => expect(result.current.isLoading).toBe(false));
+  const book = result.current.data[0];
+
+  expect(result.current.getIsBookInCart(book.id)).toBe(false);
+
+  act(() => {
+    result.current.onAddToCart(book);
+  });
+  const { result: selectCartBooksResult } = renderHook(
+    () => useSelector(cartSelectors.selectCartBooks),
+    {
       wrapper,
-    });
+    },
+  );
 
-    await waitFor(() => expect(result.current.isLoading).toBe(false));
-    const book = result.current.data[0];
+  expect(selectCartBooksResult.current).toEqual([book]);
+  expect(result.current.getIsBookInCart(book.id)).toBe(true);
+});
 
-    expect(result.current.getIsBookInCart(book.id)).toBe(false);
-
-    act(() => {
-      result.current.onAddToCart(book);
-    });
-    const { result: selectCartBooksResult } = renderHook(
-      () => useSelector(cartSelectors.selectCartBooks),
-      {
-        wrapper,
-      },
-    );
-
-    expect(selectCartBooksResult.current).toEqual([book]);
-    expect(result.current.getIsBookInCart(book.id)).toBe(true);
+test("should remove book from cart", async () => {
+  const wrapper = testUtils.createWrapper({
+    initialStoreState: {
+      [CART_REDUCER_NAME]: { books: [] },
+    },
+  });
+  const { result } = renderHook(() => useBooks(), {
+    wrapper,
   });
 
-  test("should remove book from cart", async () => {
-    const wrapper = testUtils.createWrapper({
-      initialStoreState: {
-        [CART_REDUCER_NAME]: { books: [] },
-      },
-    });
-    const { result } = renderHook(() => useBooks(), {
+  await waitFor(() => expect(result.current.isLoading).toBe(false));
+  const book = result.current.data[0];
+
+  act(() => {
+    result.current.onAddToCart(book);
+  });
+  const { result: selectCartBooksResult } = renderHook(
+    () => useSelector(cartSelectors.selectCartBooks),
+    {
       wrapper,
-    });
+    },
+  );
 
-    await waitFor(() => expect(result.current.isLoading).toBe(false));
-    const book = result.current.data[0];
+  expect(selectCartBooksResult.current).toEqual([book]);
 
-    act(() => {
-      result.current.onAddToCart(book);
-    });
-    const { result: selectCartBooksResult } = renderHook(
-      () => useSelector(cartSelectors.selectCartBooks),
-      {
-        wrapper,
-      },
-    );
-
-    expect(selectCartBooksResult.current).toEqual([book]);
-
-    act(() => {
-      result.current.onRemoveFromCart(book.id);
-    });
-
-    expect(selectCartBooksResult.current).toEqual([]);
-    expect(result.current.getIsBookInCart(book.id)).toBe(false);
+  act(() => {
+    result.current.onRemoveFromCart(book.id);
   });
+
+  expect(selectCartBooksResult.current).toEqual([]);
+  expect(result.current.getIsBookInCart(book.id)).toBe(false);
 });

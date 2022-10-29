@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookItem container should render BookItem which has isInCart=false 1`] = `
+exports[`should render BookItem which has isInCart=false 1`] = `
 <DocumentFragment>
   <div
     class="root"
@@ -42,7 +42,7 @@ exports[`BookItem container should render BookItem which has isInCart=false 1`] 
 </DocumentFragment>
 `;
 
-exports[`BookItem container should render BookItem which has isInCart=true 1`] = `
+exports[`should render BookItem which has isInCart=true 1`] = `
 <DocumentFragment>
   <div
     class="root"

@@ -6,10 +6,8 @@ const trackerApiMock = {
 
 const errorTrackingService = new ErrorTrackingService(trackerApiMock);
 
-describe("ErrorTrackingService", () => {
-  test("should call 'reportError' method", () => {
-    const errorMock = "errorMock";
-    errorTrackingService.reportError(errorMock);
-    expect(trackerApiMock.error).toBeCalledWith(errorMock);
-  });
+test("should call 'reportError' method", () => {
+  const errorMock = "errorMock";
+  errorTrackingService.reportError(errorMock);
+  expect(trackerApiMock.error).toBeCalledWith(errorMock);
 });

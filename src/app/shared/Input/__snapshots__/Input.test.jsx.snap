@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input should render Input 1`] = `
+exports[`should render Input 1`] = `
 <DocumentFragment>
   <div>
     <input
