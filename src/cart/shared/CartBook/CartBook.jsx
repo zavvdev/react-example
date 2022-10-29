@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useCartBookStyles } from "cart/containers/CartBook/CartBook.styles";
+import { useCartBookStyles } from "cart/shared/CartBook/CartBook.styles";
 import { useCartTranslation } from "cart/i18n/useCartTranslation";
 
 export function CartBook({ cover, title, author, price, onRemoveFromCart }) {

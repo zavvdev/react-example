@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { GENERAL_ROUTES } from "app/router/config";
 import { Shared } from "app/shared";
-import { CartContainers } from "cart/containers";
+import { CartShared } from "cart/shared";
 import { useCartStyles } from "cart/Cart.styles";
 import { useCart } from "cart/hooks/useCart";
 import { useCartTranslation } from "cart/i18n/useCartTranslation";
@@ -27,7 +27,7 @@ export function Cart() {
             <Link to={GENERAL_ROUTES.books}>{t("selectMore")}</Link>
           </div>
           {cart.books.map((book) => (
-            <CartContainers.CartBook
+            <CartShared.CartBook
               key={book.id}
               cover={book.cover}
               title={book.title}

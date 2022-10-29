@@ -1,5 +1,5 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { CartBook } from "cart/containers/CartBook/CartBook";
+import { CartBook } from "cart/shared/CartBook/CartBook";
 import { testUtils } from "__tests__/utils";
 
 const properties = {
