@@ -66,14 +66,6 @@
     },
     {
       "files": [
-        "./src/app/propTypes.js"
-      ],
-      "rules": {
-        "unicorn/prevent-abbreviations": "off"
-      }
-    },
-    {
-      "files": [
         "./src/**/{config.js,*.config.js,consts.js,*.consts.js,constants.js,*.constants.js}"
       ],
       "rules": {
@@ -289,6 +281,12 @@
     "unicorn/consistent-function-scoping": ["error", {
       "checkArrowFunctions": false 
     }],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "ignore": ["e2e", "PropType"]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "unicorn/no-array-reduce": "off",

@@ -13,7 +13,9 @@ const createHttpQuery = ({ baseUrl }) => {
       });
       return { data: result.data };
     } catch (error) {
-      errorTrackingService.reportError(error);
+      if (process.env.NODE_ENV !== "test") {
+        errorTrackingService.reportError(error);
+      }
       return {
         error: {
           status: error.response?.status,
