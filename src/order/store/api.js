@@ -1,7 +1,9 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { httpQuery } from "app/store/httpQuery";
+import { listenerMiddleware } from "app/store/listenerMiddleware";
 import { ORDER_HTTP_API_ENDPOINTS } from "order/store/config";
 import { postOrderRequestAdapter } from "order/store/adapters/request";
+import { cartActions, cartSelectors } from "order/gateway/input";
 
 const orderApi = createApi({
   reducerPath: "orderApi",
@@ -15,6 +17,16 @@ const orderApi = createApi({
       }),
     }),
   }),
+});
+
+listenerMiddleware.startListening({
+  predicate: orderApi.endpoints.postOrder.matchFulfilled,
+  effect: (_, listenerApi) => {
+    const cartBooks = cartSelectors.selectCartBooks(listenerApi.getState());
+    if (cartBooks.length > 0) {
+      listenerApi.dispatch(cartActions.clearBooksCart());
+    }
+  },
 });
 
 export const { usePostOrderMutation } = orderApi;
