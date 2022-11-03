@@ -1,11 +1,11 @@
-import { HTTP_CONFIG } from "app/http/config";
+import { APP_CONFIG } from "app/config";
 import { errorTrackingService } from "app/services/ErrorTrackingService";
-import { http } from "app/http";
+import { httpService } from "app/services/HttpService";
 
 const createHttpQuery = ({ baseUrl }) => {
   return async ({ url, method, data, params }) => {
     try {
-      const result = await http.call({
+      const result = await httpService.call({
         url: baseUrl + url,
         method,
         data,
@@ -27,5 +27,5 @@ const createHttpQuery = ({ baseUrl }) => {
 };
 
 export const httpQuery = createHttpQuery({
-  baseUrl: HTTP_CONFIG.endpoint,
+  baseUrl: APP_CONFIG.httpEndpoint,
 });

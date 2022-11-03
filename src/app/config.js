@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-empty-file */
-// export const APP_CONFIG = {
-//   ...
-// }
+export const APP_CONFIG = {
+  httpEndpoint: process.env.REACT_APP_HTTP_ENDPOINT,
+};

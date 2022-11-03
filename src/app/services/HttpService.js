@@ -1,3 +1,6 @@
+import axios from "axios";
+import { APP_CONFIG } from "app/config";
+
 export class HttpService {
   constructor(axiosInstanceApi) {
     this.repository = axiosInstanceApi;
@@ -33,6 +36,8 @@ export class HttpService {
   }
 }
 
-export const createHttpService = (axiosInstance) => {
-  return new HttpService(axiosInstance);
-};
+export const httpService = new HttpService(
+  axios.create({
+    baseURL: APP_CONFIG.httpEndpoint,
+  }),
+);

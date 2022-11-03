@@ -1,7 +1,7 @@
 import { render as rtlRender } from "@testing-library/react";
-import { HTTP_CONFIG } from "app/http/config";
 import { configureStore } from "app/store";
 import { App } from "app/App";
+import { APP_CONFIG } from "app/config";
 
 function createWrapper({ initialStoreState, styling, history } = {}) {
   const store = configureStore({
@@ -36,7 +36,7 @@ function render(
 }
 
 function buildHttpApiRoute(route) {
-  return `${HTTP_CONFIG.endpoint}${route}`;
+  return `${APP_CONFIG.httpEndpoint}${route}`;
 }
 
 export const testUtils = {
