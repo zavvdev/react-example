@@ -22,44 +22,44 @@ Used technical stack:
 
 ### Basic scripts
 
-`npm start`
+`npm start`\
 Runs the app in the development mode on http://localhost:3000
 
-`npm test`
+`npm test`\
 Launches the test runner in the interactive watch mode.
 
-`npm run build`
+`npm run build`\
 Builds the app for production to the build folder.
 
-`npm run eject`
-**Note: this is a one-way operation. Once you eject, you can't go back!**
+`npm run eject`\
+> **_NOTE:_** this is a one-way operation. Once you eject, you can't go back!**
 If you aren't satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except eject will still work, but they will point to the copied scripts so you can tweak them.
 
-`npm run lint`
+`npm run lint`\
 Launches eslint runner and addition script for checking integrity of app modules (see next section).
 
 ### Ecosystem scripts
 
-`make feature name=<name-of-feature>`
-Example: `make feature name=auth`
+`make feature name=<name-of-feature>`\
+Example: `make feature name=auth`\
 Creates new feature in src directory.
 
-`make shared name=<name-of-shared-component> for=<feature-name, optional>`
+`make shared name=<name-of-shared-component> for=<feature-name, optional>`\
 Creates shared component under app directory and automatically adds it to registry. If “for” argument is provided, creates component for provided feature.
 Example: `make shared name=Button for=auth`
 
-`make container name=<name> for=<feature-name, optional>`
-`make layout name=<name> for=<feature-name, optional>`
+`make container name=<name> for=<feature-name, optional>`\
+`make layout name=<name> for=<feature-name, optional>`\
 `make page name=<name> for=<feature-name, optional>`
 
 Creates container, layout and page components accordingly.
-**Note: you can't automatically generate pages for the "app" domain because the “app” page is an endpoint registry and it might be different for some other projects. For example, Next.js has its own page registry, and you'll need to import them manually.**
+> **_NOTE:_** you can't automatically generate pages for the "app" domain because the “app” page is an endpoint registry and it might be different for some other projects. For example, Next.js has its own page registry, and you'll need to import them manually.**
 
-`make integrity-check for=<feature-name, optional>`
+`make integrity-check for=<feature-name, optional>`\
 Checks feature files (except test files) for restricted imports between sibling features. If “for” argument is provided, performs check for specific feature directory.
 
-Note: This script was added because it is not possible to restrict absolute imports between sibling directories using eslint. If you find a way to do this, then this script can be deleted. But for now it’s strongly recommended to not remove ”integrity-check” script from project because it will prevent you from linking features in a wrong way.
+> **_NOTE:_** This script was added because it is not possible to restrict absolute imports between sibling directories using eslint. If you find a way to do this, then this script can be deleted. But for now it’s strongly recommended to not remove ”integrity-check” script from project because it will prevent you from linking features in a wrong way.
 
 All of these ecosystem scripts are case-sensitive, so provide exact names for the variables you want to create something with.
 
