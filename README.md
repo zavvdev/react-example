@@ -1,6 +1,6 @@
 # What
 
-React.js project example for scalable front-end applications based on Feature-Sliced Design (FSD) pattern.
+React.js project example for scalable front-end applications.
 
 # Why
 The purpose was to create an example of front-end application which will give you a scalable structure and recommendations for:
